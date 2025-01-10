@@ -5,159 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            padding: 0;
-            background-color: skyblue;
-        }
-
-        .grass {
-            position: fixed;
-            bottom: 0;
-            z-index: 0;
-            left: 0;
-        }
-        .tree{
-            position: fixed;
-            bottom: -10px;
-            z-index: 7;
-            left: 750px;
-        }
-
-        .arthur {
-            position: fixed;
-            bottom: 10px;
-            left: 150px;
-            z-index: 1;
-        }
-        .cloud1{
-            position: fixed;
-            top: 60px;
-            z-index: 2;
-            left: 500px;
-        }
-        .cloud2{
-            position: fixed;
-            top: 140px;
-            z-index: 3;
-            left: 1000px;
-        }
-        .cloud3{
-            position: fixed;
-            top: 100px;
-            z-index: 4;
-            left: 750px;
-        }
-        .cloud4{
-            position: fixed;
-            top: 150px;
-            z-index: 5;
-            left: 100px;
-        }
-        .cloud5{
-            position: fixed;
-            top: 170px;
-            z-index: 6;
-            left: 800px;
-        }
-        .cloud6{
-            position: fixed;
-            top: 120px;
-            z-index: 7;
-            left: 300px;
-        }
-
-        .counters{
-            position: fixed;
-            z-index: 100;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style/main.css">
 </head>
-<div class="counters">
-<h1></h1>
-<h2 id="countdown1">-</h2><button id="eat" onclick="eat()">eet</button>
-<h2 id="countdown2">-</h2><button id="sleep" onclick="sleep()">slaap</button>
-<h2 id="countdown3">-</h2><button id="smoke" onclick="smoke()">rook</button>
-</div>
 
-<img class="arthur" src="ArthurMorgan/ArthurMorgan-right.png" alt="">
-<img class="grass" src="img other/grass.png" alt="">
-<img class="cloud1" src="img other/cloud3.png" alt="">
-<img class="cloud2" src="img other/cloud3.png" alt="">
-<img class="cloud3" src="img other/cloud3.png" alt="">
-<img class="cloud4" src="img other/cloud3.png" alt="">
-<img class="cloud5" src="img other/cloud3.png" alt="">
-<img class="cloud6" src="img other/cloud3.png" alt="">
-<img class="tree" src="img other/tree.png" alt="">
-
-<!-- <div id="Arthur">
-    </div> -->
 
 <body>
-    <script>
-        var hunger = 100;
-        var energy = 100;
-        var deadeye = 100;
-        hunger_timer()
-        energy_timer()
-        deadeye_timer()
-        function eat() {
-            hunger = hunger + 5;
-            document.getElementById("countdown1").innerText = 'hunger ' + hunger;
-            hunger_timer()
-        }
-        function sleep() {
-            energy = 100;
-            document.getElementById("countdown2").innerText = 'energy ' + energy;
-            energy_timer()
-        }
-        function smoke() {
-            deadeye = 100;
-            document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
-            deadeye_timer()
-        }
-
-        function hunger_timer(){
-            var teller_fuction_hunger = setInterval(function () {
-                hunger--;
-                document.getElementById("countdown1").innerText = 'hunger ' + hunger;
-                if (hunger <= 0) {
-                    clearInterval(teller_fuction_hunger);
-                    document.getElementById("countdown1").innerText = "you are dead";
-                }
-            }, 1000);
-        }
-
-        function energy_timer(){
-            var teller_fuction_energy = setInterval(function () {
-                energy--;
-                document.getElementById("countdown2").innerText = 'energy ' + energy;
-                if (energy <= 0) {
-                    clearInterval(teller_fuction_energy);
-                    document.getElementById("countdown2").innerText = "you are dead";
-                }
-            }, 3000);
-        }
-        function deadeye_timer(){
-            var teller_fuction_deadeye = setInterval(function () {
-                deadeye--;
-                document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
-                if (deadeye <= 0) {
-                    clearInterval(teller_fuction_deadeye);
-                    document.getElementById("countdown3").innerText = "deadeye is drained";
-                }
-            }, 5000);
-        }
-
-
-        // function insert_arthur(){
-        //     var src = document.getElementById("Arthur");
-        //     var img = document.createElement("img");
-        //     img.src = "ArthurMorgan/ArthurMorgan-right.png";
-        // }
-        // insert_arthur();
-    </script>
-
+    <div class="counters">
+        <h1></h1>
+        <h2 id="countdown1">-</h2><button id="eat" onclick="eat()">eet</button>
+        <h2 id="countdown2">-</h2><button id="sleep" onclick="sleep()">slaap</button>
+        <h2 id="countdown3">-</h2><button id="smoke" onclick="smoke()">rook</button>
+    </div>
+        <img class="arthur" src="assets/ArthurMorgan/ArthurMorgan-right.png" alt="">
+        <img class="grass" src="assets/img other/grass.png" alt="">
+        <img class="cloud1" src="assets/img other/cloud3.png" alt="">
+        <img class="cloud2" src="assets/img other/cloud3.png" alt="">
+        <img class="cloud3" src="assets/img other/cloud3.png" alt="">
+        <img class="cloud4" src="assets/img other/cloud3.png" alt="">
+        <img class="cloud5" src="assets/img other/cloud3.png" alt="">
+        <img class="cloud6" src="assets/img other/cloud3.png" alt="">
+        <img class="tree" src="assets/img other/tree.png" alt="">
+        
+        <!-- <div id="Arthur">
+            </div> -->
+    <script src="script/main.js"></script>
 </body>
 
 </html>

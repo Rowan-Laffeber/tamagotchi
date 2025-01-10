@@ -1,0 +1,65 @@
+body {
+    padding: 0;
+    background-color: skyblue;
+}
+
+.grass {
+    position: fixed;
+    bottom: 0;
+    z-index: 0;
+    left: 0;
+}
+.tree{
+    position: fixed;
+    bottom: -10px;
+    z-index: 7;
+    left: 750px;
+}
+
+.arthur {
+    position: fixed;
+    bottom: 10px;
+    left: 150px;
+    z-index: 1;
+}
+.cloud1{
+    position: fixed;
+    top: 60px;
+    z-index: 2;
+    left: 500px;
+}
+.cloud2{
+    position: fixed;
+    top: 140px;
+    z-index: 3;
+    left: 1000px;
+}
+.cloud3{
+    position: fixed;
+    top: 100px;
+    z-index: 4;
+    left: 750px;
+}
+.cloud4{
+    position: fixed;
+    top: 150px;
+    z-index: 5;
+    left: 100px;
+}
+.cloud5{
+    position: fixed;
+    top: 170px;
+    z-index: 6;
+    left: 800px;
+}
+.cloud6{
+    position: fixed;
+    top: 120px;
+    z-index: 7;
+    left: 300px;
+}
+
+.counters{
+    position: fixed;
+    z-index: 100;
+}
