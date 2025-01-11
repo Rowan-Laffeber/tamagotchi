@@ -6,60 +6,80 @@ body {
 .grass {
     position: fixed;
     bottom: 0;
-    z-index: 0;
+    z-index: 11;
     left: 0;
 }
 .tree{
     position: fixed;
     bottom: -10px;
     z-index: 7;
-    left: 750px;
+    left: 600px;
 }
-
+.stone{
+    position: fixed;
+    bottom: +10px;
+    z-index: 8;
+    left: 40px;
+}
 .arthur {
     position: fixed;
     bottom: 10px;
     left: 150px;
-    z-index: 1;
+    z-index: 12;
 }
 .cloud1{
     position: fixed;
-    top: 60px;
+    bottom: 630px;
     z-index: 2;
-    left: 500px;
+    left: 200px;
 }
 .cloud2{
     position: fixed;
-    top: 140px;
+    bottom: 570px;
     z-index: 3;
     left: 1000px;
 }
 .cloud3{
     position: fixed;
-    top: 100px;
+    bottom: 530px;
     z-index: 4;
     left: 750px;
 }
 .cloud4{
     position: fixed;
-    top: 150px;
+    bottom: 550px;
     z-index: 5;
     left: 100px;
 }
 .cloud5{
     position: fixed;
-    top: 170px;
+    bottom: 500px;
     z-index: 6;
     left: 800px;
 }
 .cloud6{
     position: fixed;
-    top: 120px;
+    bottom: 600px;
     z-index: 7;
-    left: 300px;
+    left: 1400px;
+}
+.sun{
+    position: fixed;
+    bottom: -50px;
+    z-index: 0;
+    left: 1000px;
+}
+.moon{
+    position: fixed;
+    bottom: -50px;
+    z-index: 1;
+    left: 500px;
 }
 
 .counters{
     position: fixed;
     z-index: 100;
+}
+.counter{
+    color: #575757;
 }
