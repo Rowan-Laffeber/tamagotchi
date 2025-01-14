@@ -271,7 +271,51 @@ window.addEventListener("BackgroundMusic",
 
     });
 // end music
+// Sprite Arthur
+let WIDTH = 900;
+let HEIGHT = 600;
+let SPRITE_WIDTH = 50;
+let SPRITE_HEIGHT =50;
 
+// Create game window
+const world = document.getElementById('arthur');
+world.style.width = `${WIDTH}px`;
+world.style.height = `${HEIGHT}px`;
+
+// Create sprite container
+const sprite = document.getElementById('arthur');
+sprite.style.backgroundImage = 'url("assets/img/Arthur-Morgan/Arthur-Morgan-right2.png")';
+
+let currentLoopIndex = 0;
+const animationLoop = [0, 1, 2, 3,4,5];
+
+const drawSprite = (frameX, frameY) => {
+    const x = frameX * SPRITE_WIDTH;
+    const y = frameY * SPRITE_HEIGHT;
+    sprite.style.backgroundPosition = `${x}px ${y}px`;
+};
+
+let slowedBy = 0;
+let slowFrameRate = 40;
+const loop = () => {
+    if (slowedBy >= slowFrameRate) {
+        if (currentLoopIndex < animationLoop.length) {
+            drawSprite(animationLoop[currentLoopIndex], 0);
+            currentLoopIndex++;
+        } else {
+            currentLoopIndex = 0;
+        }
+        slowedBy = 0;
+    } else {
+        slowedBy++;
+    }
+    window.requestAnimationFrame(loop);
+};
+
+window.onload = () => {
+    window.requestAnimationFrame(loop);
+};
+// end Sprite Arthur
 // function insert_arthur(){
 //     var src = document.getElementById("Arthur");
 //     var img = document.createElement("img");
