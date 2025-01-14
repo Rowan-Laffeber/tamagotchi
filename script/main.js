@@ -4,6 +4,12 @@ var deadeye = 100;
 hunger_timer()
 energy_timer()
 deadeye_timer()
+var eatcounter = 0;
+document.getElementById("hungerlevel1").style.display = "block";
+var sleepcounter = 0;
+document.getElementById("energylevel1").style.display = "block";
+var smokecounter = 0;
+document.getElementById("deadeyelevel1").style.display = "block";
 function eat() {
     if(hunger > 100){
         hunger = hunger
@@ -11,6 +17,22 @@ function eat() {
         hunger = 100
     } else {
         hunger = hunger + 5
+    }
+    eatcounter = eatcounter + 1;
+    if(eatcounter > 7){
+        document.getElementById("hungerlevel8").style.display = "block";
+    } else if (eatcounter > 6){
+        document.getElementById("hungerlevel7").style.display = "block";
+    } else if (eatcounter > 5){
+        document.getElementById("hungerlevel6").style.display = "block";
+    } else if (eatcounter > 4){
+        document.getElementById("hungerlevel5").style.display = "block";
+    } else if (eatcounter > 3){
+        document.getElementById("hungerlevel4").style.display = "block";
+    } else if (eatcounter > 2){
+        document.getElementById("hungerlevel3").style.display = "block";
+    } else if (eatcounter > 1){
+        document.getElementById("hungerlevel2").style.display = "block";
     }
     document.getElementById("countdown1").innerText = 'hunger ' + hunger;
     clearInterval(teller_fuction_hunger);
@@ -24,6 +46,22 @@ function sleep() {
     } else {
         energy = energy + 5
     }
+    sleepcounter = sleepcounter + 1;
+    if(sleepcounter > 7){
+        document.getElementById("energylevel8").style.display = "block";
+    } else if (sleepcounter > 6){
+        document.getElementById("energylevel7").style.display = "block";
+    } else if (sleepcounter > 5){
+        document.getElementById("energylevel6").style.display = "block";
+    } else if (sleepcounter > 4){
+        document.getElementById("energylevel5").style.display = "block";
+    } else if (sleepcounter > 3){
+        document.getElementById("energylevel4").style.display = "block";
+    } else if (sleepcounter > 2){
+        document.getElementById("energylevel3").style.display = "block";
+    } else if (sleepcounter > 1){
+        document.getElementById("energylevel2").style.display = "block";
+    }
     document.getElementById("countdown2").innerText = 'energy ' + energy;
     clearInterval(teller_fuction_energy);
     energy_timer()
@@ -35,6 +73,22 @@ function smoke() {
         deadeye = 100
     } else {
         deadeye = deadeye + 5
+    }
+    smokecounter = smokecounter + 1;
+    if(smokecounter > 7){
+        document.getElementById("deadeyelevel8").style.display = "block";
+    } else if (smokecounter > 6){
+        document.getElementById("deadeyelevel7").style.display = "block";
+    } else if (smokecounter > 5){
+        document.getElementById("deadeyelevel6").style.display = "block";
+    } else if (smokecounter > 4){
+        document.getElementById("deadeyelevel5").style.display = "block";
+    } else if (smokecounter > 3){
+        document.getElementById("deadeyelevel4").style.display = "block";
+    } else if (smokecounter > 2){
+        document.getElementById("deadeyelevel3").style.display = "block";
+    } else if (smokecounter > 1){
+        document.getElementById("deadeyelevel2").style.display = "block";
     }
     document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
     clearInterval(teller_fuction_deadeye);
@@ -135,69 +189,69 @@ function night(){
 
     }, 150);
 }
-var cloud1 = 200;
-var teller_fuction_cloud = setInterval(function () {
-    cloud1=cloud1 + 10;
-    if (cloud1 < 1540){
-        document.getElementById("cloud1").style.left = cloud1 + 'px';
+var cloud1 = 12.5;
+var teller_fuction_cloud1 = setInterval(function () {
+    cloud1=cloud1 + 0.625 ;
+    if (cloud1 < 96.25){
+        document.getElementById("cloud1").style.left = cloud1 + 'em';
     } else{
-        cloud1 = -250;
-        document.getElementById("cloud1").style.left = cloud1 + 'px';
+        cloud1 = -15.625;
+        document.getElementById("cloud1").style.left = cloud1 + 'em';
     }
 
 }, 250);
-var cloud2 = 1000;
-var teller_fuction_cloud = setInterval(function () {
-    cloud2=cloud2 + 10;
-    if (cloud2 < 1540){
-        document.getElementById("cloud2").style.left = cloud2 + 'px';
+var cloud2 = 62.5;
+var teller_fuction_cloud2 = setInterval(function () {
+    cloud2=cloud2 + 0.625 ;
+    if (cloud2 < 96.25){
+        document.getElementById("cloud2").style.left = cloud2 + 'em';
     } else{
-        cloud2 = -250;
-        document.getElementById("cloud2").style.left = cloud2 + 'px';
+        cloud2 = -15.625;
+        document.getElementById("cloud2").style.left = cloud2 + 'em';
     }
 
 }, 250);
-var cloud3 = 750;
-var teller_fuction_cloud = setInterval(function () {
-    cloud3=cloud3 + 10;
-    if (cloud3 < 1540){
-        document.getElementById("cloud3").style.left = cloud3 + 'px';
+var cloud3 = 46.875;
+var teller_fuction_cloud3 = setInterval(function () {
+    cloud3=cloud3 + 0.625 ;
+    if (cloud3 < 96.25){
+        document.getElementById("cloud3").style.left = cloud3 + 'em';
     } else{
-        cloud3 = -250;
-        document.getElementById("cloud3").style.left = cloud3 + 'px';
+        cloud3 = -15.625;
+        document.getElementById("cloud3").style.left = cloud3 + 'em';
     }
 
 }, 250);
-var cloud4 = 100;
-var teller_fuction_cloud = setInterval(function () {
-    cloud4=cloud4 + 10;
-    if (cloud4 < 1540){
-        document.getElementById("cloud4").style.left = cloud4 + 'px';
+var cloud4 = 6.25;
+var teller_fuction_cloud4 = setInterval(function () {
+    cloud4=cloud4 + 0.625 ;
+    if (cloud4 < 96.25){
+        document.getElementById("cloud4").style.left = cloud4 + 'em';
     } else{
-        cloud4 = -250;
-        document.getElementById("cloud4").style.left = cloud4 + 'px';
+        cloud4 = -15.625;
+        document.getElementById("cloud4").style.left = cloud4 + 'em';
     }
 
 }, 250);
-var cloud5 = 800;
-var teller_fuction_cloud = setInterval(function () {
-    cloud5=cloud5 + 10;
-    if (cloud5 < 1540){
-        document.getElementById("cloud5").style.left = cloud5 + 'px';
+var cloud5 = 50;
+var teller_fuction_cloud5 = setInterval(function () {
+    cloud5=cloud5 + 0.625 ;
+    if (cloud5 < 96.25){
+        document.getElementById("cloud5").style.left = cloud5 + 'em';
     } else{
-        cloud5 = -250;
-        document.getElementById("cloud5").style.left = cloud5 + 'px';
+        cloud5 = -15.625;
+        document.getElementById("cloud5").style.left = cloud5 + 'em';
     }
 
 }, 250);
-var cloud6 = 1400;
-var teller_fuction_cloud = setInterval(function () {
-    cloud6=cloud6 + 10;
-    if (cloud6 < 1540){
-        document.getElementById("cloud6").style.left = cloud6 + 'px';
+var cloud6 = 87.5;
+var teller_fuction_cloud6 = setInterval(function () {
+    cloud6=cloud6 + 0.625 ;
+    if (cloud6 < 96.25){
+        document.getElementById("cloud6").style.left = cloud6 + 'em';
     } else{
-        cloud6 = -250;
-        document.getElementById("cloud6").style.left = cloud6 + 'px';
+        cloud6 = -15.625;
+        document.getElementById("cloud6").style.left = cloud6 + 'em';
     }
 
 }, 250);

@@ -1,84 +1,188 @@
+@font-face {
+    font-family: pixelfont;
+    src: url(../minecraft-pixel-font-5x5.ttf);
+ }
+ 
+ * {
+    font-family: pixelfont;
+    font-size: 1em;
+    line-height: 1.25em;
+ }
 body {
     padding: 0;
-    background-color: skyblue;
+    margin: 0, 0, auto, 0;
+    background-color: darkred;
+    font-size: 16px;
 }
-
+div.body-test{
+    margin-bottom: auto;
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 8px;
+    }
+}
+/* @media (min-width: 1440px) {
+    body {
+        font-size: 19.8px;
+    }
+} */
+@media (min-width: 1541px) {
+    body {
+        font-size: 24px;
+    }
+}
 .grass {
     position: fixed;
     bottom: 0;
     z-index: 11;
     left: 0;
+    width: 96.25em;
+    height: 2.5em;
 }
 .tree{
     position: fixed;
-    bottom: -10px;
+    bottom: -0.625em;
     z-index: 7;
-    left: 600px;
+    left: 37.5em;
+    width: 26.875em;
+    height: 32.5em;
 }
 .stone{
     position: fixed;
-    bottom: +10px;
+    bottom: 0.625em;
     z-index: 8;
-    left: 40px;
+    left: 2.5em;
+    width: 6.875em;
+    height: 4.375em;
 }
 .arthur {
     position: fixed;
-    bottom: 10px;
-    left: 150px;
+    bottom: 0.625em;
+    left: 9.375em;
     z-index: 12;
+    width: 11.875em;
+    height: 16.25em;
 }
 .cloud1{
     position: fixed;
-    bottom: 630px;
+    bottom: 39.375em;
     z-index: 2;
-    left: 200px;
+    left: 12.5em;
+    width: 15.625em;
+    height: 5em;
 }
 .cloud2{
     position: fixed;
-    bottom: 570px;
+    bottom: 35.625em;
     z-index: 3;
-    left: 1000px;
+    left: 62.5em;
+    width: 15.625em;
+    height: 5em;
 }
 .cloud3{
     position: fixed;
-    bottom: 530px;
+    bottom: 33.125em;
     z-index: 4;
-    left: 750px;
+    left: 46.875em;
+    width: 15.625em;
+    height: 5em;
 }
 .cloud4{
     position: fixed;
-    bottom: 550px;
+    bottom: 34.375em;
     z-index: 5;
-    left: 100px;
+    left: 6.25em;
+    width: 15.625em;
+    height: 5em;
 }
 .cloud5{
     position: fixed;
-    bottom: 500px;
+    bottom: 31.25em;
     z-index: 6;
-    left: 800px;
+    left: 50em;
+    width: 15.625em;
+    height: 5em;
 }
 .cloud6{
     position: fixed;
-    bottom: 600px;
+    bottom: 37.5em;
     z-index: 7;
-    left: 1400px;
+    left: 87.5em;
+    width: 15.625em;
+    height: 5em;
 }
 .sun{
     position: fixed;
-    bottom: -50px;
+    bottom: -3.125em;
     z-index: 0;
-    left: 1000px;
+    left: 62.5em;
+    width: 6.25em;
+    height: 6.25em;
 }
 .moon{
     position: fixed;
-    bottom: -50px;
+    bottom: -3.125em;
     z-index: 1;
-    left: 500px;
+    left: 31.25em;
+    width: 6.25em;
+    height: 6.25em;
 }
-
+.icon-heart{
+    position: fixed;
+    left: 2.5em;
+    bottom: 39.375em;
+    z-index: 100;
+    width: 4.375em;
+    height: 4.375em;
+}
+.hungerlevels img{
+    position: fixed;
+    left: 0.625em;
+    bottom: 37.5em;
+    z-index: 99;
+    width: 8.125em;
+    height: 8.125em;
+    display: none;
+}
+.icon-energy{
+    position: fixed;
+    left: 11.25em;
+    bottom: 39.375em;
+    z-index: 100;
+    width: 4.375em;
+    height: 4.375em;
+}
+.energylevels img{
+    position: fixed;
+    left: 9.375em;
+    bottom: 37.5em;
+    z-index: 99;
+    width: 8.125em;
+    height: 8.125em;
+    display: none;
+}
+.icon-deadeye{
+    position: fixed;
+    left: 20em;
+    bottom: 39.375em;
+    z-index: 100;
+    width: 4.375em;
+    height: 4.375em;
+}
+.deadeyelevels img{
+    position: fixed;
+    left: 18.125em;
+    bottom: 37.5em;
+    z-index: 99;
+    width: 8.125em;
+    height: 8.125em;
+    display: none;
+}
 .counters{
     position: fixed;
-    z-index: 100;
+    z-index: 50;
+    bottom: 25em;
 }
 .counter{
     color: #575757;
