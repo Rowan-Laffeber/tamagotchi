@@ -270,51 +270,52 @@ window.addEventListener("BackgroundMusic",
             console.log("Play");
 
     });
+window.onload = function() {
+    const audio = document.getElementById('backgroundMusic');
+    audio.muted = false;
+};
 // end music
 // Sprite Arthur
-let WIDTH = 900;
-let HEIGHT = 600;
-let SPRITE_WIDTH = 50;
-let SPRITE_HEIGHT = 50;
+const canvas = document.getElementById('spriteCanvas');
+const ctx = canvas.getContext('2d');
 
-// Create game window
-const world = document.getElementById('arthur');
-world.style.width = `${WIDTH}px`;
-world.style.height = `${HEIGHT}px`;
+const SPRITE_WIDTH = 600;
+const SPRITE_HEIGHT = 300;
+const IMAGE_URL = 'assets/img/Arthur-Morgan/Arthur-Morgan-right2.png';
+let currentFrame = 0;
 
-// Create sprite container
-const sprite = document.getElementById('arthur');
-sprite.style.backgroundImage = 'url("assets/img/Arthur-Morgan/Arthur-Morgan-right2.png")';
+const spriteImage = new Image();
+spriteImage.src = IMAGE_URL;
 
-let currentLoopIndex = 0;
 const animationLoop = [0, 1, 2, 3, 4, 5];
+const frameY = 0;
 
-const drawSprite = (frameX, frameY) => {
+function drawFrame() {
+    const frameX = animationLoop[currentFrame];
     const x = frameX * SPRITE_WIDTH;
     const y = frameY * SPRITE_HEIGHT;
-    sprite.style.backgroundPosition = `${x}px ${y}px`;
-};
 
-let slowedBy = 0;
-let slowFrameRate = 40;
-const loop = () => {
-    if (slowedBy >= slowFrameRate) {
-        if (currentLoopIndex < animationLoop.length) {
-            drawSprite(animationLoop[currentLoopIndex], 0);
-            currentLoopIndex++;
-        } else {
-            currentLoopIndex = 0;
-        }
-        slowedBy = 0;
-    } else {
-        slowedBy++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.drawImage(spriteImage, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 0, 0, SPRITE_WIDTH, SPRITE_HEIGHT);
+}
+
+function animate() {
+    drawFrame();
+    currentFrame++;
+
+    if (currentFrame >= animationLoop.length) {
+        currentFrame = 0;
     }
-    window.requestAnimationFrame(loop);
-};
 
-window.onload = () => {
-    window.requestAnimationFrame(loop);
-};
+    setTimeout(() => {
+        requestAnimationFrame(animate);
+    }, 200);
+}
+
+spriteImage.onload = function() {
+    animate();
+}
 // end Sprite Arthur
 
 
