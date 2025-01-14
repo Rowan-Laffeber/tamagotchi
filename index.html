@@ -11,30 +11,11 @@
 
 <body id="body">
     <div class="counters">
-        <!-- <h1>im hungry</h1> -->
         <h2 class="counter" id="countdown1">-</h2>
         <h2 class="counter" id="countdown2">-</h2><button id="sleep" onclick="sleep()">slaap</button>
         <h2 class="counter" id="countdown3">-</h2><button id="smoke" onclick="smoke()">rook</button>
     </div>
-        <img class="arthur" src="assets/Arthur-Morgan/Arthur-Morgan-right.png" alt="">
-        <img id="speech-bubble" class="speech-bubble" src="assets/img-other/speech-bubble.png" alt="">
-        <img class="grass" src="assets/img-other/grass.png" alt="">
-        <img id="cloud1" class="cloud1" src="assets/img-other/cloud3.png" alt="">
-        <img id="cloud2" class="cloud2" src="assets/img-other/cloud3.png" alt="">
-        <img id="cloud3" class="cloud3" src="assets/img-other/cloud3.png" alt="">
-        <img id="cloud4" class="cloud4" src="assets/img-other/cloud3.png" alt="">
-        <img id="cloud5" class="cloud5" src="assets/img-other/cloud3.png" alt="">
-        <img id="cloud6" class="cloud6" src="assets/img-other/cloud3.png" alt="">
-        <img class="tree" src="assets/img-other/tree.png" alt="">
-        <img class="apple-ground" src="assets/img-other/apple-ground.png" alt=""id="eat" onclick="eat()">
-        <img class="apple-tree1" src="assets/img-other/apple-in-tree.png" alt="">
-        <img class="apple-tree2" src="assets/img-other/apple-in-tree.png" alt="">
-        <img class="apple-tree3" src="assets/img-other/apple-in-tree.png" alt="">
-        <img class="apple-tree4" src="assets/img-other/apple-in-tree.png" alt="">
-        <img class="apple-tree5" src="assets/img-other/apple-in-tree.png" alt="">
-        <img class="stone" src="assets/img-other/stone.png" alt="">
-        <img class="sun" id="sun" src="assets/img-other/sun.png" alt="">
-        <img class="moon" id="moon" src="assets/img-other/moon.png" alt="">
+    <div class="stats" id="stats">
         <img class="icon-heart" src="assets/img-other/stats-middle-icon/heart-core6.png" alt="">
         <div id="hungerlevels" class="hungerlevels">
             <img id="hungerlevel1" src="assets/img-other/LEVELS/LEVEL1.png" alt="">
@@ -68,8 +49,41 @@
             <img id="deadeyelevel7" src="assets/img-other/LEVELS/LEVEL7.png" alt="">
             <img id="deadeyelevel8" src="assets/img-other/LEVELS/LEVEL8.png" alt="">
         </div>
-        <!-- <img class="stats" src="assets/img-other/stats.png" alt="">
-        <img src="assets/img-other/font-test.png" alt=""> -->
+    </div>
+    <div class="arthurs" id="arthurs">
+        <img class="arthur" src="assets/Arthur-Morgan/Arthur-Morgan-right.png" alt="">
+        <img id="speech-bubble" class="speech-bubble" src="assets/img-other/speech-bubble.png" alt="">
+    </div>
+    <div class="environment" id="environment">
+        <div class="plants" id="plants">
+            <div class="appletree" id="appletree">
+                <img class="tree" src="assets/img-other/tree.png" alt="">
+                <img class="apple-ground" src="assets/img-other/apple-ground.png" alt=""id="eat" onclick="eat()">
+                <img class="apple-tree1" src="assets/img-other/apple-in-tree.png" alt="">
+                <img class="apple-tree2" src="assets/img-other/apple-in-tree.png" alt="">
+                <img class="apple-tree3" src="assets/img-other/apple-in-tree.png" alt="">
+                <img class="apple-tree4" src="assets/img-other/apple-in-tree.png" alt="">
+                <img class="apple-tree5" src="assets/img-other/apple-in-tree.png" alt="">
+            </div>
+            <img class="grass" src="assets/img-other/grass.png" alt="">
+            <img class="stone" src="assets/img-other/stone.png" alt="">
+        </div>
+    </div>
+    <div class="weather" id="weather">
+        <div class="clouds" id="clouds">
+            <img id="cloud1" class="cloud1" src="assets/img-other/cloud3.png" alt="">
+            <img id="cloud2" class="cloud2" src="assets/img-other/cloud3.png" alt="">
+            <img id="cloud3" class="cloud3" src="assets/img-other/cloud3.png" alt="">
+            <img id="cloud4" class="cloud4" src="assets/img-other/cloud3.png" alt="">
+            <img id="cloud5" class="cloud5" src="assets/img-other/cloud3.png" alt="">
+            <img id="cloud6" class="cloud6" src="assets/img-other/cloud3.png" alt="">
+        </div>
+        <div class="day-night" id="day-night">
+            <img class="sun" id="sun" src="assets/img-other/sun.png" alt="">
+            <img class="moon" id="moon" src="assets/img-other/moon.png" alt="">
+        </div>
+    </div>
+
 
     <audio id="BackgroundMusic" autoplay>
         <source src="assets/background-music/Reddead.mp3">

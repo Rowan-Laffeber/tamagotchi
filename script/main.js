@@ -260,8 +260,9 @@ var teller_fuction_cloud6 = setInterval(function () {
         cloud6 = -15.625;
         document.getElementById("cloud6").style.left = cloud6 + 'em';
     }
-
 }, 250);
+// end clouds
+// start music
 window.addEventListener("BackgroundMusic",
     () => {
         const backgroundMusic = document.getElementById("backgroundMusic");
@@ -269,6 +270,8 @@ window.addEventListener("BackgroundMusic",
             console.log("Play");
 
     });
+// end music
+
 // function insert_arthur(){
 //     var src = document.getElementById("Arthur");
 //     var img = document.createElement("img");
