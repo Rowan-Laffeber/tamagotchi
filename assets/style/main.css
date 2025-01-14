@@ -108,11 +108,20 @@ div.body-test{
 .sprite {
     position: fixed;
     bottom: 0.625em;
+    left: 37.5em;
+    z-index: 12;
+    width: 60em;
+    height: 40em;
+}
+.arthur {
+    position: fixed;
+    bottom: 0.625em;
     left: 9.375em;
     z-index: 12;
     width: 20em;
     height: 20em;
 }
+
 
 .speech-bubble{
     position: fixed;
@@ -120,6 +129,8 @@ div.body-test{
     left: 17.5em;
     z-index: 90;
     display: none;
+    width: 22.5em;
+    height: 13.75em;
 }
 .cloud1{
     position: fixed;
