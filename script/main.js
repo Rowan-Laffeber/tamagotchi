@@ -19,19 +19,19 @@ function eat() {
         hunger = hunger + 5
     }
     eatcounter = eatcounter + 1;
-    if(eatcounter > 7){
+    if(eatcounter >= 70){
         document.getElementById("hungerlevel8").style.display = "block";
-    } else if (eatcounter > 6){
+    } else if (eatcounter >= 60){
         document.getElementById("hungerlevel7").style.display = "block";
-    } else if (eatcounter > 5){
+    } else if (eatcounter >= 50){
         document.getElementById("hungerlevel6").style.display = "block";
-    } else if (eatcounter > 4){
+    } else if (eatcounter >= 40){
         document.getElementById("hungerlevel5").style.display = "block";
-    } else if (eatcounter > 3){
+    } else if (eatcounter >= 30){
         document.getElementById("hungerlevel4").style.display = "block";
-    } else if (eatcounter > 2){
+    } else if (eatcounter >= 20){
         document.getElementById("hungerlevel3").style.display = "block";
-    } else if (eatcounter > 1){
+    } else if (eatcounter >= 10){
         document.getElementById("hungerlevel2").style.display = "block";
     }
     document.getElementById("countdown1").innerText = 'hunger ' + hunger;
@@ -47,19 +47,19 @@ function sleep() {
         energy = energy + 5
     }
     sleepcounter = sleepcounter + 1;
-    if(sleepcounter > 7){
+    if(sleepcounter >= 70){
         document.getElementById("energylevel8").style.display = "block";
-    } else if (sleepcounter > 6){
+    } else if (sleepcounter >= 60){
         document.getElementById("energylevel7").style.display = "block";
-    } else if (sleepcounter > 5){
+    } else if (sleepcounter >= 50){
         document.getElementById("energylevel6").style.display = "block";
-    } else if (sleepcounter > 4){
+    } else if (sleepcounter >= 40){
         document.getElementById("energylevel5").style.display = "block";
-    } else if (sleepcounter > 3){
+    } else if (sleepcounter >= 30){
         document.getElementById("energylevel4").style.display = "block";
-    } else if (sleepcounter > 2){
+    } else if (sleepcounter >= 20){
         document.getElementById("energylevel3").style.display = "block";
-    } else if (sleepcounter > 1){
+    } else if (sleepcounter >= 10){
         document.getElementById("energylevel2").style.display = "block";
     }
     document.getElementById("countdown2").innerText = 'energy ' + energy;
@@ -75,26 +75,25 @@ function smoke() {
         deadeye = deadeye + 5
     }
     smokecounter = smokecounter + 1;
-    if(smokecounter > 7){
+    if(smokecounter >= 70){
         document.getElementById("deadeyelevel8").style.display = "block";
-    } else if (smokecounter > 6){
+    } else if (smokecounter >= 60){
         document.getElementById("deadeyelevel7").style.display = "block";
-    } else if (smokecounter > 5){
+    } else if (smokecounter >= 50){
         document.getElementById("deadeyelevel6").style.display = "block";
-    } else if (smokecounter > 4){
+    } else if (smokecounter >= 40){
         document.getElementById("deadeyelevel5").style.display = "block";
-    } else if (smokecounter > 3){
+    } else if (smokecounter >= 30){
         document.getElementById("deadeyelevel4").style.display = "block";
-    } else if (smokecounter > 2){
+    } else if (smokecounter >= 20){
         document.getElementById("deadeyelevel3").style.display = "block";
-    } else if (smokecounter > 1){
+    } else if (smokecounter >= 10){
         document.getElementById("deadeyelevel2").style.display = "block";
     }
     document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
     clearInterval(teller_fuction_deadeye);
     deadeye_timer()
 }
-
 function hunger_timer(){
     var teller_fuction_hunger = setInterval(function () {
         hunger--;
@@ -102,6 +101,11 @@ function hunger_timer(){
         if (hunger <= 0) {
             clearInterval(teller_fuction_hunger);
             document.getElementById("countdown1").innerText = "you are dead";
+        }
+        else if (hunger < 51){
+            document.getElementById("speech-bubble").style.display = "block";
+        }else{
+            document.getElementById("speech-bubble").style.display = "none";
         }
     }, 1000);
 }
@@ -126,16 +130,17 @@ function deadeye_timer(){
         }
     }, 5000);
 }
-var sun = -50;
-var moon = -50;
+// start daynight
+var sun = -3.125;
+var moon = -3.125;
 day()
 function day(){
     var teller_fuction_sun = setInterval(function () {
-        sun=sun + 10;
-        document.getElementById("sun").style.bottom = sun + 'px';
-        moon=moon - 10;
-        document.getElementById("moon").style.bottom = moon + 'px';
-        if (sun > 600){
+        sun=sun + 0.625;
+        document.getElementById("sun").style.bottom = sun + 'em';
+        moon=moon - 0.625;
+        document.getElementById("moon").style.bottom = moon + 'em';
+        if (sun > 37.5){
             document.getElementById("body").style.backgroundColor = "skyblue";
             clearInterval(teller_fuction_sun);
             var teller_fuction_day = setInterval(function () {
@@ -161,11 +166,11 @@ function day(){
 }
 function night(){
     var teller_fuction_moon = setInterval(function () {
-        sun=sun - 10;
-        document.getElementById("sun").style.bottom = sun + 'px';
-        moon=moon + 10;
-        document.getElementById("moon").style.bottom = moon + 'px';
-        if (moon > 600){
+        sun=sun - 0.625;
+        document.getElementById("sun").style.bottom = sun + 'em';
+        moon=moon + 0.625;
+        document.getElementById("moon").style.bottom = moon + 'em';
+        if (moon > 37.5){
             document.getElementById("body").style.backgroundColor = "#10103c";
 
             clearInterval(teller_fuction_moon);
@@ -189,6 +194,8 @@ function night(){
 
     }, 150);
 }
+// end daynight
+// start clouds
 var cloud1 = 12.5;
 var teller_fuction_cloud1 = setInterval(function () {
     cloud1=cloud1 + 0.625 ;
@@ -255,10 +262,4 @@ var teller_fuction_cloud6 = setInterval(function () {
     }
 
 }, 250);
-
-// function insert_arthur(){
-//     var src = document.getElementById("Arthur");
-//     var img = document.createElement("img");
-//     img.src = "ArthurMorgan/ArthurMorgan-right.png";
-// }
-// insert_arthur();
+// end clouds

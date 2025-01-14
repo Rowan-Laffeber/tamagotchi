@@ -48,6 +48,54 @@ div.body-test{
     width: 26.875em;
     height: 32.5em;
 }
+.apple-ground{
+    position: fixed;
+    left: 40em;
+    bottom: 1.25em;
+    z-index: 13;
+    width: 3.75em;
+    height: 3.75em;
+}
+.apple-tree1{
+    position: fixed;
+    left: 56.25em;
+    bottom: 14.375em;
+    z-index: 14;
+    width: 2.5em;
+    height: 2.5em;
+}
+.apple-tree2{
+    position: fixed;
+    left: 51.875em;
+    bottom: 25em;
+    z-index: 15;
+    width: 2.5em;
+    height: 2.5em;
+}
+.apple-tree3{
+    position: fixed;
+    left: 46.875em;
+    bottom: 15.625em;
+    z-index: 16;
+    width: 2.5em;
+    height: 2.5em;
+}
+.apple-tree4{
+    position: fixed;
+    left: 43.75em;
+    bottom: 23.75em;
+    z-index: 17;
+    width: 2.5em;
+    height: 2.5em;
+}
+.apple-tree5{
+    position: fixed;
+    left: 40em;
+    bottom: 18.75em;
+    z-index: 18;
+    width: 2.5em;
+    height: 2.5em;
+}
 .stone{
     position: fixed;
     bottom: 0.625em;
@@ -63,6 +111,13 @@ div.body-test{
     z-index: 12;
     width: 11.875em;
     height: 16.25em;
+}
+.speech-bubble{
+    position: fixed;
+    bottom: 14.375em;
+    left: 17.5em;
+    z-index: 90;
+    display: none;
 }
 .cloud1{
     position: fixed;
