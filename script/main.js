@@ -262,4 +262,17 @@ var teller_fuction_cloud6 = setInterval(function () {
     }
 
 }, 250);
+window.addEventListener("BackgroundMusic",
+    () => {
+        const backgroundMusic = document.getElementById("backgroundMusic");
+        backgroundMusic.volume = 100;
+            console.log("Play");
+
+    });
+// function insert_arthur(){
+//     var src = document.getElementById("Arthur");
+//     var img = document.createElement("img");
+//     img.src = "ArthurMorgan/ArthurMorgan-right.png";
+// }
+// insert_arthur();
 // end clouds
