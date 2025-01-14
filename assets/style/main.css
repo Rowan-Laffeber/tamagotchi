@@ -109,8 +109,8 @@ div.body-test{
     bottom: 0.625em;
     left: 9.375em;
     z-index: 12;
-    width: 11.875em;
-    height: 16.25em;
+    width: 20em;
+    height: 20em;
 }
 .speech-bubble{
     position: fixed;
