@@ -187,3 +187,6 @@ div.body-test{
 .counter{
     color: #575757;
 }
+audio{
+    display: none;
+}
