@@ -279,8 +279,8 @@ window.onload = function() {
 const canvas = document.getElementById('spriteCanvas');
 const ctx = canvas.getContext('2d');
 
-const SPRITE_WIDTH = 600;
-const SPRITE_HEIGHT = 300;
+const SPRITE_WIDTH = 320;
+const SPRITE_HEIGHT = 320;
 const IMAGE_URL = 'assets/img/Arthur-Morgan/Arthur-Morgan-right2.png';
 let currentFrame = 0;
 
@@ -310,15 +310,13 @@ function animate() {
 
     setTimeout(() => {
         requestAnimationFrame(animate);
-    }, 200);
+    }, 250);
 }
 
 spriteImage.onload = function() {
     animate();
 }
 // end Sprite Arthur
-
-
 // function insert_arthur(){
 //     var src = document.getElementById("Arthur");
 //     var img = document.createElement("img");

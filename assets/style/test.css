@@ -1,0 +1,13 @@
+@font-face {
+    font-family: pixelfont;
+    src: url(../minecraft-pixel-font-5x5.ttf);
+ }
+ * {
+    font-family: pixelfont;
+    font-size: 1em;
+    line-height: 1.25em;
+ }
+body{
+    background-color: darkred;
+
+}

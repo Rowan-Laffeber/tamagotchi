@@ -104,12 +104,13 @@ div.body-test{
     width: 6.875em;
     height: 4.375em;
 }
-
 .sprite {
         position: fixed;
         bottom: 0.625em;
         left: 9.375em;
         z-index: 12;
+        height: 20em;
+        width: 20em;
     }
 .arthur {
     position: fixed;
