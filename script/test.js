@@ -27,10 +27,9 @@ function eat() {
         hunger = hunger + 2
     }
     eatcounter = eatcounter + 1;
-    console.log();
-    
-    if(eatcounter = 10){
-        animate()
+    console.log(eatcounter);
+    if(eatcounter >= 5){
+        animate();
         eatcounter = 0;
     }
     
