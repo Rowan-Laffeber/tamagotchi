@@ -1,10 +1,10 @@
 const ARTHUR_WIDTH = 320;
 const ARTHUR_HEIGHT = 320;
 
-function arthurPositionToImage(row, col) {
+function arthurPositionToImage(arthurRow, arthurCol) {
     return {
-        x: col * ARTHUR_WIDTH,
-        y: row * ARTHUR_HEIGHT,
+        x: arthurCol * ARTHUR_WIDTH,
+        y: arthurRow * ARTHUR_HEIGHT,
     };
 }
 
@@ -34,11 +34,21 @@ function animateArthur() {
     }
 
     const position = arthurPositionToImage(arthurRow, arthurCol);
-    arthurContext.clearRect(0, 0, arthurCanvas.width, arthurCanvas.height);
+    arthurContext.clearRect(0, 
+        0, 
+        arthurCanvas.width, 
+        arthurCanvas.height
+    );
     arthurContext.drawImage(
         arthurImage,
-        position.x, position.y, ARTHUR_WIDTH, ARTHUR_HEIGHT,
-        0, 0, ARTHUR_WIDTH, ARTHUR_HEIGHT
+        position.x, 
+        position.y, 
+        ARTHUR_WIDTH, 
+        ARTHUR_HEIGHT,
+        0, 
+        0, 
+        ARTHUR_WIDTH, 
+        ARTHUR_HEIGHT
     );
     arthurCol += 1;
 }
@@ -108,64 +118,64 @@ levelsImage.onload = function () {
 ////core start
 
 
-const canvas = document.getElementById("levelsCanvas");
-const ctx = canvas.getContext("2d");
+// const canvas = document.getElementById("levelsCanvas");
+// const ctx = canvas.getContext("2d");
 
-const heartImg = new Image();
-heartImg.src = ".assets/img/stats-middle-core/heart-core.png";
-const energyImg = new Image();
-energyImg.src = ".assets/img/stats-middle-core/energy-core.png";
-const deadeyeImg = new Image();
-deadeyeImg.src = ".assets/img/stats-middle-core/deadeye-core.png";
-
-
-let heartHeight = 130;
-let energyHeight = 130;
-let deadeyeHeight = 130;
-
-let heartClicks = 0;
-let energyClicks = 0;
-let deadeyeClicks = 0;
-
-const centerY = canvas.height / 2;
-const imgWidth = 32;
-function renderImages() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-    // Draw each image at its current size
-    ctx.drawImage(heartImg, canvas.width / 4 - imgWidth / 2, centerY - heartHeight / 2, imgWidth, heartHeight);
-    ctx.drawImage(energyImg, canvas.width / 2 - imgWidth / 2, centerY - energyHeight / 2, imgWidth, energyHeight);
-    ctx.drawImage(deadeyeImg, (3 * canvas.width) / 4 - imgWidth / 2, centerY - deadeyeHeight / 2, imgWidth, deadeyeHeight);
-}
-canvas.addEventListener("click", (e) => {
-    const rect = canvas.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    if (mouseX > canvas.width / 4 - imgWidth / 2 && mouseX < canvas.width / 4 + imgWidth / 2 && mouseY > centerY - heartHeight / 2 && mouseY < centerY + heartHeight / 2) {
-        heartClicks++;
-        if (heartClicks === 5) {
-            heartHeight += 1;
-            heartClicks = 0;
-        }
-    }
-
-    if (mouseX > canvas.width / 2 - imgWidth / 2 && mouseX < canvas.width / 2 + imgWidth / 2 && mouseY > centerY - energyHeight / 2 && mouseY < centerY + energyHeight / 2) {
-        energyClicks++;
-        if (energyClicks === 5) {
-            energyHeight += 1;
-            energyClicks = 0;
-        }
-    }
-
-    if (mouseX > (3 * canvas.width) / 4 - imgWidth / 2 && mouseX < (3 * canvas.width) / 4 + imgWidth / 2 && mouseY > centerY - deadeyeHeight / 2 && mouseY < centerY + deadeyeHeight / 2) {
-        deadeyeClicks++;
-        if (deadeyeClicks === 5) {
-            deadeyeHeight += 1;
-            deadeyeClicks = 0;
-        }
-    }
+// const heartImg = new Image();
+// heartImg.src = ".assets/img/stats-middle-core/heart-core.png";
+// const energyImg = new Image();
+// energyImg.src = ".assets/img/stats-middle-core/energy-core.png";
+// const deadeyeImg = new Image();
+// deadeyeImg.src = ".assets/img/stats-middle-core/deadeye-core.png";
 
 
-    renderImages();
-});
-heartImg.onload = energyImg.onload = deadeyeImg.onload = renderImages;
+// let heartHeight = 70;
+// let energyHeight = 70;
+// let deadeyeHeight = 70;
+
+// let heartClicks = 0;
+// let energyClicks = 0;
+// let deadeyeClicks = 0;
+
+// const centerY = canvas.height / 2;
+// const imgWidth = 32;
+// function renderImages() {
+//     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+//     // Draw each image at its current size
+//     ctx.drawImage(heartImg, canvas.width / 4 - imgWidth / 2, centerY - heartHeight / 2, imgWidth, heartHeight);
+//     ctx.drawImage(energyImg, canvas.width / 2 - imgWidth / 2, centerY - energyHeight / 2, imgWidth, energyHeight);
+//     ctx.drawImage(deadeyeImg, (3 * canvas.width) / 4 - imgWidth / 2, centerY - deadeyeHeight / 2, imgWidth, deadeyeHeight);
+// }
+// canvas.addEventListener("click", (e) => {
+//     const rect = canvas.getBoundingClientRect();
+//     const mouseX = e.clientX - rect.left;
+//     const mouseY = e.clientY - rect.top;
+
+//     if (mouseX > canvas.width / 4 - imgWidth / 2 && mouseX < canvas.width / 4 + imgWidth / 2 && mouseY > centerY - heartHeight / 2 && mouseY < centerY + heartHeight / 2) {
+//         heartClicks++;
+//         if (heartClicks === 5) {
+//             heartHeight += 1;
+//             heartClicks = 0;
+//         }
+//     }
+
+//     if (mouseX > canvas.width / 2 - imgWidth / 2 && mouseX < canvas.width / 2 + imgWidth / 2 && mouseY > centerY - energyHeight / 2 && mouseY < centerY + energyHeight / 2) {
+//         energyClicks++;
+//         if (energyClicks === 5) {
+//             energyHeight += 1;
+//             energyClicks = 0;
+//         }
+//     }
+
+//     if (mouseX > (3 * canvas.width) / 4 - imgWidth / 2 && mouseX < (3 * canvas.width) / 4 + imgWidth / 2 && mouseY > centerY - deadeyeHeight / 2 && mouseY < centerY + deadeyeHeight / 2) {
+//         deadeyeClicks++;
+//         if (deadeyeClicks === 5) {
+//             deadeyeHeight += 1;
+//             deadeyeClicks = 0;
+//         }
+//     }
+
+
+//     renderImages();
+// });
+// heartImg.onload = energyImg.onload = deadeyeImg.onload = renderImages;

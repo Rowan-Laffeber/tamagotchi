@@ -20,16 +20,16 @@ function eat() {
         if (healthlevel > 8){
             healthlevel = 8;
         }else {
-            animate();
+            animateHealthLevel();
             console.log('next health level');
         }
         console.log('healthlevel = ' + healthlevel);
     }
     document.getElementById("countdown1").innerText = 'hunger ' + hunger;
+    clearInterval(teller_fuction_hunger);
     hunger_timer();
 }
 function hunger_timer(){
-    clearInterval(teller_fuction_hunger);
     var teller_fuction_hunger = setInterval(function () {
         hunger--;
         document.getElementById("countdown1").innerText = 'hunger ' + hunger;
@@ -45,78 +45,77 @@ function hunger_timer(){
     }, 1000);
 }
 
-// const SPRITE_WIDTH = 130;
-// const SPRITE_HEIGHT = 130;
-// const BORDER_WIDTH = 0;
-// const SPACING_WIDTH = 0;
+const HealthLevel_WIDTH = 130;
+const HealthLevel_HEIGHT = 130;
+const HealthLevel_BORDER_WIDTH = 0;
+const HealthLevel_SPACING_WIDTH = 0;
 
-// function spritePositionToImagePosition(row, col) {
-//     return {
-//         x: (
-//             BORDER_WIDTH +
-//             col * (SPACING_WIDTH + SPRITE_WIDTH)
-//         ),
-//         y: (
-//             BORDER_WIDTH +
-//             row * (SPACING_WIDTH + SPRITE_HEIGHT)
-//         )
-//     }
-// }
+function HealthLevelPositionToImage(HealthLevelRow, HealthLevelCol) {
+    return {
+        x: (
+            HealthLevel_BORDER_WIDTH +
+            HealthLevelCol * (HealthLevel_SPACING_WIDTH + HealthLevel_WIDTH)
+        ),
+        y: (
+            HealthLevel_BORDER_WIDTH +
+            HealthLevelRow * (HealthLevel_SPACING_WIDTH + HealthLevel_HEIGHT)
+        )
+    }
+}
 
-// var canvas = document
-//             .getElementById('hunger-level');
-// var context = canvas
-//               .getContext('2d');
+var HealthLevelCanvas = document.getElementById('health-level');
+var HealthLevelContext = HealthLevelCanvas.getContext('2d');
 
-// var spriteSheetURL = 'assets/img/levels/levels.png';
-// var image = new Image();
-// image.src = spriteSheetURL;
-// image.crossOrigin = true;
+var HealthLevelImage = new Image();
+HealthLevelImage.src = "assets/img/levels/levels.png";
+HealthLevelImage.crossOrigin = true;
+HealthLevelCanvas.width = HealthLevel_WIDTH;
+HealthLevelCanvas.height = HealthLevel_HEIGHT;
 
-// var row = 0;
-// var col = 0;
-// function animate() {
-//     // once we hit the end of a row,
-//     // move to the next
-//     if (col === 3) {
-//         col = 0;
-//         row += 1;
-//     }
-//     // once we finish the last row,
-//     // start again
-//     if (row === 2) {
-//         if (col === 2){
-//         row = 0;
-//         col = 0;
-//         }
-//     }
+var HealthLevelRow = 0;
+var HealthLevelCol = 0;
+function animateHealthLevel() {
+    // once we hit the end of a row,
+    // move to the next
+    if (HealthLevelCol === 3) {
+        HealthLevelCol = 0;
+        HealthLevelRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (HealthLevelRow === 2) {
+        if (HealthLevelCol === 2){
+            HealthLevelRow = 0;
+            HealthLevelCol = 0;
+        }
+    }
     
-//     // make an image position using the 
-//     // current row and colum
-//     var position = spritePositionToImagePosition(row, col);
-//     context.clearRect(
-//         0,
-//         0,
-//         canvas.width,
-//         canvas.height
-//     );
-//     context.drawImage(
-//         image,
-//         position.x,
-//         position.y,
-//         SPRITE_WIDTH,
-//         SPRITE_HEIGHT,
-//         0,
-//         0,
-//         SPRITE_WIDTH,
-//         SPRITE_HEIGHT
-//     );
-//     col += 1;
-// }
+    // make an image position using the 
+    // current row and colum
+    var position = HealthLevelPositionToImage(HealthLevelRow, HealthLevelCol);
+    HealthLevelContext.clearRect(
+        0,
+        0,
+        HealthLevelCanvas.width,
+        HealthLevelCanvas.height
+    );
+    HealthLevelContext.drawImage(
+        HealthLevelImage,
+        position.x,
+        position.y,
+        HealthLevel_WIDTH,
+        HealthLevel_HEIGHT,
+        0,
+        0,
+        HealthLevel_WIDTH,
+        HealthLevel_HEIGHT
+    );
+    HealthLevelCol += 1;
+}
 
-// image.onload = function() {
-//     animate();
-// };
+HealthLevelImage.onload = function() {
+    animateHealthLevel();
+};
 // end of hunger
 // start of energy
 var energy = 32;
@@ -140,16 +139,16 @@ function sleep() {
         if (energylevel > 8){
             energylevel = 8;
         } else {
-            animate();
+            animateEnergyLevel();
             console.log('next energy level');
         }
         console.log('energylevel = ' + energylevel);
     }
     document.getElementById("countdown2").innerText = 'energy ' + energy;
+    clearInterval(teller_fuction_energy);
     energy_timer();
 }
 function energy_timer(){
-    clearInterval(teller_fuction_energy);
     var teller_fuction_energy = setInterval(function () {
         energy--;
         document.getElementById("countdown2").innerText = 'energy ' + energy;
@@ -159,78 +158,78 @@ function energy_timer(){
         }
     }, 3000);
 }
-// const SPRITE_WIDTH = 130;
-// const SPRITE_HEIGHT = 130;
-// const BORDER_WIDTH = 0;
-// const SPACING_WIDTH = 0;
 
-// function spritePositionToImagePosition(row, col) {
-//     return {
-//         x: (
-//             BORDER_WIDTH +
-//             col * (SPACING_WIDTH + SPRITE_WIDTH)
-//         ),
-//         y: (
-//             BORDER_WIDTH +
-//             row * (SPACING_WIDTH + SPRITE_HEIGHT)
-//         )
-//     }
-// }
+const EnergyLevel_WIDTH = 130;
+const EnergyLevel_HEIGHT = 130;
+const EnergyLevel_BORDER_WIDTH = 0;
+const EnergyLevel_SPACING_WIDTH = 0;
 
-// var canvas = document
-//             .getElementById('energy-level');
-// var context = canvas
-//               .getContext('2d');
+function EnergyLevelPositionToImage(EnergyLevelRow, EnergyLevelCol) {
+    return {
+        x: (
+            EnergyLevel_BORDER_WIDTH +
+            EnergyLevelCol * (EnergyLevel_SPACING_WIDTH + EnergyLevel_WIDTH)
+        ),
+        y: (
+            EnergyLevel_BORDER_WIDTH +
+            EnergyLevelRow * (EnergyLevel_SPACING_WIDTH + EnergyLevel_HEIGHT)
+        )
+    }
+}
 
-// var spriteSheetURL = 'assets/img/levels/levels.png';
-// var image = new Image();
-// image.src = spriteSheetURL;
-// image.crossOrigin = true;
+var EnergyLevelCanvas = document.getElementById('energy-level');
+var EnergyLevelContext = EnergyLevelCanvas.getContext('2d');
 
-// var row = 0;
-// var col = 0;
-// function animate() {
-//     // once we hit the end of a row,
-//     // move to the next
-//     if (col === 3) {
-//         col = 0;
-//         row += 1;
-//     }
-//     // once we finish the last row,
-//     // start again
-//     if (row === 2) {
-//         if (col === 2){
-//         row = 0;
-//         col = 0;
-//         }
-//     }
+var EnergyLevelImage = new Image();
+EnergyLevelImage.src = "assets/img/levels/levels.png";
+EnergyLevelImage.crossOrigin = true;
+EnergyLevelCanvas.width = EnergyLevel_WIDTH;
+EnergyLevelCanvas.height = EnergyLevel_HEIGHT;
+
+var EnergyLevelRow = 0;
+var EnergyLevelCol = 0;
+function animateEnergyLevel() {
+    // once we hit the end of a row,
+    // move to the next
+    if (EnergyLevelCol === 3) {
+        EnergyLevelCol = 0;
+        EnergyLevelRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (EnergyLevelRow === 2) {
+        if (EnergyLevelCol === 2){
+        EnergyLevelRow = 0;
+        EnergyLevelCol = 0;
+        }
+    }
     
-//     // make an image position using the 
-//     // current row and colum
-//     var position = spritePositionToImagePosition(row, col);
-//     context.clearRect(
-//         0,
-//         0,
-//         canvas.width,
-//         canvas.height
-//     );
-//     context.drawImage(
-//         image,
-//         position.x,
-//         position.y,
-//         SPRITE_WIDTH,
-//         SPRITE_HEIGHT,
-//         0,
-//         0,
-//         SPRITE_WIDTH,
-//         SPRITE_HEIGHT
-//     );
-//     col += 1;
-// }
+    // make an image position using the 
+    // current row and colum
+    var position = EnergyLevelPositionToImage(EnergyLevelRow, EnergyLevelCol);
+    EnergyLevelContext.clearRect(
+        0,
+        0,
+        EnergyLevelCanvas.width,
+        EnergyLevelCanvas.height
+    );
+    EnergyLevelContext.drawImage(
+        EnergyLevelImage,
+        position.x,
+        position.y,
+        EnergyLevel_WIDTH,
+        EnergyLevel_HEIGHT,
+        0,
+        0,
+        EnergyLevel_WIDTH,
+        EnergyLevel_HEIGHT
+    );
+    EnergyLevelCol += 1;
+}
 
-// image.onload = function() {
-//     animate();
-// };
+EnergyLevelImage.onload = function() {
+    animateEnergyLevel();
+};
 // end of energy
 
 // start of deadeye
@@ -255,17 +254,17 @@ function smoke() {
         if (deadeyelevel > 8){
             deadeyelevel = 8;
         }else {
-            animate();
+            animateDeadeyeLevel();
             console.log('next deadeye level');
         }
         console.log('deadeye level = ' + deadeyelevel);
     }
     document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
+    clearInterval(teller_fuction_deadeye);
     deadeye_timer();
 }
 
 function deadeye_timer(){
-    clearInterval(teller_fuction_deadeye);
     var teller_fuction_deadeye = setInterval(function () {
         deadeye--;
         document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
@@ -275,78 +274,77 @@ function deadeye_timer(){
         }
     }, 5000);
 }
-// const SPRITE_WIDTH = 130;
-// const SPRITE_HEIGHT = 130;
-// const BORDER_WIDTH = 0;
-// const SPACING_WIDTH = 0;
+const DeadeyeLevel_WIDTH = 130;
+const DeadeyeLevel_HEIGHT = 130;
+const DeadeyeLevel_BORDER_WIDTH = 0;
+const DeadeyeLevel_SPACING_WIDTH = 0;
 
-// function spritePositionToImagePosition(row, col) {
-//     return {
-//         x: (
-//             BORDER_WIDTH +
-//             col * (SPACING_WIDTH + SPRITE_WIDTH)
-//         ),
-//         y: (
-//             BORDER_WIDTH +
-//             row * (SPACING_WIDTH + SPRITE_HEIGHT)
-//         )
-//     }
-// }
+function DeadeyeLevelPositionToImage(DeadeyeLevelRow, DeadeyeLevelCol) {
+    return {
+        x: (
+            DeadeyeLevel_BORDER_WIDTH +
+            DeadeyeLevelCol * (DeadeyeLevel_SPACING_WIDTH + DeadeyeLevel_WIDTH)
+        ),
+        y: (
+            DeadeyeLevel_BORDER_WIDTH +
+            DeadeyeLevelRow * (DeadeyeLevel_SPACING_WIDTH + DeadeyeLevel_HEIGHT)
+        )
+    }
+}
 
-// var canvas = document
-//             .getElementById('deadeye-level');
-// var context = canvas
-//               .getContext('2d');
+var DeadeyeLevelCanvas = document.getElementById('deadeye-level');
+var DeadeyeLevelContext = DeadeyeLevelCanvas.getContext('2d');
 
-// var spriteSheetURL = 'assets/img/levels/levels.png';
-// var image = new Image();
-// image.src = spriteSheetURL;
-// image.crossOrigin = true;
+var DeadeyeLevelImage = new Image();
+DeadeyeLevelImage.src = "assets/img/levels/levels.png";
+DeadeyeLevelImage.crossOrigin = true;
+DeadeyeLevelCanvas.width = DeadeyeLevel_WIDTH;
+DeadeyeLevelCanvas.height = DeadeyeLevel_HEIGHT;
 
-// var row = 0;
-// var col = 0;
-// function animate() {
-//     // once we hit the end of a row,
-//     // move to the next
-//     if (col === 3) {
-//         col = 0;
-//         row += 1;
-//     }
-//     // once we finish the last row,
-//     // start again
-//     if (row === 2) {
-//         if (col === 2){
-//         row = 0;
-//         col = 0;
-//         }
-//     }
+var DeadeyeLevelRow = 0;
+var DeadeyeLevelCol = 0;
+function animateDeadeyeLevel() {
+    // once we hit the end of a row,
+    // move to the next
+    if (DeadeyeLevelCol === 3) {
+        DeadeyeLevelCol = 0;
+        DeadeyeLevelRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (DeadeyeLevelRow === 2) {
+        if (DeadeyeLevelCol === 2){
+        DeadeyeLevelRow = 0;
+        DeadeyeLevelCol = 0;
+        }
+    }
     
-//     // make an image position using the 
-//     // current row and colum
-//     var position = spritePositionToImagePosition(row, col);
-//     context.clearRect(
-//         0,
-//         0,
-//         canvas.width,
-//         canvas.height
-//     );
-//     context.drawImage(
-//         image,
-//         position.x,
-//         position.y,
-//         SPRITE_WIDTH,
-//         SPRITE_HEIGHT,
-//         0,
-//         0,
-//         SPRITE_WIDTH,
-//         SPRITE_HEIGHT
-//     );
-//     col += 1;
-// }
+    // make an image position using the 
+    // current row and colum
+    var position = DeadeyeLevelPositionToImage(DeadeyeLevelRow, DeadeyeLevelCol);
+    DeadeyeLevelContext.clearRect(
+        0,
+        0,
+        DeadeyeLevelCanvas.width,
+        DeadeyeLevelCanvas.height
+    );
+    DeadeyeLevelContext.drawImage(
+        DeadeyeLevelImage,
+        position.x,
+        position.y,
+        DeadeyeLevel_WIDTH,
+        DeadeyeLevel_HEIGHT,
+        0,
+        0,
+        DeadeyeLevel_WIDTH,
+        DeadeyeLevel_HEIGHT
+    );
+    DeadeyeLevelCol += 1;
+}
 
-// image.onload = function() {
-//     animate();
-// };
+DeadeyeLevelImage.onload = function() {
+    animateDeadeyeLevel();
+};
 // end of deadeye
 
 // start daynight
@@ -370,11 +368,11 @@ function day(){
                 }
         
             }, 3000);
-        } else if (moon > 50){
+        } else if (moon >  3.125){
             document.getElementById("body").style.backgroundColor = "#10103c";
-        } else if (sun < 50){
+        } else if (sun <  3.125){
             document.getElementById("body").style.backgroundColor = "#ea9087";
-        } else if (sun > 50){
+        } else if (sun > 3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
         } else if( sun < 0){
             document.getElementById("body").style.backgroundColor = "#10103c";
@@ -401,11 +399,11 @@ function night(){
                 }
         
             }, 3000);
-        } else if (sun > 50){
+        } else if (sun >  3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
-        } else if (moon < 50){
+        } else if (moon <  3.125){
             document.getElementById("body").style.backgroundColor = "orange";
-        } else if (moon > 50){
+        } else if (moon >  3.125){
             document.getElementById("body").style.backgroundColor = "#10103c";
         } else if( moon < 0){
             document.getElementById("body").style.backgroundColor = "skyblue";
@@ -496,73 +494,72 @@ window.onload = function() {
 // end music
 // Sprite Arthur
 
-const SPRITE_WIDTH = 320;
-const SPRITE_HEIGHT = 320;
-const BORDER_WIDTH = 0;
-const SPACING_WIDTH = 0;
+const Arthur_WIDTH = 320;
+const Arthur_HEIGHT = 320;
+const Arthur_BORDER_WIDTH = 0;
+const Arthur_SPACING_WIDTH = 0;
 
-function spritePositionToImagePosition(row, col) {
+function arthurPositionToImage(ArthurRow, ArthurCol) {
     return {
         x: (
-            BORDER_WIDTH +
-            col * (SPACING_WIDTH + SPRITE_WIDTH)
+            Arthur_BORDER_WIDTH +
+            ArthurCol * (Arthur_SPACING_WIDTH + Arthur_WIDTH)
         ),
         y: (
-            BORDER_WIDTH +
-            row * (SPACING_WIDTH + SPRITE_HEIGHT)
+            Arthur_SPACING_WIDTH +
+            ArthurRow * (Arthur_SPACING_WIDTH + Arthur_HEIGHT)
         )
     }
 }
 
-var canvas = document
-            .getElementById('spriteCanvas');
-var context = canvas
-              .getContext('2d');
+var ArthurCanvas = document.getElementById('ArthurCanvas');
+var ArthurContext = ArthurCanvas.getContext('2d');
 
-var spriteSheetURL = 'assets/img/Arthur-Morgan/Arthur-Morgan-sprite1.png';
-var image = new Image();
-image.src = spriteSheetURL;
-image.crossOrigin = true;
+var ArthurImage = new Image();
+ArthurImage.src = "assets/img/Arthur-Morgan/Arthur-Morgan-sprite1.png";
+ArthurImage.crossOrigin = true;
+ArthurCanvas.width = Arthur_WIDTH;
+ArthurCanvas.height = Arthur_HEIGHT;
 
-var row = 0;
-var col = 0;
-function animate() {
+var ArthurRow = 0;
+var ArthurCol = 0;
+function animateArthur() {
     // once we hit the end of a row,
     // move to the next
-    if (col === 3) {
-        col = 0;
-        row += 1;
+    if (ArthurCol === 3) {
+        ArthurCol = 0;
+        ArthurRow += 1;
     }
     // once we finish the last row,
     // start again
-    if (row === 2) {
-        row = 0;
+    if (ArthurRow === 2) {
+        ArthurRow = 0;
     }
     
     // make an image position using the 
     // current row and colum
-    var position = spritePositionToImagePosition(row, col);
-    context.clearRect(
+    var position = arthurPositionToImage(ArthurRow, ArthurCol);
+    ArthurContext.clearRect(
         0,
         0,
-        canvas.width,
-        canvas.height
+        ArthurCanvas.width,
+        ArthurCanvas.height
     );
-    context.drawImage(
-        image,
+    ArthurContext.drawImage(
+        ArthurImage,
         position.x,
         position.y,
-        SPRITE_WIDTH,
-        SPRITE_HEIGHT,
+        Arthur_WIDTH,
+        Arthur_HEIGHT,
         0,
         0,
-        SPRITE_WIDTH,
-        SPRITE_HEIGHT
+        Arthur_WIDTH,
+        Arthur_HEIGHT
     );
-    col += 1;
+    ArthurCol += 1;
 }
 
-image.onload = function() {
-    setInterval(animate, 500);
+ArthurImage.onload = function() {
+    setInterval(animateArthur, 500);
 };
 // end arthur

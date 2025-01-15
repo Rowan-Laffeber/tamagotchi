@@ -29,7 +29,7 @@ function eat() {
     eatcounter = eatcounter + 1;
     console.log(eatcounter);
     if(eatcounter >= 5){
-        animate();
+        animate_levels();
         eatcounter = 0;
         console.log('next level');
     }
@@ -69,7 +69,7 @@ image.crossOrigin = true;
 
 var row = 0;
 var col = 0;
-function animate() {
+function animate_levels() {
     // once we hit the end of a row,
     // move to the next
     if (col === 3) {
