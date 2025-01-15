@@ -39,12 +39,13 @@ function hunger_timer(){
         }
         else if (hunger < 16){
             document.getElementById("speech-bubble").style.display = "block";
+       
         }else{
             document.getElementById("speech-bubble").style.display = "none";
         }
     }, 1000);
 }
-
+// start health levels
 const HealthLevel_WIDTH = 130;
 const HealthLevel_HEIGHT = 130;
 const HealthLevel_BORDER_WIDTH = 0;
@@ -116,7 +117,85 @@ function animateHealthLevel() {
 HealthLevelImage.onload = function() {
     animateHealthLevel();
 };
+// end health levels
+
+// start health core
+const HealthCore_WIDTH = 70;
+const HealthCore_HEIGHT = 70;
+const HealthCore_BORDER_WIDTH = 0;
+const HealthCore_SPACING_WIDTH = 0;
+
+function HealthCorePositionToImage(HealthCoreRow, HealthCoreCol) {
+    return {
+        x: (
+            HealthCore_BORDER_WIDTH +
+            HealthCoreCol * (HealthCore_SPACING_WIDTH + HealthCore_WIDTH)
+        ),
+        y: (
+            HealthCore_BORDER_WIDTH +
+            HealthCoreRow * (HealthCore_SPACING_WIDTH + HealthCore_HEIGHT)
+        )
+    }
+}
+
+var HealthCoreCanvas = document.getElementById('health-core');
+var HealthCoreContext = HealthCoreCanvas.getContext('2d');
+
+var HealthCoreImage = new Image();
+HealthCoreImage.src = "assets/img/stats-middle-icon/heart-core.png";
+HealthCoreImage.crossOrigin = true;
+HealthCoreCanvas.width = HealthCore_WIDTH;
+HealthCoreCanvas.height = HealthCore_HEIGHT;
+
+var HealthCoreRow = 0;
+var HealthCoreCol = 0;
+function animateHealthCore() {
+    // once we hit the end of a row,
+    // move to the next
+    if (HealthCoreCol === 3) {
+        HealthCoreCol = 0;
+        HealthCoreRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (HealthCoreRow === 2) {
+        if (HealthCoreCol === 1){
+        HealthCoreRow = 0;
+        HealthCoreCol = 0;
+        }
+    }
+    
+    // make an image position using the 
+    // current row and colum
+    var position = HealthCorePositionToImage(HealthCoreRow, HealthCoreCol);
+    HealthCoreContext.clearRect(
+        0,
+        0,
+        HealthCoreCanvas.width,
+        HealthCoreCanvas.height
+    );
+    HealthCoreContext.drawImage(
+        HealthCoreImage,
+        position.x,
+        position.y,
+        HealthCore_WIDTH,
+        HealthCore_HEIGHT,
+        0,
+        0,
+        HealthCore_WIDTH,
+        HealthCore_HEIGHT
+    );
+    HealthCoreCol += 1;
+}
+
+HealthCoreImage.onload = function() {
+    // animateHealthCore();
+    setInterval(animateHealthCore, 500);
+};
+// end health core
+
 // end of hunger
+
 // start of energy
 var energy = 32;
 energy_timer();
@@ -230,13 +309,90 @@ function animateEnergyLevel() {
 EnergyLevelImage.onload = function() {
     animateEnergyLevel();
 };
+// end energy levels
+
+// start energy core
+const EnergyCore_WIDTH = 70;
+const EnergyCore_HEIGHT = 70;
+const EnergyCore_BORDER_WIDTH = 0;
+const EnergyCore_SPACING_WIDTH = 0;
+
+function EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol) {
+    return {
+        x: (
+            EnergyCore_BORDER_WIDTH +
+            EnergyCoreCol * (EnergyCore_SPACING_WIDTH + EnergyCore_WIDTH)
+        ),
+        y: (
+            EnergyCore_BORDER_WIDTH +
+            EnergyCoreRow * (EnergyCore_SPACING_WIDTH + EnergyCore_HEIGHT)
+        )
+    }
+}
+
+var EnergyCoreCanvas = document.getElementById('energy-core');
+var EnergyCoreContext = EnergyCoreCanvas.getContext('2d');
+
+var EnergyCoreImage = new Image();
+EnergyCoreImage.src = "assets/img/stats-middle-icon/energy-core.png";
+EnergyCoreImage.crossOrigin = true;
+EnergyCoreCanvas.width = EnergyCore_WIDTH;
+EnergyCoreCanvas.height = EnergyCore_HEIGHT;
+
+var EnergyCoreRow = 0;
+var EnergyCoreCol = 0;
+function animateEnergyCore() {
+    // once we hit the end of a row,
+    // move to the next
+    if (EnergyCoreCol === 3) {
+        EnergyCoreCol = 0;
+        EnergyCoreRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (EnergyCoreRow === 2) {
+        if (EnergyCoreCol === 2){
+        EnergyCoreRow = 0;
+        EnergyCoreCol = 0;
+        }
+    }
+    
+    // make an image position using the 
+    // current row and colum
+    var position = EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol);
+    EnergyCoreContext.clearRect(
+        0,
+        0,
+        EnergyCoreCanvas.width,
+        EnergyCoreCanvas.height
+    );
+    EnergyCoreContext.drawImage(
+        EnergyCoreImage,
+        position.x,
+        position.y,
+        EnergyCore_WIDTH,
+        EnergyCore_HEIGHT,
+        0,
+        0,
+        EnergyCore_WIDTH,
+        EnergyCore_HEIGHT
+    );
+    EnergyCoreCol += 1;
+}
+
+EnergyCoreImage.onload = function() {
+    // animateEnergyCore();
+    setInterval(animateEnergyCore, 500);
+};
+// end energy core
+
 // end of energy
 
 // start of deadeye
 var deadeye = 32;
 deadeye_timer();
 var smokecounter = 0;
-var deadeyelevel = 1;
+var DeadeyeLevel = 1;
 
 function smoke() {
     if(deadeye > 32){
@@ -249,15 +405,15 @@ function smoke() {
     smokecounter = smokecounter + 1;
     console.log(smokecounter);
     if(smokecounter >= 5){
-        deadeyelevel = deadeyelevel + 1;
+        DeadeyeLevel = DeadeyeLevel + 1;
         smokecounter = 0;
-        if (deadeyelevel > 8){
-            deadeyelevel = 8;
+        if (DeadeyeLevel > 8){
+            DeadeyeLevel = 8;
         }else {
             animateDeadeyeLevel();
             console.log('next deadeye level');
         }
-        console.log('deadeye level = ' + deadeyelevel);
+        console.log('deadeye level = ' + DeadeyeLevel);
     }
     document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
     clearInterval(teller_fuction_deadeye);
@@ -274,6 +430,7 @@ function deadeye_timer(){
         }
     }, 5000);
 }
+// deadeye level start
 const DeadeyeLevel_WIDTH = 130;
 const DeadeyeLevel_HEIGHT = 130;
 const DeadeyeLevel_BORDER_WIDTH = 0;
@@ -345,6 +502,83 @@ function animateDeadeyeLevel() {
 DeadeyeLevelImage.onload = function() {
     animateDeadeyeLevel();
 };
+
+// deadeye level end
+
+// deadeye core start
+const DeadeyeCore_WIDTH = 70;
+const DeadeyeCore_HEIGHT = 70;
+const DeadeyeCore_BORDER_WIDTH = 0;
+const DeadeyeCore_SPACING_WIDTH = 0;
+
+function DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol) {
+    return {
+        x: (
+            DeadeyeCore_BORDER_WIDTH +
+            DeadeyeCoreCol * (DeadeyeCore_SPACING_WIDTH + DeadeyeCore_WIDTH)
+        ),
+        y: (
+            DeadeyeCore_BORDER_WIDTH +
+            DeadeyeCoreRow * (DeadeyeCore_SPACING_WIDTH + DeadeyeCore_HEIGHT)
+        )
+    }
+}
+
+var DeadeyeCoreCanvas = document.getElementById('deadeye-core');
+var DeadeyeCoreContext = DeadeyeCoreCanvas.getContext('2d');
+
+var DeadeyeCoreImage = new Image();
+DeadeyeCoreImage.src = "assets/img/stats-middle-icon/deadeye-core.png";
+DeadeyeCoreImage.crossOrigin = true;
+DeadeyeCoreCanvas.width = DeadeyeCore_WIDTH;
+DeadeyeCoreCanvas.height = DeadeyeCore_HEIGHT;
+
+var DeadeyeCoreRow = 0;
+var DeadeyeCoreCol = 0;
+function animateDeadeyeCore() {
+    // once we hit the end of a row,
+    // move to the next
+    if (DeadeyeCoreCol === 3) {
+        DeadeyeCoreCol = 0;
+        DeadeyeCoreRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (DeadeyeCoreRow === 2) {
+        DeadeyeCoreRow = 0;
+        DeadeyeCoreCol = 0;
+    }
+    
+    // make an image position using the 
+    // current row and colum
+    var position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
+    DeadeyeCoreContext.clearRect(
+        0,
+        0,
+        DeadeyeCoreCanvas.width,
+        DeadeyeCoreCanvas.height
+    );
+    DeadeyeCoreContext.drawImage(
+        DeadeyeCoreImage,
+        position.x,
+        position.y,
+        DeadeyeCore_WIDTH,
+        DeadeyeCore_HEIGHT,
+        0,
+        0,
+        DeadeyeCore_WIDTH,
+        DeadeyeCore_HEIGHT
+    );
+    DeadeyeCoreCol += 1;
+}
+
+DeadeyeCoreImage.onload = function() {
+    // animateDeadeyeCore();
+    setInterval(animateDeadeyeCore, 500);
+};
+
+// deadeye core end 
+
 // end of deadeye
 
 // start daynight
