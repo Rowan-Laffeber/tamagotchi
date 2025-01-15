@@ -31,6 +31,7 @@ function eat() {
     if(eatcounter >= 5){
         animate();
         eatcounter = 0;
+        console.log('next level');
     }
     
     document.getElementById("countdown1").innerText = 'hunger ' + hunger;
