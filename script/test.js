@@ -33,7 +33,7 @@ function eat() {
         eatcounter = 0;
         console.log('next level');
     }
-    
+    clearInterval(teller_fuction_hunger);
     document.getElementById("countdown1").innerText = 'hunger ' + hunger;
     hunger_timer()
 }
