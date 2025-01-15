@@ -111,3 +111,4 @@ function animate() {
 image.onload = function() {
     animate();
 };
+///core stages
