@@ -1,5 +1,47 @@
-const SPRITE_WIDTH = 320;
-const SPRITE_HEIGHT = 320;
+var hunger = 32;
+var eatcounter = 0;
+
+hunger_timer()
+function hunger_timer(){
+    var teller_fuction_hunger = setInterval(function () {
+        hunger--;
+        document.getElementById("countdown1").innerText = 'hunger ' + hunger;
+        if (hunger <= 0) {
+            clearInterval(teller_fuction_hunger);
+            document.getElementById("countdown1").innerText = "you are dead";
+        }
+        // else if (hunger < 51){
+        //     document.getElementById("speech-bubble").style.display = "block";
+        // }else{
+        //     document.getElementById("speech-bubble").style.display = "none";
+        // }
+    }, 1000);
+}
+
+function eat() {
+    if(hunger > 32){
+        hunger = hunger
+    } else if (hunger > 30){
+        hunger = 32
+    } else {
+        hunger = hunger + 2
+    }
+    eatcounter = eatcounter + 1;
+    console,console.log();
+    
+    if(eatcounter = 10){
+        animate()
+        eatcounter = 0;
+    }
+    
+    document.getElementById("countdown1").innerText = 'hunger ' + hunger;
+    hunger_timer()
+}
+
+
+
+const SPRITE_WIDTH = 130;
+const SPRITE_HEIGHT = 130;
 const BORDER_WIDTH = 0;
 const SPACING_WIDTH = 0;
 
@@ -16,11 +58,11 @@ function spritePositionToImagePosition(row, col) {
     }
 }
 var canvas = document
-            .querySelector('canvas');
+            .getElementById('sprite-levels');
 var context = canvas
               .getContext('2d');
 
-var spriteSheetURL = 'assets/img/Arthur-Morgan/Arthur-Morgan-sprite1.png';
+var spriteSheetURL = 'assets/img/levels/levels.png';
 var image = new Image();
 image.src = spriteSheetURL;
 image.crossOrigin = true;
@@ -37,7 +79,10 @@ function animate() {
     // once we finish the last row,
     // start again
     if (row === 2) {
+        if (col === 2){
         row = 0;
+        col = 0;
+        }
     }
     
     // make an image position using the 
@@ -64,5 +109,5 @@ function animate() {
 }
 
 image.onload = function() {
-    setInterval(animate, 500);
+    animate();
 };
