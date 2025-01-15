@@ -58,9 +58,9 @@ function spritePositionToImagePosition(row, col) {
     }
 }
 var canvas = document
-            .getElementById('sprite-levels');
+    .getElementById('sprite-levels');
 var context = canvas
-              .getContext('2d');
+    .getContext('2d');
 
 var spriteSheetURL = 'assets/img/levels/levels.png';
 var image = new Image();
@@ -80,12 +80,12 @@ function animate() {
     // start again
     if (row === 2) {
         if (col === 2){
-        row = 0;
-        col = 0;
+            row = 0;
+            col = 0;
         }
     }
-    
-    // make an image position using the 
+
+    // make an image position using the
     // current row and colum
     var position = spritePositionToImagePosition(row, col);
     context.clearRect(
