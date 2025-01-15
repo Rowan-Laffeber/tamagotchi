@@ -203,14 +203,13 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.hungerlevels img{
+.hungerlevels canvas{
     position: fixed;
     left: 0.625em;
     bottom: 37.5em;
     z-index: 99;
     width: 8.125em;
     height: 8.125em;
-    display: none;
 }
 .icon-energy{
     position: fixed;
@@ -220,14 +219,14 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.energylevels img{
+.energylevels canvas{
     position: fixed;
     left: 9.375em;
     bottom: 37.5em;
     z-index: 99;
     width: 8.125em;
     height: 8.125em;
-    display: none;
+
 }
 .icon-deadeye{
     position: fixed;
@@ -237,14 +236,13 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.deadeyelevels img{
+.deadeyelevels canvas{
     position: fixed;
     left: 18.125em;
     bottom: 37.5em;
     z-index: 99;
     width: 8.125em;
     height: 8.125em;
-    display: none;
 }
 .counters{
     position: fixed;

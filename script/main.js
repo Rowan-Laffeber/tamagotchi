@@ -1,100 +1,35 @@
-var hunger = 100;
-var energy = 100;
-var deadeye = 100;
-hunger_timer()
-energy_timer()
-deadeye_timer()
+// start of hunger
+var hunger = 32;
+hunger_timer();
 var eatcounter = 0;
-document.getElementById("hungerlevel1").style.display = "block";
-var sleepcounter = 0;
-document.getElementById("energylevel1").style.display = "block";
-var smokecounter = 0;
-document.getElementById("deadeyelevel1").style.display = "block";
+var healthlevel = 1;
+
 function eat() {
-    if(hunger > 100){
-        hunger = hunger
-    } else if (hunger > 95){
-        hunger = 100
+    if(hunger > 32){
+        hunger = hunger;
+    } else if (hunger > 30){
+        hunger = 32;
     } else {
-        hunger = hunger + 5
+        hunger = hunger + 2;
     }
     eatcounter = eatcounter + 1;
-    if(eatcounter >= 70){
-        document.getElementById("hungerlevel8").style.display = "block";
-    } else if (eatcounter >= 60){
-        document.getElementById("hungerlevel7").style.display = "block";
-    } else if (eatcounter >= 50){
-        document.getElementById("hungerlevel6").style.display = "block";
-    } else if (eatcounter >= 40){
-        document.getElementById("hungerlevel5").style.display = "block";
-    } else if (eatcounter >= 30){
-        document.getElementById("hungerlevel4").style.display = "block";
-    } else if (eatcounter >= 20){
-        document.getElementById("hungerlevel3").style.display = "block";
-    } else if (eatcounter >= 10){
-        document.getElementById("hungerlevel2").style.display = "block";
+    console.log(eatcounter);
+    if(eatcounter >= 5){
+        healthlevel = healthlevel + 1;
+        eatcounter = 0;
+        if (healthlevel > 8){
+            healthlevel = 8;
+        }else {
+            animate();
+            console.log('next health level');
+        }
+        console.log('healthlevel = ' + healthlevel);
     }
     document.getElementById("countdown1").innerText = 'hunger ' + hunger;
-    clearInterval(teller_fuction_hunger);
-    hunger_timer()
-}
-function sleep() {
-    if(energy > 100){
-        energy = energy
-    } else if (energy > 95){
-        energy = 100
-    } else {
-        energy = energy + 5
-    }
-    sleepcounter = sleepcounter + 1;
-    if(sleepcounter >= 70){
-        document.getElementById("energylevel8").style.display = "block";
-    } else if (sleepcounter >= 60){
-        document.getElementById("energylevel7").style.display = "block";
-    } else if (sleepcounter >= 50){
-        document.getElementById("energylevel6").style.display = "block";
-    } else if (sleepcounter >= 40){
-        document.getElementById("energylevel5").style.display = "block";
-    } else if (sleepcounter >= 30){
-        document.getElementById("energylevel4").style.display = "block";
-    } else if (sleepcounter >= 20){
-        document.getElementById("energylevel3").style.display = "block";
-    } else if (sleepcounter >= 10){
-        document.getElementById("energylevel2").style.display = "block";
-    }
-    document.getElementById("countdown2").innerText = 'energy ' + energy;
-    clearInterval(teller_fuction_energy);
-    energy_timer()
-}
-function smoke() {
-    if(deadeye > 100){
-        deadeye = deadeye
-    } else if (deadeye > 95){
-        deadeye = 100
-    } else {
-        deadeye = deadeye + 5
-    }
-    smokecounter = smokecounter + 1;
-    if(smokecounter >= 70){
-        document.getElementById("deadeyelevel8").style.display = "block";
-    } else if (smokecounter >= 60){
-        document.getElementById("deadeyelevel7").style.display = "block";
-    } else if (smokecounter >= 50){
-        document.getElementById("deadeyelevel6").style.display = "block";
-    } else if (smokecounter >= 40){
-        document.getElementById("deadeyelevel5").style.display = "block";
-    } else if (smokecounter >= 30){
-        document.getElementById("deadeyelevel4").style.display = "block";
-    } else if (smokecounter >= 20){
-        document.getElementById("deadeyelevel3").style.display = "block";
-    } else if (smokecounter >= 10){
-        document.getElementById("deadeyelevel2").style.display = "block";
-    }
-    document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
-    clearInterval(teller_fuction_deadeye);
-    deadeye_timer() 
+    hunger_timer();
 }
 function hunger_timer(){
+    clearInterval(teller_fuction_hunger);
     var teller_fuction_hunger = setInterval(function () {
         hunger--;
         document.getElementById("countdown1").innerText = 'hunger ' + hunger;
@@ -102,7 +37,7 @@ function hunger_timer(){
             clearInterval(teller_fuction_hunger);
             document.getElementById("countdown1").innerText = "you are dead";
         }
-        else if (hunger < 51){
+        else if (hunger < 16){
             document.getElementById("speech-bubble").style.display = "block";
         }else{
             document.getElementById("speech-bubble").style.display = "none";
@@ -110,7 +45,111 @@ function hunger_timer(){
     }, 1000);
 }
 
+// const SPRITE_WIDTH = 130;
+// const SPRITE_HEIGHT = 130;
+// const BORDER_WIDTH = 0;
+// const SPACING_WIDTH = 0;
+
+// function spritePositionToImagePosition(row, col) {
+//     return {
+//         x: (
+//             BORDER_WIDTH +
+//             col * (SPACING_WIDTH + SPRITE_WIDTH)
+//         ),
+//         y: (
+//             BORDER_WIDTH +
+//             row * (SPACING_WIDTH + SPRITE_HEIGHT)
+//         )
+//     }
+// }
+
+// var canvas = document
+//             .getElementById('hunger-level');
+// var context = canvas
+//               .getContext('2d');
+
+// var spriteSheetURL = 'assets/img/levels/levels.png';
+// var image = new Image();
+// image.src = spriteSheetURL;
+// image.crossOrigin = true;
+
+// var row = 0;
+// var col = 0;
+// function animate() {
+//     // once we hit the end of a row,
+//     // move to the next
+//     if (col === 3) {
+//         col = 0;
+//         row += 1;
+//     }
+//     // once we finish the last row,
+//     // start again
+//     if (row === 2) {
+//         if (col === 2){
+//         row = 0;
+//         col = 0;
+//         }
+//     }
+    
+//     // make an image position using the 
+//     // current row and colum
+//     var position = spritePositionToImagePosition(row, col);
+//     context.clearRect(
+//         0,
+//         0,
+//         canvas.width,
+//         canvas.height
+//     );
+//     context.drawImage(
+//         image,
+//         position.x,
+//         position.y,
+//         SPRITE_WIDTH,
+//         SPRITE_HEIGHT,
+//         0,
+//         0,
+//         SPRITE_WIDTH,
+//         SPRITE_HEIGHT
+//     );
+//     col += 1;
+// }
+
+// image.onload = function() {
+//     animate();
+// };
+// end of hunger
+// start of energy
+var energy = 32;
+energy_timer();
+var sleepcounter = 0;
+var energylevel = 1;
+
+function sleep() {
+    if(energy > 32){
+        energy = energy;
+    } else if (energy > 30){
+        energy = 32;
+    } else {
+        energy = energy + 2;
+    }
+    sleepcounter = sleepcounter + 1;
+    console.log(sleepcounter);
+    if(sleepcounter >= 5){
+        energylevel = energylevel + 1;
+        sleepcounter = 0;
+        if (energylevel > 8){
+            energylevel = 8;
+        } else {
+            animate();
+            console.log('next energy level');
+        }
+        console.log('energylevel = ' + energylevel);
+    }
+    document.getElementById("countdown2").innerText = 'energy ' + energy;
+    energy_timer();
+}
 function energy_timer(){
+    clearInterval(teller_fuction_energy);
     var teller_fuction_energy = setInterval(function () {
         energy--;
         document.getElementById("countdown2").innerText = 'energy ' + energy;
@@ -120,7 +159,113 @@ function energy_timer(){
         }
     }, 3000);
 }
+// const SPRITE_WIDTH = 130;
+// const SPRITE_HEIGHT = 130;
+// const BORDER_WIDTH = 0;
+// const SPACING_WIDTH = 0;
+
+// function spritePositionToImagePosition(row, col) {
+//     return {
+//         x: (
+//             BORDER_WIDTH +
+//             col * (SPACING_WIDTH + SPRITE_WIDTH)
+//         ),
+//         y: (
+//             BORDER_WIDTH +
+//             row * (SPACING_WIDTH + SPRITE_HEIGHT)
+//         )
+//     }
+// }
+
+// var canvas = document
+//             .getElementById('energy-level');
+// var context = canvas
+//               .getContext('2d');
+
+// var spriteSheetURL = 'assets/img/levels/levels.png';
+// var image = new Image();
+// image.src = spriteSheetURL;
+// image.crossOrigin = true;
+
+// var row = 0;
+// var col = 0;
+// function animate() {
+//     // once we hit the end of a row,
+//     // move to the next
+//     if (col === 3) {
+//         col = 0;
+//         row += 1;
+//     }
+//     // once we finish the last row,
+//     // start again
+//     if (row === 2) {
+//         if (col === 2){
+//         row = 0;
+//         col = 0;
+//         }
+//     }
+    
+//     // make an image position using the 
+//     // current row and colum
+//     var position = spritePositionToImagePosition(row, col);
+//     context.clearRect(
+//         0,
+//         0,
+//         canvas.width,
+//         canvas.height
+//     );
+//     context.drawImage(
+//         image,
+//         position.x,
+//         position.y,
+//         SPRITE_WIDTH,
+//         SPRITE_HEIGHT,
+//         0,
+//         0,
+//         SPRITE_WIDTH,
+//         SPRITE_HEIGHT
+//     );
+//     col += 1;
+// }
+
+// image.onload = function() {
+//     animate();
+// };
+// end of energy
+
+// start of deadeye
+var deadeye = 32;
+deadeye_timer();
+var smokecounter = 0;
+var deadeyelevel = 1;
+
+function smoke() {
+    if(deadeye > 32){
+        deadeye = deadeye;
+    } else if (deadeye > 30){
+        deadeye = 32;
+    } else {
+        deadeye = deadeye + 2;
+    }
+    smokecounter = smokecounter + 1;
+    console.log(smokecounter);
+    if(smokecounter >= 5){
+        deadeyelevel = deadeyelevel + 1;
+        smokecounter = 0;
+        if (deadeyelevel > 8){
+            deadeyelevel = 8;
+        }else {
+            animate();
+            console.log('next deadeye level');
+        }
+        console.log('deadeye level = ' + deadeyelevel);
+    }
+    document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
+    deadeye_timer();
+}
+
 function deadeye_timer(){
+    clearInterval(teller_fuction_deadeye);
     var teller_fuction_deadeye = setInterval(function () {
         deadeye--;
         document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
@@ -130,6 +275,80 @@ function deadeye_timer(){
         }
     }, 5000);
 }
+// const SPRITE_WIDTH = 130;
+// const SPRITE_HEIGHT = 130;
+// const BORDER_WIDTH = 0;
+// const SPACING_WIDTH = 0;
+
+// function spritePositionToImagePosition(row, col) {
+//     return {
+//         x: (
+//             BORDER_WIDTH +
+//             col * (SPACING_WIDTH + SPRITE_WIDTH)
+//         ),
+//         y: (
+//             BORDER_WIDTH +
+//             row * (SPACING_WIDTH + SPRITE_HEIGHT)
+//         )
+//     }
+// }
+
+// var canvas = document
+//             .getElementById('deadeye-level');
+// var context = canvas
+//               .getContext('2d');
+
+// var spriteSheetURL = 'assets/img/levels/levels.png';
+// var image = new Image();
+// image.src = spriteSheetURL;
+// image.crossOrigin = true;
+
+// var row = 0;
+// var col = 0;
+// function animate() {
+//     // once we hit the end of a row,
+//     // move to the next
+//     if (col === 3) {
+//         col = 0;
+//         row += 1;
+//     }
+//     // once we finish the last row,
+//     // start again
+//     if (row === 2) {
+//         if (col === 2){
+//         row = 0;
+//         col = 0;
+//         }
+//     }
+    
+//     // make an image position using the 
+//     // current row and colum
+//     var position = spritePositionToImagePosition(row, col);
+//     context.clearRect(
+//         0,
+//         0,
+//         canvas.width,
+//         canvas.height
+//     );
+//     context.drawImage(
+//         image,
+//         position.x,
+//         position.y,
+//         SPRITE_WIDTH,
+//         SPRITE_HEIGHT,
+//         0,
+//         0,
+//         SPRITE_WIDTH,
+//         SPRITE_HEIGHT
+//     );
+//     col += 1;
+// }
+
+// image.onload = function() {
+//     animate();
+// };
+// end of deadeye
+
 // start daynight
 var sun = -3.125;
 var moon = -3.125;
@@ -277,13 +496,6 @@ window.onload = function() {
 // end music
 // Sprite Arthur
 
-// end Sprite Arthur
-// function insert_arthur(){
-//     var src = document.getElementById("Arthur");
-//     var img = document.createElement("img");
-//     img.src = "ArthurMorgan/ArthurMorgan-right.png";
-// }
-// insert_arthur();
 const SPRITE_WIDTH = 320;
 const SPRITE_HEIGHT = 320;
 const BORDER_WIDTH = 0;
@@ -353,3 +565,4 @@ function animate() {
 image.onload = function() {
     setInterval(animate, 500);
 };
+// end arthur
