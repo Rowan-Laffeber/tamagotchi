@@ -42,7 +42,7 @@ div.body-test{
 }
 .home{
     position: fixed;
-    background-image: url("assets/img/Home/home.png");
+    background-image: url("../img/Home/home.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     bottom: -311px;
@@ -211,7 +211,7 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.hungerlevels canvas{
+.healthlevels canvas{
     position: fixed;
     left: 0.625em;
     bottom: 37.5em;

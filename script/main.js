@@ -1,16 +1,16 @@
-// start of hunger
-var hunger = 32;
-hunger_timer();
+// start of health
+var health = 32;
+health_timer();
 var eatcounter = 0;
 var healthlevel = 1;
 
 function eat() {
-    if(hunger > 32){
-        hunger = hunger;
-    } else if (hunger > 30){
-        hunger = 32;
+    if(health > 32){
+        health = health;
+    } else if (health > 30){
+        health = 32;
     } else {
-        hunger = hunger + 2;
+        health = health + 2;
     }
     eatcounter = eatcounter + 1;
     console.log(eatcounter);
@@ -25,19 +25,19 @@ function eat() {
         }
         console.log('healthlevel = ' + healthlevel);
     }
-    document.getElementById("countdown1").innerText = 'hunger ' + hunger;
-    clearInterval(teller_fuction_hunger);
-    hunger_timer();
+    document.getElementById("countdown1").innerText = 'health ' + health;
+    clearInterval(teller_fuction_health);
+    health_timer();
 }
-function hunger_timer(){
-    var teller_fuction_hunger = setInterval(function () {
-        hunger--;
-        document.getElementById("countdown1").innerText = 'hunger ' + hunger;
-        if (hunger <= 0) {
-            clearInterval(teller_fuction_hunger);
+function health_timer(){
+    var teller_fuction_health = setInterval(function () {
+        health--;
+        document.getElementById("countdown1").innerText = 'health ' + health;
+        if (health <= 0) {
+            clearInterval(teller_fuction_health);
             document.getElementById("countdown1").innerText = "you are dead";
         }
-        else if (hunger < 16){
+        else if (health < 16){
             document.getElementById("speech-bubble").style.display = "block";
        
         }else{
@@ -194,7 +194,81 @@ HealthCoreImage.onload = function() {
 };
 // end health core
 
-// end of hunger
+// start of health regen
+const HealthRegen_WIDTH = 130;
+const HealthRegen_HEIGHT = 130;
+const HealthRegen_BORDER_WIDTH = 0;
+const HealthRegen_SPACING_WIDTH = 0;
+
+function HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol) {
+    return {
+        x: (
+            HealthRegen_BORDER_WIDTH +
+            HealthRegenCol * (HealthRegen_SPACING_WIDTH + HealthRegen_WIDTH)
+        ),
+        y: (
+            HealthRegen_BORDER_WIDTH +
+            HealthRegenRow * (HealthRegen_SPACING_WIDTH + HealthRegen_HEIGHT)
+        )
+    }
+}
+
+var HealthRegenCanvas = document.getElementById('health-regen');
+var HealthRegenContext = HealthRegenCanvas.getContext('2d');
+
+var HealthRegenImage = new Image();
+HealthRegenImage.src = "assets/img/regen-levels/regen-level0-32.png";
+HealthRegenImage.crossOrigin = true;
+HealthRegenCanvas.width = HealthRegen_WIDTH;
+HealthRegenCanvas.height = HealthRegen_HEIGHT;
+
+var HealthRegenRow = 0;
+var HealthRegenCol = 0;
+function animateHealthRegen() {
+    // once we hit the end of a row,
+    // move to the next
+    if (HealthRegenCol === 6) {
+        HealthRegenCol = 0;
+        HealthRegenRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (HealthRegenRow === 5) {
+        if (HealthRegenCol === 3){
+            HealthRegenRow = 0;
+            HealthRegenCol = 0;
+        }
+    }
+    
+    // make an image position using the 
+    // current row and colum
+    var position = HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol);
+    HealthRegenContext.clearRect(
+        0,
+        0,
+        HealthRegenCanvas.width,
+        HealthRegenCanvas.height
+    );
+    HealthRegenContext.drawImage(
+        HealthRegenImage,
+        position.x,
+        position.y,
+        HealthRegen_WIDTH,
+        HealthRegen_HEIGHT,
+        0,
+        0,
+        HealthRegen_WIDTH,
+        HealthRegen_HEIGHT
+    );
+    HealthRegenCol += 1;
+}
+
+HealthRegenImage.onload = function() {
+    // animateHealthRegen();
+    setInterval(animateHealthRegen, 500);
+};
+// end of health regen
+// end of health
 
 // start of energy
 var energy = 32;
@@ -385,6 +459,81 @@ EnergyCoreImage.onload = function() {
     setInterval(animateEnergyCore, 500);
 };
 // end energy core
+
+// start of Energy regen
+const EnergyRegen_WIDTH = 130;
+const EnergyRegen_HEIGHT = 130;
+const EnergyRegen_BORDER_WIDTH = 0;
+const EnergyRegen_SPACING_WIDTH = 0;
+
+function EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol) {
+    return {
+        x: (
+            EnergyRegen_BORDER_WIDTH +
+            EnergyRegenCol * (EnergyRegen_SPACING_WIDTH + EnergyRegen_WIDTH)
+        ),
+        y: (
+            EnergyRegen_BORDER_WIDTH +
+            EnergyRegenRow * (EnergyRegen_SPACING_WIDTH + EnergyRegen_HEIGHT)
+        )
+    }
+}
+
+var EnergyRegenCanvas = document.getElementById('energy-regen');
+var EnergyRegenContext = EnergyRegenCanvas.getContext('2d');
+
+var EnergyRegenImage = new Image();
+EnergyRegenImage.src = "assets/img/regen-levels/regen-level0-32.png";
+EnergyRegenImage.crossOrigin = true;
+EnergyRegenCanvas.width = EnergyRegen_WIDTH;
+EnergyRegenCanvas.height = EnergyRegen_HEIGHT;
+
+var EnergyRegenRow = 0;
+var EnergyRegenCol = 0;
+function animateEnergyRegen() {
+    // once we hit the end of a row,
+    // move to the next
+    if (EnergyRegenCol === 6) {
+        EnergyRegenCol = 0;
+        EnergyRegenRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (EnergyRegenRow === 5) {
+        if (EnergyRegenCol === 3){
+            EnergyRegenRow = 0;
+            EnergyRegenCol = 0;
+        }
+    }
+    
+    // make an image position using the 
+    // current row and colum
+    var position = EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol);
+    EnergyRegenContext.clearRect(
+        0,
+        0,
+        EnergyRegenCanvas.width,
+        EnergyRegenCanvas.height
+    );
+    EnergyRegenContext.drawImage(
+        EnergyRegenImage,
+        position.x,
+        position.y,
+        EnergyRegen_WIDTH,
+        EnergyRegen_HEIGHT,
+        0,
+        0,
+        EnergyRegen_WIDTH,
+        EnergyRegen_HEIGHT
+    );
+    EnergyRegenCol += 1;
+}
+
+EnergyRegenImage.onload = function() {
+    // animateEnergyRegen();
+    setInterval(animateEnergyRegen, 500);
+};
+// end of Energy regen
 
 // end of energy
 
@@ -578,6 +727,81 @@ DeadeyeCoreImage.onload = function() {
 };
 
 // deadeye core end 
+
+// start of Deadeye regen
+const DeadeyeRegen_WIDTH = 130;
+const DeadeyeRegen_HEIGHT = 130;
+const DeadeyeRegen_BORDER_WIDTH = 0;
+const DeadeyeRegen_SPACING_WIDTH = 0;
+
+function DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol) {
+    return {
+        x: (
+            DeadeyeRegen_BORDER_WIDTH +
+            DeadeyeRegenCol * (DeadeyeRegen_SPACING_WIDTH + DeadeyeRegen_WIDTH)
+        ),
+        y: (
+            DeadeyeRegen_BORDER_WIDTH +
+            DeadeyeRegenRow * (DeadeyeRegen_SPACING_WIDTH + DeadeyeRegen_HEIGHT)
+        )
+    }
+}
+
+var DeadeyeRegenCanvas = document.getElementById('deadeye-regen');
+var DeadeyeRegenContext = DeadeyeRegenCanvas.getContext('2d');
+
+var DeadeyeRegenImage = new Image();
+DeadeyeRegenImage.src = "assets/img/regen-levels/regen-level0-32.png";
+DeadeyeRegenImage.crossOrigin = true;
+DeadeyeRegenCanvas.width = DeadeyeRegen_WIDTH;
+DeadeyeRegenCanvas.height = DeadeyeRegen_HEIGHT;
+
+var DeadeyeRegenRow = 0;
+var DeadeyeRegenCol = 0;
+function animateDeadeyeRegen() {
+    // once we hit the end of a row,
+    // move to the next
+    if (DeadeyeRegenCol === 6) {
+        DeadeyeRegenCol = 0;
+        DeadeyeRegenRow += 1;
+    }
+    // once we finish the last row,
+    // start again
+    if (DeadeyeRegenRow === 5) {
+        if (DeadeyeRegenCol === 3){
+            DeadeyeRegenRow = 0;
+            DeadeyeRegenCol = 0;
+        }
+    }
+    
+    // make an image position using the 
+    // current row and colum
+    var position = DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol);
+    DeadeyeRegenContext.clearRect(
+        0,
+        0,
+        DeadeyeRegenCanvas.width,
+        DeadeyeRegenCanvas.height
+    );
+    DeadeyeRegenContext.drawImage(
+        DeadeyeRegenImage,
+        position.x,
+        position.y,
+        DeadeyeRegen_WIDTH,
+        DeadeyeRegen_HEIGHT,
+        0,
+        0,
+        DeadeyeRegen_WIDTH,
+        DeadeyeRegen_HEIGHT
+    );
+    DeadeyeRegenCol += 1;
+}
+
+DeadeyeRegenImage.onload = function() {
+    // animateDeadeyeRegen();
+    setInterval(animateDeadeyeRegen, 500);
+};
+// end of Deadeye regen
 
 // end of deadeye
 
@@ -797,4 +1021,3 @@ ArthurImage.onload = function() {
     setInterval(animateArthur, 500);
 };
 // end arthur
-
