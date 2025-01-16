@@ -797,3 +797,4 @@ ArthurImage.onload = function() {
     setInterval(animateArthur, 500);
 };
 // end arthur
+

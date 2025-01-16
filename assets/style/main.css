@@ -40,6 +40,14 @@ div.body-test{
     width: 96.25em;
     height: 2.5em;
 }
+.home{
+    position: fixed;
+    background-image: url("assets/img/Home/home.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    bottom: -311px;
+    left: 0em;
+}
 .tree{
     position: fixed;
     bottom: -0.625em;
