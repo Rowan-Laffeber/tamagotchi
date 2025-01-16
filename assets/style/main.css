@@ -42,11 +42,11 @@ div.body-test{
 }
 .home{
     position: fixed;
-    background-image: url("assets/img/Home/home.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    bottom: -311px;
-    left: 0em;
+    left: 50em;
+    bottom: -165px;
+    height: 50em;
 }
 .tree{
     position: fixed;
