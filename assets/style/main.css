@@ -266,14 +266,16 @@ div.body-test{
 }
 
 .box {
-     position: absolute;
+     position: fixed;
+    left: 30em;
+    bottom: 20em;
      background: rgba(0, 0, 0, 0.8);
      color: white;
      padding: 20px 30px;
      border-radius: 8px;
      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
      text-align: center;
-     z-index: 10;
+     z-index: 300;
  }
 
 .box h2 {

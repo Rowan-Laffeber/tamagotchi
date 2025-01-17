@@ -1044,11 +1044,8 @@ const backgroundMusic = document.getElementById('backgroundMusic');
 const body = document.body;
 
 startButton.addEventListener('click', () => {
-    // شروع موزیک
     backgroundMusic.play();
-
-    // حذف باکس و برداشتن بلور
-    cookieBox.classList.add('hidden');
+   Box.classList.add('hidden');
     body.style.filter = 'none';
 });
 // end music
