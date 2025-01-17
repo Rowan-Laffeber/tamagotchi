@@ -4,13 +4,13 @@
  }
 
  * {
-    font-family: pixelfont;
+     font-family: pixelfont, serif;
     font-size: 1em;
     line-height: 1.25em;
  }
 body {
     padding: 0;
-    margin: 0, 0, auto, 0;
+    margin: 0 0 auto 0 ;
     background-color: darkred;
     font-size: 16px;
 }
@@ -266,19 +266,24 @@ div.body-test{
 }
 
 .box {
-     position: fixed;
-    left: 30em;
-    bottom: 20em;
-     background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 20em;
+    bottom: 12em;
+    background-color: #606060;
+    background-image: url(assets/img/Arthur-Morgan/Arthur-Morgan-arm-up.png);
+    background-repeat: no-repeat;
+    background-position: center;
      color: white;
      padding: 20px 30px;
      border-radius: 8px;
      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
      text-align: center;
      z-index: 300;
+    max-width: 50em;
  }
 
-.box h2 {
+.box h1, p {
+    font-size: 50px;
     margin: 0 0 10px;
 }
 
@@ -287,7 +292,7 @@ div.body-test{
     color: #fff;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 50px;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
