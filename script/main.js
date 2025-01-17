@@ -1038,17 +1038,19 @@ var teller_fuction_cloud6 = setInterval(function () {
 }, 250);
 // end clouds
 // start music
-window.addEventListener("BackgroundMusic",
-    () => {
-        const backgroundMusic = document.getElementById("backgroundMusic");
-        backgroundMusic.volume = 100;
-            console.log("Play");
+const startButton = document.getElementById('startBtn');
+const Box = document.getElementById('Box');
+const backgroundMusic = document.getElementById('backgroundMusic');
+const body = document.body;
 
-    });
-window.onload = function() {
-    const audio = document.getElementById('backgroundMusic');
-    audio.muted = false;
-};
+startButton.addEventListener('click', () => {
+    // شروع موزیک
+    backgroundMusic.play();
+
+    // حذف باکس و برداشتن بلور
+    cookieBox.classList.add('hidden');
+    body.style.filter = 'none';
+});
 // end music
 // Sprite Arthur
 
