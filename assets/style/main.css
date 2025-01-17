@@ -267,15 +267,8 @@ div.body-test{
     left: 20em;
     bottom: 12em;
     background-color: #606060;
-<<<<<<< Updated upstream
     background-image: url(assets/img/Arthur-Morgan/Arthur-Morgan-arm-up.png);
     background-repeat: no-repeat; 
-=======
-    background-image:
-            url(/assets/img/Arthur-Morgan/Arthur-Morgan-arm-up.png);
-
-    background-repeat: no-repeat;
->>>>>>> Stashed changes
     background-position: center;
      color: white;
      padding: 20px 30px;
