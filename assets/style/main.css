@@ -42,10 +42,7 @@ div.body-test{
 }
 .home{
     position: fixed;
-<<<<<<< HEAD
-=======
     background-image: url("../img/Home/home.png");
->>>>>>> origin/tamagotchi
     background-repeat: no-repeat;
     background-attachment: fixed;
     left: 50em;
