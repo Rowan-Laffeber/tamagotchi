@@ -1074,7 +1074,7 @@ var ArthurContext = ArthurCanvas.getContext('2d');
 
 var ArthurImage = new Image();
 ArthurImage.src = "assets/img/Arthur-Morgan/Arthur-Morgan-sprite1.png";
-ArthurImage_arthur.crossOrigin = true;
+ArthurImage.crossOrigin = true;
 ArthurCanvas.width = Arthur_WIDTH;
 ArthurCanvas.height = Arthur_HEIGHT;
 
