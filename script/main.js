@@ -971,70 +971,25 @@ function night(){
 }
 // end daynight
 // start clouds
-var cloud1 = 12.5;
-var teller_fuction_cloud1 = setInterval(function () {
-    cloud1=cloud1 + 0.625 ;
-    if (cloud1 < 96.25){
-        document.getElementById("cloud1").style.left = cloud1 + 'em';
-    } else{
-        cloud1 = -15.625;
-        document.getElementById("cloud1").style.left = cloud1 + 'em';
+var Clouds = [
+    { id: "cloud1", left: 12.5 },
+    { id: "cloud2", left: 62.5 },
+    { id: "cloud3", left: 46.875 },
+    { id: "cloud4", left: 6.25 },
+    { id: "cloud5", left: 50 },
+    { id: "cloud6", left: 87.5 }
+];
+function updateCloud(CloudEach) {
+    CloudEach.left += 0.625;
+    if (CloudEach.left < 96.25) {
+        document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
+    } else {
+        CloudEach.left = -15.625;
+        document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
     }
-
-}, 250);
-var cloud2 = 62.5;
-var teller_fuction_cloud2 = setInterval(function () {
-    cloud2=cloud2 + 0.625 ;
-    if (cloud2 < 96.25){
-        document.getElementById("cloud2").style.left = cloud2 + 'em';
-    } else{
-        cloud2 = -15.625;
-        document.getElementById("cloud2").style.left = cloud2 + 'em';
-    }
-
-}, 250);
-var cloud3 = 46.875;
-var teller_fuction_cloud3 = setInterval(function () {
-    cloud3=cloud3 + 0.625 ;
-    if (cloud3 < 96.25){
-        document.getElementById("cloud3").style.left = cloud3 + 'em';
-    } else{
-        cloud3 = -15.625;
-        document.getElementById("cloud3").style.left = cloud3 + 'em';
-    }
-
-}, 250);
-var cloud4 = 6.25;
-var teller_fuction_cloud4 = setInterval(function () {
-    cloud4=cloud4 + 0.625 ;
-    if (cloud4 < 96.25){
-        document.getElementById("cloud4").style.left = cloud4 + 'em';
-    } else{
-        cloud4 = -15.625;
-        document.getElementById("cloud4").style.left = cloud4 + 'em';
-    }
-
-}, 250);
-var cloud5 = 50;
-var teller_fuction_cloud5 = setInterval(function () {
-    cloud5=cloud5 + 0.625 ;
-    if (cloud5 < 96.25){
-        document.getElementById("cloud5").style.left = cloud5 + 'em';
-    } else{
-        cloud5 = -15.625;
-        document.getElementById("cloud5").style.left = cloud5 + 'em';
-    }
-
-}, 250);
-var cloud6 = 87.5;
-var teller_fuction_cloud6 = setInterval(function () {
-    cloud6=cloud6 + 0.625 ;
-    if (cloud6 < 96.25){
-        document.getElementById("cloud6").style.left = cloud6 + 'em';
-    } else{
-        cloud6 = -15.625;
-        document.getElementById("cloud6").style.left = cloud6 + 'em';
-    }
+}
+setInterval(function () {
+    Clouds.forEach(updateCloud);
 }, 250);
 // end clouds
 // start music
