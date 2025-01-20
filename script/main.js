@@ -957,7 +957,7 @@ function night(){
                 }
         
             }, 3000);
-        } else if (sun >  3.125){
+        } else if (sun >  3.125){ 
             document.getElementById("body").style.backgroundColor = "skyblue";
         } else if (moon <  3.125){
             document.getElementById("body").style.backgroundColor = "orange";
@@ -979,7 +979,7 @@ var Clouds = [
     { id: "cloud5", left: 50 },
     { id: "cloud6", left: 87.5 }
 ];
-function updateCloud(CloudEach) {
+function updateCloud(CloudEach){
     CloudEach.left += 0.625;
     if (CloudEach.left < 96.25) {
         document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
@@ -1000,7 +1000,7 @@ const body = document.body;
 
 startButton.addEventListener('click', () => {
     backgroundMusic.play();
-   Box.classList.add('hidden');
+    Box.classList.add('hidden');
     body.style.filter = 'none';
 });
 // end music
