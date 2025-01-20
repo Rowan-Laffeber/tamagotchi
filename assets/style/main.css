@@ -228,7 +228,7 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.energylevels canvas{
+.EnergyLevels canvas{
     position: fixed;
     left: 9.375em;
     bottom: 37.5em;
@@ -245,7 +245,7 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.deadeyelevels canvas{
+.DeadeyeLevels canvas{
     position: fixed;
     left: 18.125em;
     bottom: 37.5em;
