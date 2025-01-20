@@ -988,7 +988,7 @@ function updateCloud(CloudEach) {
         document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
     }
 }
-setInterval(function () {
+var CloudCounter = setInterval(function () {
     Clouds.forEach(updateCloud);
 }, 250);
 // end clouds
