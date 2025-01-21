@@ -656,8 +656,8 @@ var teller_fuction_cloud1 = setInterval(function () {
         cloud1 = -15.625;
         document.getElementById("cloud1").style.left = cloud1 + 'em';
     }
-
 }, 250);
+
 var cloud2 = 62.5;
 var teller_fuction_cloud2 = setInterval(function () {
     cloud2=cloud2 + 0.625 ;

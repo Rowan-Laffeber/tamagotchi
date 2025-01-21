@@ -957,7 +957,11 @@ function Night(){
                 }
         
             }, 3000);
+<<<<<<< HEAD
         } else if (Sun >  3.125){
+=======
+        } else if (sun >  3.125){ 
+>>>>>>> origin/tamagotchi
             document.getElementById("body").style.backgroundColor = "skyblue";
         } else if (Moon <  3.125){
             document.getElementById("body").style.backgroundColor = "orange";
@@ -979,7 +983,11 @@ var Clouds = [
     { id: "Cloud5", left: 50 },
     { id: "Cloud6", left: 87.5 }
 ];
+<<<<<<< HEAD
 function UpdateCloud(CloudEach) {
+=======
+function updateCloud(CloudEach){
+>>>>>>> origin/tamagotchi
     CloudEach.left += 0.625;
     if (CloudEach.left < 96.25) {
         document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
@@ -1000,7 +1008,7 @@ const body = document.body;
 
 startButton.addEventListener('click', () => {
     backgroundMusic.play();
-   Box.classList.add('hidden');
+    Box.classList.add('hidden');
     body.style.filter = 'none';
 });
 // end music
