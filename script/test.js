@@ -21,7 +21,7 @@ function eat() {
             healthlevel = 8;
         }else {
             animateHealthLevel();
-            console.log('next health level');
+            console.log('next Health level');
         }
         console.log('healthlevel = ' + healthlevel);
     }
@@ -45,7 +45,7 @@ function hunger_timer(){
         }
     }, 1000);
 }
-// start health levels
+// start Health levels
 const HealthLevel_WIDTH = 130;
 const HealthLevel_HEIGHT = 130;
 const HealthLevel_BORDER_WIDTH = 0;
@@ -64,7 +64,7 @@ function HealthLevelPositionToImage(HealthLevelRow, HealthLevelCol) {
     }
 }
 
-var HealthLevelCanvas = document.getElementById('health-level');
+var HealthLevelCanvas = document.getElementById('Health-level');
 var HealthLevelContext = HealthLevelCanvas.getContext('2d');
 
 var HealthLevelImage = new Image();
@@ -117,9 +117,9 @@ function animateHealthLevel() {
 HealthLevelImage.onload = function() {
     animateHealthLevel();
 };
-// end health levels
+// end Health levels
 
-// start health core
+// start Health core
 const HealthCore_WIDTH = 70;
 const HealthCore_HEIGHT = 70;
 const HealthCore_BORDER_WIDTH = 0;
@@ -138,7 +138,7 @@ function HealthCorePositionToImage(HealthCoreRow, HealthCoreCol) {
     }
 }
 
-var HealthCoreCanvas = document.getElementById('health-core');
+var HealthCoreCanvas = document.getElementById('Health-core');
 var HealthCoreContext = HealthCoreCanvas.getContext('2d');
 
 var HealthCoreImage = new Image();
@@ -192,11 +192,11 @@ HealthCoreImage.onload = function() {
     // animateHealthCore();
     setInterval(animateHealthCore, 500);
 };
-// end health core
+// end Health core
 
 // end of hunger
 
-// start of energy
+// start of Energy
 var energy = 32;
 energy_timer();
 var sleepcounter = 0;
@@ -219,18 +219,18 @@ function sleep() {
             energylevel = 8;
         } else {
             animateEnergyLevel();
-            console.log('next energy level');
+            console.log('next Energy level');
         }
         console.log('energylevel = ' + energylevel);
     }
-    document.getElementById("countdown2").innerText = 'energy ' + energy;
+    document.getElementById("countdown2").innerText = 'Energy ' + energy;
     clearInterval(teller_fuction_energy);
     energy_timer();
 }
 function energy_timer(){
     var teller_fuction_energy = setInterval(function () {
         energy--;
-        document.getElementById("countdown2").innerText = 'energy ' + energy;
+        document.getElementById("countdown2").innerText = 'Energy ' + energy;
         if (energy <= 0) {
             clearInterval(teller_fuction_energy);
             document.getElementById("countdown2").innerText = "you are dead";
@@ -256,7 +256,7 @@ function EnergyLevelPositionToImage(EnergyLevelRow, EnergyLevelCol) {
     }
 }
 
-var EnergyLevelCanvas = document.getElementById('energy-level');
+var EnergyLevelCanvas = document.getElementById('Energy-level');
 var EnergyLevelContext = EnergyLevelCanvas.getContext('2d');
 
 var EnergyLevelImage = new Image();
@@ -309,9 +309,9 @@ function animateEnergyLevel() {
 EnergyLevelImage.onload = function() {
     animateEnergyLevel();
 };
-// end energy levels
+// end Energy levels
 
-// start energy core
+// start Energy core
 const EnergyCore_WIDTH = 70;
 const EnergyCore_HEIGHT = 70;
 const EnergyCore_BORDER_WIDTH = 0;
@@ -330,11 +330,11 @@ function EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol) {
     }
 }
 
-var EnergyCoreCanvas = document.getElementById('energy-core');
+var EnergyCoreCanvas = document.getElementById('Energy-core');
 var EnergyCoreContext = EnergyCoreCanvas.getContext('2d');
 
 var EnergyCoreImage = new Image();
-EnergyCoreImage.src = "assets/img/stats-middle-icon/energy-core.png";
+EnergyCoreImage.src = "assets/img/stats-middle-icon/Energy-core.png";
 EnergyCoreImage.crossOrigin = true;
 EnergyCoreCanvas.width = EnergyCore_WIDTH;
 EnergyCoreCanvas.height = EnergyCore_HEIGHT;
@@ -384,11 +384,11 @@ EnergyCoreImage.onload = function() {
     // animateEnergyCore();
     setInterval(animateEnergyCore, 500);
 };
-// end energy core
+// end Energy core
 
-// end of energy
+// end of Energy
 
-// start of deadeye
+// start of Deadeye
 var deadeye = 32;
 deadeye_timer();
 var smokecounter = 0;
@@ -411,11 +411,11 @@ function smoke() {
             DeadeyeLevel = 8;
         }else {
             animateDeadeyeLevel();
-            console.log('next deadeye level');
+            console.log('next Deadeye level');
         }
-        console.log('deadeye level = ' + DeadeyeLevel);
+        console.log('Deadeye level = ' + DeadeyeLevel);
     }
-    document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
+    document.getElementById("countdown3").innerText = 'Deadeye ' + deadeye;
     clearInterval(teller_fuction_deadeye);
     deadeye_timer();
 }
@@ -423,14 +423,14 @@ function smoke() {
 function deadeye_timer(){
     var teller_fuction_deadeye = setInterval(function () {
         deadeye--;
-        document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
+        document.getElementById("countdown3").innerText = 'Deadeye ' + deadeye;
         if (deadeye <= 0) {
             clearInterval(teller_fuction_deadeye);
-            document.getElementById("countdown3").innerText = "deadeye is drained";
+            document.getElementById("countdown3").innerText = "Deadeye is drained";
         }
     }, 5000);
 }
-// deadeye level start
+// Deadeye level start
 const DeadeyeLevel_WIDTH = 130;
 const DeadeyeLevel_HEIGHT = 130;
 const DeadeyeLevel_BORDER_WIDTH = 0;
@@ -449,7 +449,7 @@ function DeadeyeLevelPositionToImage(DeadeyeLevelRow, DeadeyeLevelCol) {
     }
 }
 
-var DeadeyeLevelCanvas = document.getElementById('deadeye-level');
+var DeadeyeLevelCanvas = document.getElementById('Deadeye-level');
 var DeadeyeLevelContext = DeadeyeLevelCanvas.getContext('2d');
 
 var DeadeyeLevelImage = new Image();
@@ -503,9 +503,9 @@ DeadeyeLevelImage.onload = function() {
     animateDeadeyeLevel();
 };
 
-// deadeye level end
+// Deadeye level end
 
-// deadeye core start
+// Deadeye core start
 const DeadeyeCore_WIDTH = 70;
 const DeadeyeCore_HEIGHT = 70;
 const DeadeyeCore_BORDER_WIDTH = 0;
@@ -524,11 +524,11 @@ function DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol) {
     }
 }
 
-var DeadeyeCoreCanvas = document.getElementById('deadeye-core');
+var DeadeyeCoreCanvas = document.getElementById('Deadeye-core');
 var DeadeyeCoreContext = DeadeyeCoreCanvas.getContext('2d');
 
 var DeadeyeCoreImage = new Image();
-DeadeyeCoreImage.src = "assets/img/stats-middle-icon/deadeye-core.png";
+DeadeyeCoreImage.src = "assets/img/stats-middle-icon/Deadeye-core.png";
 DeadeyeCoreImage.crossOrigin = true;
 DeadeyeCoreCanvas.width = DeadeyeCore_WIDTH;
 DeadeyeCoreCanvas.height = DeadeyeCore_HEIGHT;
@@ -577,9 +577,9 @@ DeadeyeCoreImage.onload = function() {
     setInterval(animateDeadeyeCore, 500);
 };
 
-// deadeye core end 
+// Deadeye core end
 
-// end of deadeye
+// end of Deadeye
 
 // start daynight
 var sun = -3.125;

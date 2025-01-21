@@ -124,9 +124,9 @@ levelsImage.onload = function () {
 // const heartImg = new Image();
 // heartImg.src = ".assets/img/stats-middle-core/heart-core.png";
 // const energyImg = new Image();
-// energyImg.src = ".assets/img/stats-middle-core/energy-core.png";
+// energyImg.src = ".assets/img/stats-middle-core/Energy-core.png";
 // const deadeyeImg = new Image();
-// deadeyeImg.src = ".assets/img/stats-middle-core/deadeye-core.png";
+// deadeyeImg.src = ".assets/img/stats-middle-core/Deadeye-core.png";
 
 
 // let heartHeight = 70;
