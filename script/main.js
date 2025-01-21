@@ -39,7 +39,7 @@ function health_timer(){
         }
         else if (health < 16){
             document.getElementById("speech-bubble").style.display = "block";
-       
+
         }else{
             document.getElementById("speech-bubble").style.display = "none";
         }
@@ -155,8 +155,8 @@ function animateHealthCore() {
         HealthCoreCol = 0;
         }
     }
-    
-    
+
+
     var position = HealthCorePositionToImage(HealthCoreRow, HealthCoreCol);
     HealthCoreContext.clearRect(
         0,
@@ -384,8 +384,8 @@ function animateEnergyLevel() {
         EnergyLevelCol = 0;
         }
     }
-    
-    
+
+
     var position = EnergyLevelPositionToImage(EnergyLevelRow, EnergyLevelCol);
     EnergyLevelContext.clearRect(
         0,
@@ -453,8 +453,8 @@ function animateEnergyCore() {
         EnergyCoreCol = 0;
         }
     }
-    
-    
+
+
     var position = EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol);
     EnergyCoreContext.clearRect(
         0,
@@ -517,7 +517,7 @@ function animateEnergyRegen() {
         if (EnergyRegenCol === 5){
             EnergyRegenRow = 0;
             EnergyRegenCol = 0;
-        }  
+        }
     } else if (EnergyRegenCol === 6) {
         EnergyRegenCol = 0;
         EnergyRegenRow += 1;
@@ -572,8 +572,8 @@ function animateEnergyRegen() {
             }
         }
     }
-    
-    
+
+
     var position = EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol);
     EnergyRegenContext.clearRect(
         0,
@@ -686,8 +686,8 @@ function animateDeadeyeLevel() {
         DeadeyeLevelCol = 0;
         }
     }
-    
-    
+
+
     var position = DeadeyeLevelPositionToImage(DeadeyeLevelRow, DeadeyeLevelCol);
     DeadeyeLevelContext.clearRect(
         0,
@@ -754,8 +754,8 @@ function animateDeadeyeCore() {
         DeadeyeCoreRow = 0;
         DeadeyeCoreCol = 0;
     }
-    
-    
+
+
     var position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
     DeadeyeCoreContext.clearRect(
         0,
@@ -782,7 +782,7 @@ DeadeyeCoreImage.onload = function() {
     setInterval(animateDeadeyeCore, 500);
 };
 
-// deadeye core end 
+// deadeye core end
 
 // start of Deadeye regen
 const DeadeyeRegen_WIDTH = 130;
@@ -819,7 +819,7 @@ function animateDeadeyeRegen() {
         if (DeadeyeRegenCol === 5){
             DeadeyeRegenRow = 0;
             DeadeyeRegenCol = 0;
-        }  
+        }
     } else if (DeadeyeRegenCol === 6) {
         DeadeyeRegenCol = 0;
         DeadeyeRegenRow += 1;
@@ -874,8 +874,8 @@ function animateDeadeyeRegen() {
             }
         }
     }
-    
-    
+
+
     var position = DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol);
     DeadeyeRegenContext.clearRect(
         0,
@@ -910,7 +910,7 @@ var Sun = -3.125;
 var Moon = -3.125;
 Day()
 function Day(){
-    var teller_function_Sun = setInterval(function () {
+    var teller_function_sun = setInterval(function () {
         Sun=Sun + 0.625;
         document.getElementById("Sun").style.bottom = Sun + 'em';
         Moon=Moon - 0.625;
@@ -922,9 +922,9 @@ function Day(){
 
                 if (teller_function_Day > 3){
                     clearInterval(teller_function_Day)
-                    Night()
+                    night()
                 }
-        
+
             }, 3000);
         } else if (Moon >  3.125){
             document.getElementById("body").style.backgroundColor = "#10103c";
@@ -939,7 +939,7 @@ function Day(){
 
     }, 150);
 }
-function Night(){
+function night(){
     var teller_function_Moon = setInterval(function () {
         Sun=Sun - 0.625;
         document.getElementById("Sun").style.bottom = Sun + 'em';
@@ -949,16 +949,15 @@ function Night(){
             document.getElementById("body").style.backgroundColor = "#10103c";
 
             clearInterval(teller_function_Moon);
-            var teller_function_Night = setInterval(function () {
+            var teller_function_night = setInterval(function () {
 
-                if (teller_function_Night > 3){
-                    clearInterval(teller_function_Night)
+                if (teller_function_night > 3){
+                    clearInterval(teller_function_night)
                     Day()
                 }
-        
-            }, 3000);
 
-        } else if (sun >  3.125){
+            }, 3000);
+         else if (Sun >  3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
         } else if (Moon <  3.125){
             document.getElementById("body").style.backgroundColor = "orange";
@@ -966,19 +965,19 @@ function Night(){
             document.getElementById("body").style.backgroundColor = "#10103c";
         } else if( Moon < 0){
             document.getElementById("body").style.backgroundColor = "skyblue";
-        } 
+        }
 
     }, 150);
 }
 // end daynight
 // start clouds
 var Clouds = [
-    { id: "Cloud1", left: 12.5 },
-    { id: "Cloud2", left: 62.5 },
-    { id: "Cloud3", left: 46.875 },
-    { id: "Cloud4", left: 6.25 },
-    { id: "Cloud5", left: 50 },
-    { id: "Cloud6", left: 87.5 }
+    { id: "cloud1", left: 12.5 },
+    { id: "cloud2", left: 62.5 },
+    { id: "cloud3", left: 46.875 },
+    { id: "cloud4", left: 6.25 },
+    { id: "cloud5", left: 50 },
+    { id: "cloud6", left: 87.5 }
 ];
 function UpdateCloud(CloudEach){
     CloudEach.left += 0.625;
@@ -990,18 +989,18 @@ function UpdateCloud(CloudEach){
     }
 }
 var CloudCounter = setInterval(function () {
-    Clouds.forEach(UpdateCloud);
+    Clouds.forEach(updateCloud);
 }, 250);
 // end clouds
 // start music
 const startButton = document.getElementById('startBtn');
 const Box = document.getElementById('Box');
-const backgroundMusic = document.getElementById('BackgroundMusic');
+const backgroundMusic = document.getElementById('backgroundMusic');
 const body = document.body;
 
 startButton.addEventListener('click', () => {
     backgroundMusic.play();
-    Box.classList.add('hidden');
+   Box.classList.add('hidden');
     body.style.filter = 'none';
 });
 // end music
