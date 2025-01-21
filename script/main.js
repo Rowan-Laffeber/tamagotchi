@@ -39,7 +39,7 @@ function health_timer(){
         }
         else if (health < 16){
             document.getElementById("speech-bubble").style.display = "block";
-       
+
         }else{
             document.getElementById("speech-bubble").style.display = "none";
         }
@@ -155,8 +155,8 @@ function animateHealthCore() {
         HealthCoreCol = 0;
         }
     }
-    
-    
+
+
     var position = HealthCorePositionToImage(HealthCoreRow, HealthCoreCol);
     HealthCoreContext.clearRect(
         0,
@@ -303,18 +303,18 @@ HealthRegenImage.onload = function() {
 // end of health
 
 // start of energy
-var energy = 32;
-energy_timer();
+var Energy = 32;
+Energy_timer();
 var sleepcounter = 0;
 var EnergyLevel = 1;
 
 function sleep() {
-    if(energy > 32){
-        energy = 32;
-    } else if (energy > 30){
-        energy = 32;
+    if(Energy > 32){
+        Energy = 32;
+    } else if (Energy > 30){
+        Energy = 32;
     } else {
-        energy = energy + 2;
+        Energy = Energy + 2;
     }
     sleepcounter = sleepcounter + 1;
     console.log(sleepcounter);
@@ -325,20 +325,20 @@ function sleep() {
             EnergyLevel = 8;
         } else {
             animateEnergyLevel();
-            console.log('next energy level');
+            console.log('next Energy level');
         }
         console.log('EnergyLevel = ' + EnergyLevel);
     }
-    document.getElementById("countdown2").innerText = 'energy ' + energy;
-    clearInterval(teller_function_energy); /// vragen Kelvin
-    energy_timer();
+    document.getElementById("countdown2").innerText = 'Energy ' + Energy;
+    clearInterval(teller_function_Energy); /// vragen Kelvin
+    Energy_timer();
 }
-function energy_timer(){
-    var teller_function_energy = setInterval(function () {
-        energy--;
-        document.getElementById("countdown2").innerText = 'energy ' + energy;
-        if (energy <= 0) {
-            clearInterval(teller_function_energy);
+function Energy_timer(){
+    var teller_function_Energy = setInterval(function () {
+        Energy--;
+        document.getElementById("countdown2").innerText = 'Energy ' + Energy;
+        if (Energy <= 0) {
+            clearInterval(teller_function_Energy);
             document.getElementById("countdown2").innerText = "you are dead";
         }
     }, 3000);
@@ -362,7 +362,7 @@ function EnergyLevelPositionToImage(EnergyLevelRow, EnergyLevelCol) {
     }
 }
 
-var EnergyLevelCanvas = document.getElementById('energy-level');
+var EnergyLevelCanvas = document.getElementById('Energy-level');
 var EnergyLevelContext = EnergyLevelCanvas.getContext('2d');
 
 var EnergyLevelImage = new Image();
@@ -384,8 +384,8 @@ function animateEnergyLevel() {
         EnergyLevelCol = 0;
         }
     }
-    
-    
+
+
     var position = EnergyLevelPositionToImage(EnergyLevelRow, EnergyLevelCol);
     EnergyLevelContext.clearRect(
         0,
@@ -431,11 +431,11 @@ function EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol) {
     }
 }
 
-var EnergyCoreCanvas = document.getElementById('energy-core');
+var EnergyCoreCanvas = document.getElementById('Energy-core');
 var EnergyCoreContext = EnergyCoreCanvas.getContext('2d');
 
 var EnergyCoreImage = new Image();
-EnergyCoreImage.src = "assets/img/stats-middle-icon/energy-core.png";
+EnergyCoreImage.src = "assets/img/stats-middle-icon/Energy-core.png";
 EnergyCoreImage.crossOrigin = "true";
 EnergyCoreCanvas.width = EnergyCore_WIDTH;
 EnergyCoreCanvas.height = EnergyCore_HEIGHT;
@@ -453,8 +453,8 @@ function animateEnergyCore() {
         EnergyCoreCol = 0;
         }
     }
-    
-    
+
+
     var position = EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol);
     EnergyCoreContext.clearRect(
         0,
@@ -501,7 +501,7 @@ function EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol) {
     }
 }
 
-var EnergyRegenCanvas = document.getElementById('energy-regen');
+var EnergyRegenCanvas = document.getElementById('Energy-regen');
 var EnergyRegenContext = EnergyRegenCanvas.getContext('2d');
 
 var EnergyRegenImage = new Image();
@@ -517,7 +517,7 @@ function animateEnergyRegen() {
         if (EnergyRegenCol === 5){
             EnergyRegenRow = 0;
             EnergyRegenCol = 0;
-        }  
+        }
     } else if (EnergyRegenCol === 6) {
         EnergyRegenCol = 0;
         EnergyRegenRow += 1;
@@ -572,8 +572,8 @@ function animateEnergyRegen() {
             }
         }
     }
-    
-    
+
+
     var position = EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol);
     EnergyRegenContext.clearRect(
         0,
@@ -604,18 +604,18 @@ EnergyRegenImage.onload = function() {
 // end of energy
 
 // start of deadeye
-var deadeye = 32;
-deadeye_timer();
+var Deadeye = 32;
+Deadeye_timer();
 var smokecounter = 0;
 var DeadeyeLevel = 1;
 
 function smoke() {
-    if(deadeye > 32){
-        deadeye = 32;
-    } else if (deadeye > 30){
-        deadeye = 32;
+    if(Deadeye > 32){
+        Deadeye = 32;
+    } else if (Deadeye > 30){
+        Deadeye = 32;
     } else {
-        deadeye = deadeye + 2;
+        Deadeye = Deadeye + 2;
     }
     smokecounter = smokecounter + 1;
     console.log(smokecounter);
@@ -626,26 +626,26 @@ function smoke() {
             DeadeyeLevel = 8;
         }else {
             animateDeadeyeLevel();
-            console.log('next deadeye level');
+            console.log('next Deadeye level');
         }
-        console.log('deadeye level = ' + DeadeyeLevel);
+        console.log('Deadeye level = ' + DeadeyeLevel);
     }
-    document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
-    clearInterval(teller_function_deadeye); /// vragen Kelvin
-    deadeye_timer();
+    document.getElementById("countdown3").innerText = 'Deadeye ' + Deadeye;
+    clearInterval(teller_function_Deadeye); /// vragen Kelvin
+    Deadeye_timer();
 }
 
-function deadeye_timer(){
-    var teller_function_deadeye = setInterval(function () {
-        deadeye--;
-        document.getElementById("countdown3").innerText = 'deadeye ' + deadeye;
-        if (deadeye <= 0) {
-            clearInterval(teller_function_deadeye);
-            document.getElementById("countdown3").innerText = "deadeye is drained";
+function Deadeye_timer(){
+    var teller_function_Deadeye = setInterval(function () {
+        Deadeye--;
+        document.getElementById("countdown3").innerText = 'Deadeye ' + Deadeye;
+        if (Deadeye <= 0) {
+            clearInterval(teller_function_Deadeye);
+            document.getElementById("countdown3").innerText = "Deadeye is drained";
         }
     }, 5000);
 }
-// deadeye level start
+// Deadeye level start
 const DeadeyeLevel_WIDTH = 130;
 const DeadeyeLevel_HEIGHT = 130;
 const DeadeyeLevel_BORDER_WIDTH = 0;
@@ -664,7 +664,7 @@ function DeadeyeLevelPositionToImage(DeadeyeLevelRow, DeadeyeLevelCol) {
     }
 }
 
-var DeadeyeLevelCanvas = document.getElementById('deadeye-level');
+var DeadeyeLevelCanvas = document.getElementById('Deadeye-level');
 var DeadeyeLevelContext = DeadeyeLevelCanvas.getContext('2d');
 
 var DeadeyeLevelImage = new Image();
@@ -686,8 +686,8 @@ function animateDeadeyeLevel() {
         DeadeyeLevelCol = 0;
         }
     }
-    
-    
+
+
     var position = DeadeyeLevelPositionToImage(DeadeyeLevelRow, DeadeyeLevelCol);
     DeadeyeLevelContext.clearRect(
         0,
@@ -734,11 +734,11 @@ function DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol) {
     }
 }
 
-var DeadeyeCoreCanvas = document.getElementById('deadeye-core');
+var DeadeyeCoreCanvas = document.getElementById('Deadeye-core');
 var DeadeyeCoreContext = DeadeyeCoreCanvas.getContext('2d');
 
 var DeadeyeCoreImage = new Image();
-DeadeyeCoreImage.src = "assets/img/stats-middle-icon/deadeye-core.png";
+DeadeyeCoreImage.src = "assets/img/stats-middle-icon/Deadeye-core.png";
 DeadeyeCoreImage.crossOrigin = "true";
 DeadeyeCoreCanvas.width = DeadeyeCore_WIDTH;
 DeadeyeCoreCanvas.height = DeadeyeCore_HEIGHT;
@@ -754,8 +754,8 @@ function animateDeadeyeCore() {
         DeadeyeCoreRow = 0;
         DeadeyeCoreCol = 0;
     }
-    
-    
+
+
     var position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
     DeadeyeCoreContext.clearRect(
         0,
@@ -782,7 +782,7 @@ DeadeyeCoreImage.onload = function() {
     setInterval(animateDeadeyeCore, 500);
 };
 
-// deadeye core end 
+// deadeye core end
 
 // start of Deadeye regen
 const DeadeyeRegen_WIDTH = 130;
@@ -803,7 +803,7 @@ function DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol) {
     }
 }
 
-var DeadeyeRegenCanvas = document.getElementById('deadeye-regen');
+var DeadeyeRegenCanvas = document.getElementById('Deadeye-regen');
 var DeadeyeRegenContext = DeadeyeRegenCanvas.getContext('2d');
 
 var DeadeyeRegenImage = new Image();
@@ -819,7 +819,7 @@ function animateDeadeyeRegen() {
         if (DeadeyeRegenCol === 5){
             DeadeyeRegenRow = 0;
             DeadeyeRegenCol = 0;
-        }  
+        }
     } else if (DeadeyeRegenCol === 6) {
         DeadeyeRegenCol = 0;
         DeadeyeRegenRow += 1;
@@ -874,8 +874,8 @@ function animateDeadeyeRegen() {
             }
         }
     }
-    
-    
+
+
     var position = DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol);
     DeadeyeRegenContext.clearRect(
         0,
@@ -903,7 +903,7 @@ DeadeyeRegenImage.onload = function() {
 };
 // end of Deadeye regen
 
-// end of deadeye
+// end of Deadeye
 
 // start daynight
 var sun = -3.125;
@@ -922,9 +922,9 @@ function day(){
 
                 if (teller_function_day > 3){
                     clearInterval(teller_function_day)
-                    night()   
+                    night()
                 }
-        
+
             }, 3000);
         } else if (moon >  3.125){
             document.getElementById("body").style.backgroundColor = "#10103c";
@@ -953,9 +953,9 @@ function night(){
 
                 if (teller_function_night > 3){
                     clearInterval(teller_function_night)
-                    day()   
+                    day()
                 }
-        
+
             }, 3000);
         } else if (sun >  3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
@@ -965,7 +965,7 @@ function night(){
             document.getElementById("body").style.backgroundColor = "#10103c";
         } else if( moon < 0){
             document.getElementById("body").style.backgroundColor = "skyblue";
-        } 
+        }
 
     }, 150);
 }
@@ -1000,7 +1000,7 @@ const body = document.body;
 
 startButton.addEventListener('click', () => {
     backgroundMusic.play();
-    Box.classList.add('hidden');
+   Box.classList.add('hidden');
     body.style.filter = 'none';
 });
 // end music
