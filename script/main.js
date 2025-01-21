@@ -906,33 +906,33 @@ DeadeyeRegenImage.onload = function() {
 // end of Deadeye
 
 // start daynight
-var Sun = -3.125;
-var Moon = -3.125;
-Day()
-function Day(){
+var sun = -3.125;
+var moon = -3.125;
+day()
+function day(){
     var teller_function_sun = setInterval(function () {
-        Sun=Sun + 0.625;
-        document.getElementById("Sun").style.bottom = Sun + 'em';
-        Moon=Moon - 0.625;
-        document.getElementById("Moon").style.bottom = Moon + 'em';
-        if (Sun > 37.5){
+        sun=sun + 0.625;
+        document.getElementById("sun").style.bottom = sun + 'em';
+        moon=moon - 0.625;
+        document.getElementById("moon").style.bottom = moon + 'em';
+        if (sun > 37.5){
             document.getElementById("body").style.backgroundColor = "skyblue";
-            clearInterval(teller_function_Sun);
-            var teller_function_Day = setInterval(function () {
+            clearInterval(teller_function_sun);
+            var teller_function_day = setInterval(function () {
 
-                if (teller_function_Day > 3){
-                    clearInterval(teller_function_Day)
+                if (teller_function_day > 3){
+                    clearInterval(teller_function_day)
                     night()
                 }
 
             }, 3000);
-        } else if (Moon >  3.125){
+        } else if (moon >  3.125){
             document.getElementById("body").style.backgroundColor = "#10103c";
-        } else if (Sun <  3.125){
+        } else if (sun <  3.125){
             document.getElementById("body").style.backgroundColor = "#ea9087";
-        } else if (Sun > 3.125){
+        } else if (sun > 3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
-        } else if( Sun < 0){
+        } else if( sun < 0){
             document.getElementById("body").style.backgroundColor = "#10103c";
 
         }
@@ -940,30 +940,30 @@ function Day(){
     }, 150);
 }
 function night(){
-    var teller_function_Moon = setInterval(function () {
-        Sun=Sun - 0.625;
-        document.getElementById("Sun").style.bottom = Sun + 'em';
-        Moon=Moon + 0.625;
-        document.getElementById("Moon").style.bottom = Moon + 'em';
-        if (Moon > 37.5){
+    var teller_function_moon = setInterval(function () {
+        sun=sun - 0.625;
+        document.getElementById("sun").style.bottom = sun + 'em';
+        moon=moon + 0.625;
+        document.getElementById("moon").style.bottom = moon + 'em';
+        if (moon > 37.5){
             document.getElementById("body").style.backgroundColor = "#10103c";
 
-            clearInterval(teller_function_Moon);
+            clearInterval(teller_function_moon);
             var teller_function_night = setInterval(function () {
 
                 if (teller_function_night > 3){
                     clearInterval(teller_function_night)
-                    Day()
+                    day()
                 }
 
             }, 3000);
-         else if (Sun >  3.125){
+        } else if (sun >  3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
-        } else if (Moon <  3.125){
+        } else if (moon <  3.125){
             document.getElementById("body").style.backgroundColor = "orange";
-        } else if (Moon >  3.125){
+        } else if (moon >  3.125){
             document.getElementById("body").style.backgroundColor = "#10103c";
-        } else if( Moon < 0){
+        } else if( moon < 0){
             document.getElementById("body").style.backgroundColor = "skyblue";
         }
 
