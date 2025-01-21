@@ -957,11 +957,8 @@ function Night(){
                 }
         
             }, 3000);
-<<<<<<< HEAD
-        } else if (Sun >  3.125){
-=======
-        } else if (sun >  3.125){ 
->>>>>>> origin/tamagotchi
+
+        } else if (sun >  3.125){
             document.getElementById("body").style.backgroundColor = "skyblue";
         } else if (Moon <  3.125){
             document.getElementById("body").style.backgroundColor = "orange";
@@ -983,11 +980,7 @@ var Clouds = [
     { id: "Cloud5", left: 50 },
     { id: "Cloud6", left: 87.5 }
 ];
-<<<<<<< HEAD
-function UpdateCloud(CloudEach) {
-=======
-function updateCloud(CloudEach){
->>>>>>> origin/tamagotchi
+function UpdateCloud(CloudEach){
     CloudEach.left += 0.625;
     if (CloudEach.left < 96.25) {
         document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
