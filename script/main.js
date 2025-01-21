@@ -979,7 +979,7 @@ var Clouds = [
     { id: "cloud5", left: 50 },
     { id: "cloud6", left: 87.5 }
 ];
-function UpdateCloud(CloudEach){
+function UpdateCloud(CloudEach) {
     CloudEach.left += 0.625;
     if (CloudEach.left < 96.25) {
         document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
