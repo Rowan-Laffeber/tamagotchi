@@ -588,9 +588,9 @@ day()
 function day(){
     var teller_fuction_sun = setInterval(function () {
         sun=sun + 0.625;
-        document.getElementById("sun").style.bottom = sun + 'em';
+        document.getElementById("Sun").style.bottom = sun + 'em';
         moon=moon - 0.625;
-        document.getElementById("moon").style.bottom = moon + 'em';
+        document.getElementById("Moon").style.bottom = moon + 'em';
         if (sun > 37.5){
             document.getElementById("body").style.backgroundColor = "skyblue";
             clearInterval(teller_fuction_sun);
@@ -618,9 +618,9 @@ function day(){
 function night(){
     var teller_fuction_moon = setInterval(function () {
         sun=sun - 0.625;
-        document.getElementById("sun").style.bottom = sun + 'em';
+        document.getElementById("Sun").style.bottom = sun + 'em';
         moon=moon + 0.625;
-        document.getElementById("moon").style.bottom = moon + 'em';
+        document.getElementById("Moon").style.bottom = moon + 'em';
         if (moon > 37.5){
             document.getElementById("body").style.backgroundColor = "#10103c";
 
