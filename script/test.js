@@ -592,7 +592,7 @@ function day(){
         moon=moon - 0.625;
         document.getElementById("Moon").style.bottom = moon + 'em';
         if (sun > 37.5){
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
             clearInterval(teller_fuction_sun);
             var teller_fuction_day = setInterval(function () {
 
@@ -603,13 +603,13 @@ function day(){
         
             }, 3000);
         } else if (moon >  3.125){
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
         } else if (sun <  3.125){
-            document.getElementById("body").style.backgroundColor = "#ea9087";
+            document.getElementById("Body").style.backgroundColor = "#ea9087";
         } else if (sun > 3.125){
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
         } else if( sun < 0){
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
 
         }
 
@@ -622,7 +622,7 @@ function night(){
         moon=moon + 0.625;
         document.getElementById("Moon").style.bottom = moon + 'em';
         if (moon > 37.5){
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
 
             clearInterval(teller_fuction_moon);
             var teller_fuction_night = setInterval(function () {
@@ -634,13 +634,13 @@ function night(){
         
             }, 3000);
         } else if (sun >  3.125){
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
         } else if (moon <  3.125){
-            document.getElementById("body").style.backgroundColor = "orange";
+            document.getElementById("Body").style.backgroundColor = "orange";
         } else if (moon >  3.125){
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
         } else if( moon < 0){
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
         } 
 
     }, 150);

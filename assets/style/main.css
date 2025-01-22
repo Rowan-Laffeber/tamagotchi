@@ -23,7 +23,7 @@ div.body-test{
     }
 }
 /* @media (min-width: 1440px) {
-    body {
+    Body {
         font-size: 19.8px;
     }
 } */
@@ -32,7 +32,7 @@ div.body-test{
         font-size: 24px;
     }
 }
-.grass {
+.Grass {
     position: fixed;
     bottom: 0;
     z-index: 11;
@@ -40,7 +40,7 @@ div.body-test{
     width: 96.25em;
     height: 2.5em;
 }
-.home{
+.Home{
     position: fixed;
     background-image: url("../img/Home/home.png");
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@ div.body-test{
     bottom: -165px;
     height: 50em;
 }
-.tree{
+.Tree{
     position: fixed;
     bottom: -0.625em;
     z-index: 7;
@@ -57,7 +57,7 @@ div.body-test{
     width: 26.875em;
     height: 32.5em;
 }
-.apple-ground{
+.AppleGround{
     position: fixed;
     left: 40em;
     bottom: 1.25em;
@@ -65,7 +65,7 @@ div.body-test{
     width: 3.75em;
     height: 3.75em;
 }
-.apple-tree1{
+.AppleTree1{
     position: fixed;
     left: 56.25em;
     bottom: 14.375em;
@@ -73,7 +73,7 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.apple-tree2{
+.AppleTree2{
     position: fixed;
     left: 51.875em;
     bottom: 25em;
@@ -81,7 +81,7 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.apple-tree3{
+.AppleTree3{
     position: fixed;
     left: 46.875em;
     bottom: 15.625em;
@@ -89,7 +89,7 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.apple-tree4{
+.AppleTree4{
     position: fixed;
     left: 43.75em;
     bottom: 23.75em;
@@ -97,7 +97,7 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.apple-tree5{
+.AppleTree5{
     position: fixed;
     left: 40em;
     bottom: 18.75em;
@@ -105,7 +105,7 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.stone{
+.Stone{
     position: fixed;
     bottom: 0.625em;
     z-index: 8;
@@ -113,7 +113,7 @@ div.body-test{
     width: 6.875em;
     height: 4.375em;
 }
-.sprite {
+.Sprite {
         position: fixed;
         bottom: 0.625em;
         left: 9.375em;
@@ -131,7 +131,7 @@ div.body-test{
 }
 
 
-.speech-bubble{
+.SpeechBubble{
     position: fixed;
     bottom: 14.375em;
     left: 17.5em;
@@ -140,7 +140,7 @@ div.body-test{
     width: 22.5em;
     height: 13.75em;
 }
-.cloud1{
+.Cloud1{
     position: fixed;
     bottom: 39.375em;
     z-index: 2;
@@ -148,7 +148,7 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.cloud2{
+.Cloud2{
     position: fixed;
     bottom: 35.625em;
     z-index: 3;
@@ -156,7 +156,7 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.cloud3{
+.Cloud3{
     position: fixed;
     bottom: 33.125em;
     z-index: 4;
@@ -164,7 +164,7 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.cloud4{
+.Cloud4{
     position: fixed;
     bottom: 34.375em;
     z-index: 5;
@@ -172,7 +172,7 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.cloud5{
+.Cloud5{
     position: fixed;
     bottom: 31.25em;
     z-index: 6;
@@ -180,7 +180,7 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.cloud6{
+.Cloud6{
     position: fixed;
     bottom: 37.5em;
     z-index: 7;
@@ -188,7 +188,7 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.sun{
+.Sun{
     position: fixed;
     bottom: -3.125em;
     z-index: 0;
@@ -196,7 +196,7 @@ div.body-test{
     width: 6.25em;
     height: 6.25em;
 }
-.moon{
+.Moon{
     position: fixed;
     bottom: -3.125em;
     z-index: 1;
@@ -204,7 +204,7 @@ div.body-test{
     width: 6.25em;
     height: 6.25em;
 }
-.icon-heart{
+.IconHeart{
     position: fixed;
     left: 2.5em;
     bottom: 39.375em;
@@ -212,7 +212,7 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.healthlevels canvas{
+.HealthLevels canvas{
     position: fixed;
     left: 0.625em;
     bottom: 37.5em;
@@ -220,7 +220,7 @@ div.body-test{
     width: 8.125em;
     height: 8.125em;
 }
-.icon-energy{
+.IconEnergy{
     position: fixed;
     left: 11.25em;
     bottom: 39.375em;
@@ -237,7 +237,7 @@ div.body-test{
     height: 8.125em;
 
 }
-.icon-deadeye{
+.IconDeadeye{
     position: fixed;
     left: 20em;
     bottom: 39.375em;
@@ -253,16 +253,16 @@ div.body-test{
     width: 8.125em;
     height: 8.125em;
 }
-.counters{
+.Counters{
     position: fixed;
     z-index: 50;
     bottom: 25em;
 }
-.counter{
+.Counter{
     color: #575757;
 }
 
-.box {
+.Box {
     position: fixed;
     left: 20em;
     bottom: 12em;
@@ -283,12 +283,12 @@ div.body-test{
     bottom: auto;
  } */
 
-.box h1, p {
+.Box h1, p {
     font-size: 50px;
     margin: 0 0 10px;
 } 
 
-.start {
+.Start {
     background: #ff0000;
     color: #fff;
     border: none;
@@ -299,14 +299,14 @@ div.body-test{
     transition: 0.3s;
 }
 
-.start:hover {
+.Start:hover {
     background: #cc0000;
 }
 
-.game-started body {
+.GameStarted body {
     filter: none;
 }
 
-.box.hidden {
+.Box.hidden {
     display: none;
 }

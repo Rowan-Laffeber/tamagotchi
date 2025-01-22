@@ -924,7 +924,7 @@ function Day(){
         Moon = Moon - 0.625;
         document.getElementById("Moon").style.bottom = Moon + 'em';
         if (Sun > 37.5) {
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
             clearInterval(TellerFunctionSun);
             let TellerFunctionDay = setInterval(function () {
 
@@ -935,13 +935,13 @@ function Day(){
 
             }, 3000);
         } else if (Moon > 3.125) {
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
         } else if (Sun < 3.125) {
-            document.getElementById("body").style.backgroundColor = "#ea9087";
+            document.getElementById("Body").style.backgroundColor = "#ea9087";
         } else if (Sun > 3.125) {
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
         } else if (Sun < 0) {
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
 
         }
 
@@ -954,7 +954,7 @@ function Night(){
         Moon = Moon + 0.625;
         document.getElementById("Moon").style.bottom = Moon + 'em';
         if (Moon > 37.5) {
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
 
             clearInterval(TellerFunctionMoon);
             let TellerFunctionNight = setInterval(function () {
@@ -966,13 +966,13 @@ function Night(){
 
             }, 3000);
         } else if (Sun > 3.125) {
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
         } else if (Moon < 3.125) {
-            document.getElementById("body").style.backgroundColor = "orange";
+            document.getElementById("Body").style.backgroundColor = "orange";
         } else if (Moon > 3.125) {
-            document.getElementById("body").style.backgroundColor = "#10103c";
+            document.getElementById("Body").style.backgroundColor = "#10103c";
         } else if (Moon < 0) {
-            document.getElementById("body").style.backgroundColor = "skyblue";
+            document.getElementById("Body").style.backgroundColor = "skyblue";
         }
 
     }, 150);
@@ -1006,12 +1006,12 @@ let CloudCounter = setInterval(function () {
 const StartButton = document.getElementById('StartBtn');
 const Box = document.getElementById('Box');
 const BackgroundMusic = document.getElementById('BackgroundMusic');
-const body = document.body;
+const Body = document.body;
 
 StartButton.addEventListener('click', () => {
     BackgroundMusic.play();
     Box.classList.add('hidden');
-    body.style.filter = 'none';
+    Body.style.filter = 'none';
 });
 // end music
 // Sprite Arthur
