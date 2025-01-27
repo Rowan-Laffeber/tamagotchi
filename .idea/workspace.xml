@@ -7,11 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ff83ab3-7a55-4774-8316-a6b19d4c9678" name="Changes" comment="">
+    <list default="true" id="2ff83ab3-7a55-4774-8316-a6b19d4c9678" name="Changes" comment="changed sun and moon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -71,11 +73,21 @@
       <recent name="$PROJECT_DIR$/script" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="main.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/script/main.js" working-dir="$PROJECT_DIR$/script">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.main.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PS-243.22562.233" />
-        <option value="bundled-php-predefined-a98d8de5180a-7980c7aaca61-com.jetbrains.php.sharedIndexes-PS-243.22562.233" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PS-243.23654.115" />
+        <option value="bundled-php-predefined-a98d8de5180a-4c3855d0ab16-com.jetbrains.php.sharedIndexes-PS-243.23654.115" />
       </set>
     </attachedChunks>
   </component>
@@ -91,7 +103,9 @@
       <workItem from="1736928648328" duration="4472000" />
       <workItem from="1736944549788" duration="10668000" />
       <workItem from="1736972312145" duration="17546000" />
-      <workItem from="1737370989865" duration="6863000" />
+      <workItem from="1737370989865" duration="7008000" />
+      <workItem from="1737382689418" duration="4106000" />
+      <workItem from="1737543915899" duration="906000" />
     </task>
     <servers />
   </component>

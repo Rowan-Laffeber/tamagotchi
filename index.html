@@ -9,73 +9,73 @@
 </head>
 
 
-<body id="body">
-    <div class="counters">
-        <h2 class="counter" id="countdown1">-</h2>
-        <h2 class="counter" id="countdown2">-</h2><button id="sleep" onclick="sleep()">slaap</button>
-        <h2 class="counter" id="countdown3">-</h2><button id="smoke" onclick="smoke()">rook</button>
+<body id="Body">
+    <div class="Counters">
+        <h2 class="Counter" id="CountDown1">-</h2>
+        <h2 class="Counter" id="CountDown2">-</h2><button id="Sleep" onclick="sleep()">slaap</button>
+        <h2 class="Counter" id="CountDown3">-</h2><button id="Smoke" onclick="Smoke()">rook</button>
     </div>
-    <div class="stats" id="stats">
-        <canvas class="icon-heart" id="health-core" width="70" height="70"></canvas>
-        <div id="HealthLevels" class="healthlevels">
-            <canvas id="health-level" width="130" height="130"></canvas>
-            <canvas id="health-regen" width="130" height="130"></canvas>
+    <div class="Stats" id="Stats">
+        <canvas class="IconHeart" id="HealthCore" width="70" height="70"></canvas>
+        <div id="HealthLevels" class="HealthLevels">
+            <canvas id="HealthLevel" width="130" height="130"></canvas>
+            <canvas id="HealthRegen" width="130" height="130"></canvas>
         </div>
-        <canvas class="icon-energy" id="energy-core" width="70" height="70"></canvas>
+        <canvas class="IconEnergy" id="EnergyCore" width="70" height="70"></canvas>
         <div id="EnergyLevels" class="EnergyLevels">
-            <canvas id="energy-level" width="130" height="130"></canvas>
-            <canvas id="energy-regen" width="130" height="130"></canvas>
+            <canvas id="EnergyLevel" width="130" height="130"></canvas>
+            <canvas id="EnergyRegen" width="130" height="130"></canvas>
         </div>
-        <canvas class="icon-deadeye" id="deadeye-core" width="70" height="70"></canvas>
+        <canvas class="IconDeadeye" id="DeadeyeCore" width="70" height="70"></canvas>
         <div id="DeadeyeLevels" class="DeadeyeLevels">
-            <canvas id="deadeye-level" width="130" height="130"></canvas>
-            <canvas id="deadeye-regen" width="130" height="130"></canvas>
+            <canvas id="DeadeyeLevel" width="130" height="130"></canvas>
+            <canvas id="DeadeyeRegen" width="130" height="130"></canvas>
         </div>
     </div>
     <div class="Arthurs" id="Arthurs">
-        <img id="speech-bubble" class="speech-bubble" src="assets/img/speech-bubble.png" alt="">
+        <img id="SpeechBubble" class="SpeechBubble" src="assets/img/speech-bubble.png" alt="">
     </div>
-    <canvas class="sprite" id="ArthurCanvas" width="320" height="320"></canvas>
-    <div id="arthur" class="sprite"></div>
+    <canvas class="Sprite" id="ArthurCanvas" width="320" height="320"></canvas>
+    <div id="Arthur" class="Sprite"></div>
 
-    <div class="environment" id="environment">
-        <div class="plants" id="plants">
+    <div class="Environment" id="Environment">
+        <div class="Plants" id="Plants">
             <div class="AppleTree" id="AppleTree">
-                <img class="tree" src="assets/img/tree.png" alt="">
-                <img class="apple-ground" src="assets/img/apple-ground.png" alt="" id="eat" onclick="eat()">
-                <img class="apple-tree1" src="assets/img/apple-in-tree.png" alt="">
-                <img class="apple-tree2" src="assets/img/apple-in-tree.png" alt="">
-                <img class="apple-tree3" src="assets/img/apple-in-tree.png" alt="">
-                <img class="apple-tree4" src="assets/img/apple-in-tree.png" alt="">
-                <img class="apple-tree5" src="assets/img/apple-in-tree.png" alt="">
+                <img class="Tree" src="assets/img/tree.png" alt="">
+                <img class="AppleGround" src="assets/img/apple-ground.png" alt="" id="eat" onclick="eat()">
+                <img class="AppleTree1" src="assets/img/apple-in-tree.png" alt="">
+                <img class="AppleTree2" src="assets/img/apple-in-tree.png" alt="">
+                <img class="AppleTree3" src="assets/img/apple-in-tree.png" alt="">
+                <img class="AppleTree4" src="assets/img/apple-in-tree.png" alt="">
+                <img class="AppleTree5" src="assets/img/apple-in-tree.png" alt="">
             </div>
-            <div class="home">
-                <img class="home" src="assets/img/Home/home.png" alt="">
+            <div class="Home">
+                <img class="Home" src="assets/img/Home/home.png" alt="">
             </div>
-            <img class="grass" src="assets/img/grass.png" alt="">
-            <img class="stone" src="assets/img/stone.png" alt="">
+            <img class="Grass" src="assets/img/grass.png" alt="">
+            <img class="Stone" src="assets/img/stone.png" alt="">
         </div>
     </div>
-    <div class="weather" id="weather">
-        <div class="clouds" id="clouds">
-            <img id="cloud1" class="cloud1" src="assets/img/cloud3.png" alt="">
-            <img id="cloud2" class="cloud2" src="assets/img/cloud3.png" alt="">
-            <img id="cloud3" class="cloud3" src="assets/img/cloud3.png" alt="">
-            <img id="cloud4" class="cloud4" src="assets/img/cloud3.png" alt="">
-            <img id="cloud5" class="cloud5" src="assets/img/cloud3.png" alt="">
-            <img id="cloud6" class="cloud6" src="assets/img/cloud3.png" alt="">
+    <div class="Weather" id="Weather">
+        <div class="clouds" id="Clouds">
+            <img id="Cloud1" class="Cloud1" src="assets/img/cloud3.png" alt="">
+            <img id="Cloud2" class="Cloud2" src="assets/img/cloud3.png" alt="">
+            <img id="Cloud3" class="Cloud3" src="assets/img/cloud3.png" alt="">
+            <img id="Cloud4" class="Cloud4" src="assets/img/cloud3.png" alt="">
+            <img id="Cloud5" class="Cloud5" src="assets/img/cloud3.png" alt="">
+            <img id="Cloud6" class="Cloud6" src="assets/img/cloud3.png" alt="">
         </div>
-        <div class="day-night" id="day-night">
-            <img class="sun" id="sun" src="assets/img/sun.png" alt="">
-            <img class="moon" id="moon" src="assets/img/moon.png" alt="">
+        <div class="DayNight" id="DayNight">
+            <img class="Sun" id="Sun" src="assets/img/sun.png" alt="">
+            <img class="Moon" id="Moon" src="assets/img/moon.png" alt="">
         </div>
     </div>
-    <div class="box" id="Box">
+    <div class="Box" id="Box">
         <h1>Red Dead Redemption Pixel</h1>
         <p>Press start to begin!</p>
-        <button class="start" id="startBtn">Start</button>
+        <button class="Start" id="StartBtn">Start</button>
     </div>
-    <audio id="backgroundMusic" src="assets/background-music/Reddead.mp3" loop></audio>
+    <audio id="BackgroundMusic" src="assets/background-music/Reddead.mp3" loop></audio>
         <!-- <div id="Arthur">
             </div> -->
     <script src="script/main.js"></script>
