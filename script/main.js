@@ -4,6 +4,22 @@ HealthTimer();
 let EatCounter = 0;
 let HealthLevel = 1;
 
+function HealthTimer(){
+    let TellerFunctionHealth = setInterval(function () {
+        Health--;
+        document.getElementById("CountDown1").innerText = 'Health ' + Health;
+        if (Health <= 0) {
+            clearInterval(TellerFunctionHealth);
+            document.getElementById("CountDown1").innerText = "you are dead";
+        } else if (Health < 16) {
+            document.getElementById("SpeechBubble").style.display = "block";
+
+        } else {
+            document.getElementById("SpeechBubble").style.display = "none";
+        }
+    }, 1000);
+}
+
 function eat() {
     if(Health > 32){
         Health = 32;
@@ -29,21 +45,7 @@ function eat() {
     clearInterval(TellerFunctionHealth); ///vragen Kelvin
     HealthTimer();
 }
-function HealthTimer(){
-    let TellerFunctionHealth = setInterval(function () {
-        Health--;
-        document.getElementById("CountDown1").innerText = 'Health ' + Health;
-        if (Health <= 0) {
-            clearInterval(TellerFunctionHealth);
-            document.getElementById("CountDown1").innerText = "you are dead";
-        } else if (Health < 16) {
-            document.getElementById("SpeechBubble").style.display = "block";
 
-        } else {
-            document.getElementById("SpeechBubble").style.display = "none";
-        }
-    }, 1000);
-}
 // start Health levels
 const HealthLevelWidth = 130;
 const HealthLevelHeight = 130;
@@ -75,7 +77,7 @@ HealthLevelCanvas.height = HealthLevelHeight;
 let HealthLevelRow = 0;
 let HealthLevelCol = 0;
 
-function animateHealthLevel() {
+function AnimateHealthLevel() {
     if (HealthLevelCol === 3) {
         HealthLevelCol = 0;
         HealthLevelRow += 1;
@@ -110,7 +112,7 @@ function animateHealthLevel() {
 }
 
 HealthLevelImage.onload = function() {
-    animateHealthLevel();
+    AnimateHealthLevel();
 };
 // end Health levels
 
@@ -145,7 +147,7 @@ HealthCoreCanvas.height = HealthCoreHeight;
 let HealthCoreRow = 0;
 let HealthCoreCol = 0;
 
-function animateHealthCore() {
+function AnimateHealthCore() {
     if (HealthCoreCol === 3) {
         HealthCoreCol = 0;
         HealthCoreRow += 1;
@@ -181,7 +183,7 @@ function animateHealthCore() {
 
 HealthCoreImage.onload = function() {
     // animateHealthCore();
-    setInterval(animateHealthCore, 500);
+    setInterval(AnimateHealthCore, 500);
 };
 // end Health core
 
@@ -194,8 +196,8 @@ const HealthRegenSpacingWidth = 0;
 function HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol) {
     return {
         x: (
-            HealthRegenWidth +
-            HealthRegenCol * (HealthRegenWidth + HealthRegenWidth)
+            HealthRegenBorderWidth +
+            HealthRegenCol * (HealthRegenSpacingWidth + HealthRegenWidth)
         ),
         y: (
             HealthRegenBorderWidth +
@@ -216,11 +218,11 @@ HealthRegenCanvas.height = HealthRegenHeight;
 let HealthRegenRow = 0;
 let HealthRegenCol = 0;
 
-function animateHealthRegen() {
+function AnimateHealthRegen() {
     if (HealthLevel === 1){
         if (HealthRegenCol === 5){
             HealthRegenRow = 0;
-            HealthRegenCol = 0;
+            HealthRegenCol = 4;
         }
     } else if (HealthRegenCol === 6) {
         HealthRegenCol = 0;
@@ -229,54 +231,56 @@ function animateHealthRegen() {
     if (HealthLevel === 2){
         if (HealthRegenRow === 1) {
             if (HealthRegenCol === 3){
-                HealthRegenRow = 0;
-                HealthRegenCol = 0;
+                HealthRegenRow = 1;
+                HealthRegenCol = 2;
             }
         }
     } else if (HealthLevel === 3){
         if (HealthRegenRow === 2) {
             if (HealthRegenCol === 1){
-                HealthRegenRow = 0;
+                HealthRegenRow = 2;
                 HealthRegenCol = 0;
             }
         }
     } else if (HealthLevel === 4){
         if (HealthRegenRow === 2) {
             if (HealthRegenCol === 5){
-                HealthRegenRow = 0;
-                HealthRegenCol = 0;
+                HealthRegenRow = 2;
+                HealthRegenCol = 4;
             }
         }
     } else if (HealthLevel === 5){
         if (HealthRegenRow === 3) {
             if (HealthRegenCol === 3){
-                HealthRegenRow = 0;
-                HealthRegenCol = 0;
+                HealthRegenRow = 3;
+                HealthRegenCol = 2;
             }
         }
     } else if (HealthLevel === 6){
         if (HealthRegenRow === 4) {
             if (HealthRegenCol === 1){
-                HealthRegenRow = 0;
+                HealthRegenRow = 4;
                 HealthRegenCol = 0;
             }
         }
     } else if (HealthLevel === 7){
         if (HealthRegenRow === 4) {
             if (HealthRegenCol === 5){
-                HealthRegenRow = 0;
-                HealthRegenCol = 0;
+                HealthRegenRow = 4;
+                HealthRegenCol = 4;
             }
         }
     } else if (HealthLevel === 8){
         if (HealthRegenRow === 5) {
             if (HealthRegenCol === 3){
-                HealthRegenRow = 0;
-                HealthRegenCol = 0;
+                HealthRegenRow = 5;
+                HealthRegenCol = 2;
             }
         }
     }
-    const position = HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol);
+
+
+    let position = HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol);
     HealthRegenContext.clearRect(
         0,
         0,
@@ -299,7 +303,7 @@ function animateHealthRegen() {
 
 HealthRegenImage.onload = function() {
     // animateHealthRegen();
-    setInterval(animateHealthRegen, 500);
+    setInterval(AnimateHealthRegen, 500);
 };
 // end of Health regen
 // end of Health
@@ -326,7 +330,7 @@ function sleep() {
         if (EnergyLevel > 8){
             EnergyLevel = 8;
         } else {
-            animateEnergyLevel();
+            AnimateEnergyLevel();
             console.log('next Energy level');
         }
         console.log('EnergyLevel = ' + EnergyLevel);
@@ -376,7 +380,7 @@ EnergyLevelCanvas.height = EnergyLevelHeight;
 let EnergyLevelRow = 0;
 let EnergyLevelCol = 0;
 
-function animateEnergyLevel() {
+function AnimateEnergyLevel() {
     if (EnergyLevelCol === 3) {
         EnergyLevelCol = 0;
         EnergyLevelRow += 1;
@@ -411,7 +415,7 @@ function animateEnergyLevel() {
 }
 
 EnergyLevelImage.onload = function() {
-    animateEnergyLevel();
+    AnimateEnergyLevel();
 };
 // end Energy levels
 
@@ -446,7 +450,7 @@ EnergyCoreCanvas.height = EnergyCoreHeight;
 let EnergyCoreRow = 0;
 let EnergyCoreCol = 0;
 
-function animateEnergyCore() {
+function AnimateEnergyCore() {
     if (EnergyCoreCol === 3) {
         EnergyCoreCol = 0;
         EnergyCoreRow += 1;
@@ -482,7 +486,7 @@ function animateEnergyCore() {
 
 EnergyCoreImage.onload = function() {
     // animateEnergyCore();
-    setInterval(animateEnergyCore, 500);
+    setInterval(AnimateEnergyCore, 500);
 };
 // end Energy core
 
@@ -517,11 +521,11 @@ EnergyRegenCanvas.height = EnergyRegenHeight;
 let EnergyRegenRow = 0;
 let EnergyRegenCol = 0;
 
-function animateEnergyRegen() {
+function AnimateEnergyRegen() {
     if (EnergyLevel === 1){
         if (EnergyRegenCol === 5){
             EnergyRegenRow = 0;
-            EnergyRegenCol = 0;
+            EnergyRegenCol = 4;
         }
     } else if (EnergyRegenCol === 6) {
         EnergyRegenCol = 0;
@@ -530,50 +534,50 @@ function animateEnergyRegen() {
     if (EnergyLevel === 2){
         if (EnergyRegenRow === 1) {
             if (EnergyRegenCol === 3){
-                EnergyRegenRow = 0;
-                EnergyRegenCol = 0;
+                EnergyRegenRow = 1;
+                EnergyRegenCol = 2;
             }
         }
     } else if (EnergyLevel === 3){
         if (EnergyRegenRow === 2) {
             if (EnergyRegenCol === 1){
-                EnergyRegenRow = 0;
+                EnergyRegenRow = 2;
                 EnergyRegenCol = 0;
             }
         }
     } else if (EnergyLevel === 4){
         if (EnergyRegenRow === 2) {
             if (EnergyRegenCol === 5){
-                EnergyRegenRow = 0;
-                EnergyRegenCol = 0;
+                EnergyRegenRow = 2;
+                EnergyRegenCol = 4;
             }
         }
     } else if (EnergyLevel === 5){
         if (EnergyRegenRow === 3) {
             if (EnergyRegenCol === 3){
-                EnergyRegenRow = 0;
-                EnergyRegenCol = 0;
+                EnergyRegenRow = 3;
+                EnergyRegenCol = 2;
             }
         }
     } else if (EnergyLevel === 6){
         if (EnergyRegenRow === 4) {
             if (EnergyRegenCol === 1){
-                EnergyRegenRow = 0;
+                EnergyRegenRow = 4;
                 EnergyRegenCol = 0;
             }
         }
     } else if (EnergyLevel === 7){
         if (EnergyRegenRow === 4) {
             if (EnergyRegenCol === 5){
-                EnergyRegenRow = 0;
-                EnergyRegenCol = 0;
+                EnergyRegenRow = 4;
+                EnergyRegenCol = 4;
             }
         }
     } else if (EnergyLevel === 8){
         if (EnergyRegenRow === 5) {
             if (EnergyRegenCol === 3){
-                EnergyRegenRow = 0;
-                EnergyRegenCol = 0;
+                EnergyRegenRow = 5;
+                EnergyRegenCol = 2;
             }
         }
     }
@@ -602,7 +606,7 @@ function animateEnergyRegen() {
 
 EnergyRegenImage.onload = function() {
     // animateEnergyRegen();
-    setInterval(animateEnergyRegen, 500);
+    setInterval(AnimateEnergyRegen, 500);
 };
 // end of Energy regen
 
@@ -630,7 +634,7 @@ function Smoke() {
         if (DeadeyeLevel > 8){
             DeadeyeLevel = 8;
         }else {
-            animateDeadeyeLevel();
+            AnimateDeadeyeLevel();
             console.log('next Deadeye level');
         }
         console.log('Deadeye level = ' + DeadeyeLevel);
@@ -681,7 +685,7 @@ DeadeyeLevelCanvas.height = DeadeyeLevelHeight;
 let DeadeyeLevelRow = 0;
 let DeadeyeLevelCol = 0;
 
-function animateDeadeyeLevel() {
+function AnimateDeadeyeLevel() {
     if (DeadeyeLevelCol === 3) {
         DeadeyeLevelCol = 0;
         DeadeyeLevelRow += 1;
@@ -716,7 +720,7 @@ function animateDeadeyeLevel() {
 }
 
 DeadeyeLevelImage.onload = function() {
-    animateDeadeyeLevel();
+    AnimateDeadeyeLevel();
 };
 
 // Deadeye level end
@@ -752,7 +756,7 @@ DeadeyeCoreCanvas.height = DeadeyeCoreHeight;
 let DeadeyeCoreRow = 0;
 let DeadeyeCoreCol = 0;
 
-function animateDeadeyeCore() {
+function AnimateDeadeyeCore() {
     if (DeadeyeCoreCol === 3) {
         DeadeyeCoreCol = 0;
         DeadeyeCoreRow += 1;
@@ -786,7 +790,7 @@ function animateDeadeyeCore() {
 
 DeadeyeCoreImage.onload = function() {
     // animateDeadeyeCore();
-    setInterval(animateDeadeyeCore, 500);
+    setInterval(AnimateDeadeyeCore, 500);
 };
 
 // Deadeye core end
@@ -822,11 +826,11 @@ DeadeyeRegenCanvas.height = DeadeyeRegenHeight;
 let DeadeyeRegenRow = 0;
 let DeadeyeRegenCol = 0;
 
-function animateDeadeyeRegen() {
+function AnimateDeadeyeRegen() {
     if (DeadeyeLevel === 1){
         if (DeadeyeRegenCol === 5){
             DeadeyeRegenRow = 0;
-            DeadeyeRegenCol = 0;
+            DeadeyeRegenCol = 4;
         }
     } else if (DeadeyeRegenCol === 6) {
         DeadeyeRegenCol = 0;
@@ -835,50 +839,50 @@ function animateDeadeyeRegen() {
     if (DeadeyeLevel === 2){
         if (DeadeyeRegenRow === 1) {
             if (DeadeyeRegenCol === 3){
-                DeadeyeRegenRow = 0;
-                DeadeyeRegenCol = 0;
+                DeadeyeRegenRow = 1;
+                DeadeyeRegenCol = 2;
             }
         }
     } else if (DeadeyeLevel === 3){
         if (DeadeyeRegenRow === 2) {
             if (DeadeyeRegenCol === 1){
-                DeadeyeRegenRow = 0;
+                DeadeyeRegenRow = 2;
                 DeadeyeRegenCol = 0;
             }
         }
     } else if (DeadeyeLevel === 4){
         if (DeadeyeRegenRow === 2) {
             if (DeadeyeRegenCol === 5){
-                DeadeyeRegenRow = 0;
-                DeadeyeRegenCol = 0;
+                DeadeyeRegenRow = 2;
+                DeadeyeRegenCol = 4;
             }
         }
     } else if (DeadeyeLevel === 5){
         if (DeadeyeRegenRow === 3) {
             if (DeadeyeRegenCol === 3){
-                DeadeyeRegenRow = 0;
-                DeadeyeRegenCol = 0;
+                DeadeyeRegenRow = 3;
+                DeadeyeRegenCol = 2;
             }
         }
     } else if (DeadeyeLevel === 6){
         if (DeadeyeRegenRow === 4) {
             if (DeadeyeRegenCol === 1){
-                DeadeyeRegenRow = 0;
+                DeadeyeRegenRow = 4;
                 DeadeyeRegenCol = 0;
             }
         }
     } else if (DeadeyeLevel === 7){
         if (DeadeyeRegenRow === 4) {
             if (DeadeyeRegenCol === 5){
-                DeadeyeRegenRow = 0;
-                DeadeyeRegenCol = 0;
+                DeadeyeRegenRow = 4;
+                DeadeyeRegenCol = 4;
             }
         }
     } else if (DeadeyeLevel === 8){
         if (DeadeyeRegenRow === 5) {
             if (DeadeyeRegenCol === 3){
-                DeadeyeRegenRow = 0;
-                DeadeyeRegenCol = 0;
+                DeadeyeRegenRow = 5;
+                DeadeyeRegenCol = 2;
             }
         }
     }
@@ -907,7 +911,7 @@ function animateDeadeyeRegen() {
 
 DeadeyeRegenImage.onload = function() {
     // animateDeadeyeRegen();
-    setInterval(animateDeadeyeRegen, 500);
+    setInterval(AnimateDeadeyeRegen, 500);
 };
 // end of Deadeye regen
 
@@ -1045,7 +1049,7 @@ ArthurCanvas.height = ArthurHeight;
 let ArthurRow = 0;
 let ArthurCol = 0;
 
-function animateArthur() {
+function AnimateArthur() {
     if (ArthurCol === 3) {
         ArthurCol = 0;
         ArthurRow += 1;
@@ -1077,6 +1081,6 @@ function animateArthur() {
 }
 
 ArthurImage.onload = function() {
-    setInterval(animateArthur, 500);
+    setInterval(AnimateArthur, 500);
 };
 // end arthur
