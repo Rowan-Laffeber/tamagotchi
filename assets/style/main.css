@@ -42,13 +42,20 @@ div.body-test{
 }
 .Home{
     position: fixed;
-    background-image: url("../img/Home/home.png");
-    background-repeat: no-repeat;
     background-attachment: fixed;
     left: 33.125em;
     bottom: 0.625em;
     height: 37.5em;
     width: 65em;
+    z-index: 6;
+}
+.campfire{
+    position: fixed;
+    background-attachment: fixed;
+    left: 25em;
+    bottom: 0.625em;
+    height: 10.625em;
+    width: 8.125em;
     z-index: 6;
 }
 .Tree{
@@ -194,7 +201,7 @@ div.body-test{
     position: fixed;
     bottom: -3.125em;
     z-index: 0;
-    left: 62.5em;
+    left: 31.25em;
     width: 6.25em;
     height: 6.25em;
 }
