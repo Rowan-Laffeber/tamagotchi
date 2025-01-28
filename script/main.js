@@ -915,8 +915,21 @@ DeadeyeRegenImage.onload = function() {
 };
 // end of Deadeye regen
 
-// end of Deadeye
 
+function EmotionCheck() {
+    let emotions = ["I'm hungry", "I'm tired", "I need a smoke"];
+    console.log("EmotionCheck")
+    if (Health < 32) {
+        console.log(emotions[0]);
+    }
+    if (Energy < 32) {
+        console.log(emotions[1]);
+    }
+    if (Deadeye < 32) {
+        console.log(emotions[2]);
+    }
+}
+setInterval(EmotionCheck, 1000);
 // start daynight
 let Sun = -3.125;
 let Moon = -3.125;
