@@ -1004,6 +1004,39 @@ DeadeyeRegenImage.onload = function() {
     // animateDeadeyeRegen();
     setInterval(AnimateDeadeyeRegen, 500);
 };
+//localStorage voor Health,Energie en Deadeye start hier
+function saveStats() {
+    let stats = {
+        Health,
+        Energy,
+        Deadeye,
+        HealthCorePercent,
+        EnergyCorePercent,
+        DeadeyeCorePercent,
+        HealthLevel,
+        EnergyLevel,
+        DeadeyeLevel
+    };
+    localStorage.setItem("playerStats", JSON.stringify(stats));
+}
+function loadStats() {
+    let savedStats = JSON.parse(localStorage.getItem("playerStats"));
+    if (savedStats) {
+        Health = savedStats.Health;
+        Energy = savedStats.Energy;
+        Deadeye = savedStats.Deadeye;
+        HealthCorePercent = savedStats.HealthCorePercent;
+        EnergyCorePercent = savedStats.EnergyCorePercent;
+        DeadeyeCorePercent = savedStats.DeadeyeCorePercent;
+        HealthLevel = savedStats.HealthLevel;
+        EnergyLevel = savedStats.EnergyLevel;
+        DeadeyeLevel = savedStats.DeadeyeLevel;
+
+        document.getElementById("CountDown1").innerText = 'Health ' + Health;
+        document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+        document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+    }
+}
 // end of Deadeye regen
 
 
@@ -1022,6 +1055,18 @@ function EmotionCheck() {
 }
 setInterval(EmotionCheck, 1000);
 // start daynight
+function loadCloudsAndDayNight() {
+    let savedData = JSON.parse(localStorage.getItem("cloudsDayNight"));
+    if (savedData) {
+        Clouds = savedData.cloudPositions;
+        Sun = savedData.dayNightState.Sun;
+        Moon = savedData.dayNightState.Moon;
+
+        Clouds.forEach(cloud => {
+            document.getElementById(cloud.id).style.left = cloud.left + 'em';
+        });
+    }
+}
 let Sun = -3.125;
 let Moon = -3.125;
 Day()
@@ -1109,6 +1154,13 @@ function updateCloud(CloudEach){
 let CloudCounter = setInterval(function () {
     Clouds.forEach(updateCloud);
 }, 250);
+// localStorage voor clouds, day/night start hier
+function saveCloudsAndDayNight() {
+    let cloudPositions = Clouds.map(cloud => ({ id: cloud.id, left: cloud.left }));
+    let dayNightState = { Sun, Moon };
+
+    localStorage.setItem("cloudsDayNight", JSON.stringify({ cloudPositions, dayNightState }));
+}
 // end clouds
 // start music
 const StartButton = document.getElementById('StartBtn');
@@ -1187,4 +1239,8 @@ function AnimateArthur() {
 ArthurImage.onload = function() {
     setInterval(AnimateArthur, 500);
 };
+setInterval(() => {
+    saveCloudsAndDayNight();
+    saveStats();
+}, 5000);
 // end arthur
