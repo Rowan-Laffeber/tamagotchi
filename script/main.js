@@ -443,9 +443,7 @@ EnergyLevelImage.onload = function() {
 };
 // end Energy levels
 
-<<<<<<< HEAD
-// start Energy core
-=======
+
 // start Energy cores
 const EnergyCoreStagePositions = [
     { EnergyCoreRow: 0, EnergyCoreCol: 0 }, // Stage 0
@@ -465,9 +463,7 @@ function EnergyCoreGetStageRowCol(EnergyCoreStageIndex) {
         return { EnergyCoreRow: 0, EnergyCoreCol: 0 };
     }
 }
-let EnergyCoreStageIndex = 0; 
-
->>>>>>> origin/tamagotchi
+let EnergyCoreStageIndex = 0;
 const EnergyCoreWidth = 70;
 const EnergyCoreHeight = 70;
 const EnergyCoreBorderWidth = 0;
