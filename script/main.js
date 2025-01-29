@@ -20,7 +20,7 @@ function HealthTimer(){
     }, 1000);
 }
 
-function eat() {
+function Eat() {
     if(Health > 32){
         Health = 32;
     } else if (Health > 30){
