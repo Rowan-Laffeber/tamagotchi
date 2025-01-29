@@ -1015,13 +1015,13 @@ DeadeyeRegenImage.onload = function() {
 function EmotionCheck() {
     let emotions = ["I'm hungry", "I'm tired", "I need a smoke"];
     console.log("EmotionCheck")
-    if (Health < 32) {
+    if (HealthCorePercent < 50) {
         console.log(emotions[0]);
     }
-    if (Energy < 32) {
+    if (EnergyCorePercent < 50) {
         console.log(emotions[1]);
     }
-    if (Deadeye < 32) {
+    if (DeadeyeCorePercent < 50) {
         console.log(emotions[2]);
     }
 }
