@@ -157,7 +157,6 @@ function AnimateHealthCore() {
         HealthCoreWidth,
         HealthCoreHeight
     );
-    HealthCoreCol += 1;
 }
 
 HealthCoreImage.onload = function() {
@@ -486,7 +485,6 @@ function AnimateEnergyCore() {
         EnergyCoreWidth,
         EnergyCoreHeight
     );
-    EnergyCoreCol += 1;
 }
 
 EnergyCoreImage.onload = function() {
@@ -812,7 +810,6 @@ function AnimateDeadeyeCore() {
         DeadeyeCoreWidth,
         DeadeyeCoreHeight
     );
-    DeadeyeCoreCol += 1;
 }
 
 DeadeyeCoreImage.onload = function() {
@@ -876,7 +873,7 @@ const DeadeyeStagePositions = [
     { DeadeyeRegenRow: 5, DeadeyeRegenCol: 1 }, // Stage 31
     { DeadeyeRegenRow: 5, DeadeyeRegenCol: 2 }, // Stage 32
 ];
-function DeadeyeGetStageRowCol(DeadeyeRegenStageIndex) {
+function DeadeyeRegenGetStageRowCol(DeadeyeRegenStageIndex) {
     if (DeadeyeRegenStageIndex >= 0 && DeadeyeRegenStageIndex <= 32) {
         const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeStagePositions[DeadeyeRegenStageIndex];
         return { DeadeyeRegenRow, DeadeyeRegenCol };
