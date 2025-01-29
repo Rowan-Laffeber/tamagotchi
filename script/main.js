@@ -100,7 +100,7 @@ function HealthCorePositionToImage(HealthCoreRow, HealthCoreCol) {
         ),
         y: (
             HealthCoreBorderWidth +
-            HealthCoreRow * (HealthCoreSpacingWidth+ HealthCoreHeight)
+            HealthCoreRow * (HealthCoreSpacingWidth + HealthCoreHeight)
         )
     }
 }
@@ -157,11 +157,12 @@ function AnimateHealthCore() {
         HealthCoreWidth,
         HealthCoreHeight
     );
+    HealthCoreCol += 1;
 }
 
 HealthCoreImage.onload = function() {
-    AnimateHealthCore();
-    // setInterval(AnimateHealthCore, 500);
+    // animateHealthCore();
+    setInterval(AnimateHealthCore, 500);
 };
 let EatCounter = 0;
 let HealthLevel = 1;
@@ -185,7 +186,7 @@ function Eat() {
 // Health core end
 
 // start of Health regen
-const HealthRegenStagePositions = [
+const HealthStagePositions = [
     { HealthRegenRow: 0, HealthRegenCol: 0 }, // Stage 0
     { HealthRegenRow: 0, HealthRegenCol: 1 }, // Stage 1
     { HealthRegenRow: 0, HealthRegenCol: 2 }, // Stage 2
@@ -222,13 +223,13 @@ const HealthRegenStagePositions = [
 ];
 function HealthRegenGetStageRowCol(HealthRegenStageIndex) {
     if (HealthRegenStageIndex >= 0 && HealthRegenStageIndex <= 32) {
-        const { HealthRegenRow, HealthRegenCol } = HealthRegenStagePositions[HealthRegenStageIndex];
+        const { HealthRegenRow, HealthRegenCol } = HealthStagePositions[HealthRegenStageIndex];
         return { HealthRegenRow, HealthRegenCol };
     } else {
         return { HealthRegenRow: 0, HealthRegenCol: 0 };
     }
 }
-let HealthRegenStageIndex = 0; 
+let HealthRegenStageIndex = 0;
 
 const HealthRegenWidth = 130;
 const HealthRegenHeight = 130;
@@ -426,7 +427,7 @@ function EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol) {
         ),
         y: (
             EnergyCoreBorderWidth +
-            EnergyCoreRow * (EnergyCoreSpacingWidth+ EnergyCoreHeight)
+            EnergyCoreRow * (EnergyCoreSpacingWidth + EnergyCoreHeight)
         )
     }
 }
@@ -485,11 +486,12 @@ function AnimateEnergyCore() {
         EnergyCoreWidth,
         EnergyCoreHeight
     );
+    EnergyCoreCol += 1;
 }
 
 EnergyCoreImage.onload = function() {
-    AnimateEnergyCore();
-    // setInterval(AnimateEnergyCore, 500);
+    // animateEnergyCore();
+    setInterval(AnimateEnergyCore, 500);
 };
 let SleepCounter = 0;
 let EnergyLevel = 1;
@@ -513,7 +515,7 @@ function Sleep() {
 // Energy core end
 
 // start of Energy regen
-const EnergyRegenStagePositions = [
+const EnergyStagePositions = [
     { EnergyRegenRow: 0, EnergyRegenCol: 0 }, // Stage 0
     { EnergyRegenRow: 0, EnergyRegenCol: 1 }, // Stage 1
     { EnergyRegenRow: 0, EnergyRegenCol: 2 }, // Stage 2
@@ -550,13 +552,13 @@ const EnergyRegenStagePositions = [
 ];
 function EnergyRegenGetStageRowCol(EnergyRegenStageIndex) {
     if (EnergyRegenStageIndex >= 0 && EnergyRegenStageIndex <= 32) {
-        const { EnergyRegenRow, EnergyRegenCol } = EnergyRegenStagePositions[EnergyRegenStageIndex];
+        const { EnergyRegenRow, EnergyRegenCol } = EnergyStagePositions[EnergyRegenStageIndex];
         return { EnergyRegenRow, EnergyRegenCol };
     } else {
         return { EnergyRegenRow: 0, EnergyRegenCol: 0 };
     }
 }
-let EnergyRegenStageIndex = 0; 
+let EnergyRegenStageIndex = 0;
 
 const EnergyRegenWidth = 130;
 const EnergyRegenHeight = 130;
@@ -755,7 +757,7 @@ function DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol) {
         ),
         y: (
             DeadeyeCoreBorderWidth +
-            DeadeyeCoreRow * (DeadeyeCoreSpacingWidth+ DeadeyeCoreHeight)
+            DeadeyeCoreRow * (DeadeyeCoreSpacingWidth + DeadeyeCoreHeight)
         )
     }
 }
@@ -764,7 +766,7 @@ let DeadeyeCoreCanvas = document.getElementById('DeadeyeCore');
 let DeadeyeCoreContext = DeadeyeCoreCanvas.getContext('2d');
 
 let DeadeyeCoreImage = new Image();
-DeadeyeCoreImage.src = "assets/img/stats-middle-icon/deadeye-core.png";
+DeadeyeCoreImage.src = "assets/img/stats-middle-icon/Deadeye-core.png";
 DeadeyeCoreImage.crossOrigin = "true";
 DeadeyeCoreCanvas.width = DeadeyeCoreWidth;
 DeadeyeCoreCanvas.height = DeadeyeCoreHeight;
@@ -810,11 +812,12 @@ function AnimateDeadeyeCore() {
         DeadeyeCoreWidth,
         DeadeyeCoreHeight
     );
+    DeadeyeCoreCol += 1;
 }
 
 DeadeyeCoreImage.onload = function() {
-    AnimateDeadeyeCore();
-    // setInterval(AnimateDeadeyeCore, 500);
+    // animateDeadeyeCore();
+    setInterval(AnimateDeadeyeCore, 500);
 };
 let SmokeCounter = 0;
 let DeadeyeLevel = 1;
@@ -838,7 +841,7 @@ function Smoke() {
 // Deadeye core end
 
 // start of Deadeye regen
-const DeadeyeRegenStagePositions = [
+const DeadeyeStagePositions = [
     { DeadeyeRegenRow: 0, DeadeyeRegenCol: 0 }, // Stage 0
     { DeadeyeRegenRow: 0, DeadeyeRegenCol: 1 }, // Stage 1
     { DeadeyeRegenRow: 0, DeadeyeRegenCol: 2 }, // Stage 2
@@ -873,15 +876,15 @@ const DeadeyeRegenStagePositions = [
     { DeadeyeRegenRow: 5, DeadeyeRegenCol: 1 }, // Stage 31
     { DeadeyeRegenRow: 5, DeadeyeRegenCol: 2 }, // Stage 32
 ];
-function DeadeyeRegenGetStageRowCol(DeadeyeRegenStageIndex) {
+function DeadeyeGetStageRowCol(DeadeyeRegenStageIndex) {
     if (DeadeyeRegenStageIndex >= 0 && DeadeyeRegenStageIndex <= 32) {
-        const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeRegenStagePositions[DeadeyeRegenStageIndex];
+        const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeStagePositions[DeadeyeRegenStageIndex];
         return { DeadeyeRegenRow, DeadeyeRegenCol };
     } else {
         return { DeadeyeRegenRow: 0, DeadeyeRegenCol: 0 };
     }
 }
-let DeadeyeRegenStageIndex = 0; 
+let DeadeyeRegenStageIndex = 0;
 
 const DeadeyeRegenWidth = 130;
 const DeadeyeRegenHeight = 130;
@@ -974,6 +977,39 @@ DeadeyeRegenImage.onload = function() {
     // animateDeadeyeRegen();
     setInterval(AnimateDeadeyeRegen, 500);
 };
+//localStorage voor Health,Energie en Deadeye start hier
+function saveStats() {
+    let stats = {
+        Health,
+        Energy,
+        Deadeye,
+        HealthCorePercent,
+        EnergyCorePercent,
+        DeadeyeCorePercent,
+        HealthLevel,
+        EnergyLevel,
+        DeadeyeLevel
+    };
+    localStorage.setItem("playerStats", JSON.stringify(stats));
+}
+function loadStats() {
+    let savedStats = JSON.parse(localStorage.getItem("playerStats"));
+    if (savedStats) {
+        Health = savedStats.Health;
+        Energy = savedStats.Energy;
+        Deadeye = savedStats.Deadeye;
+        HealthCorePercent = savedStats.HealthCorePercent;
+        EnergyCorePercent = savedStats.EnergyCorePercent;
+        DeadeyeCorePercent = savedStats.DeadeyeCorePercent;
+        HealthLevel = savedStats.HealthLevel;
+        EnergyLevel = savedStats.EnergyLevel;
+        DeadeyeLevel = savedStats.DeadeyeLevel;
+
+        document.getElementById("CountDown1").innerText = 'Health ' + Health;
+        document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+        document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+    }
+}
 // end of Deadeye regen
 
 
@@ -992,6 +1028,18 @@ function EmotionCheck() {
 }
 setInterval(EmotionCheck, 1000);
 // start daynight
+function loadCloudsAndDayNight() {
+    let savedData = JSON.parse(localStorage.getItem("cloudsDayNight"));
+    if (savedData) {
+        Clouds = savedData.cloudPositions;
+        Sun = savedData.dayNightState.Sun;
+        Moon = savedData.dayNightState.Moon;
+
+        Clouds.forEach(cloud => {
+            document.getElementById(cloud.id).style.left = cloud.left + 'em';
+        });
+    }
+}
 let Sun = -3.125;
 let Moon = -3.125;
 Day()
@@ -1079,6 +1127,13 @@ function updateCloud(CloudEach){
 let CloudCounter = setInterval(function () {
     Clouds.forEach(updateCloud);
 }, 250);
+// localStorage voor clouds, day/night start hier
+function saveCloudsAndDayNight() {
+    let cloudPositions = Clouds.map(cloud => ({ id: cloud.id, left: cloud.left }));
+    let dayNightState = { Sun, Moon };
+
+    localStorage.setItem("cloudsDayNight", JSON.stringify({ cloudPositions, dayNightState }));
+}
 // end clouds
 // start music
 const StartButton = document.getElementById('StartBtn');
@@ -1157,4 +1212,8 @@ function AnimateArthur() {
 ArthurImage.onload = function() {
     setInterval(AnimateArthur, 500);
 };
+setInterval(() => {
+    saveCloudsAndDayNight();
+    saveStats();
+}, 5000);
 // end arthur
