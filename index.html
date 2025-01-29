@@ -11,9 +11,9 @@
 
 <body id="Body">
     <div class="Counters">
-        <h2 class="Counter" id="CountDown1">-</h2>
-        <h2 class="Counter" id="CountDown2">-</h2><button id="Sleep" onclick="sleep()">slaap</button>
-        <h2 class="Counter" id="CountDown3">-</h2><button id="Smoke" onclick="Smoke()">rook</button>
+        <h2 class="Counter" id="CountDown1">-</h2><button onclick="HealthDamage()">Health damage</button>
+        <h2 class="Counter" id="CountDown2">-</h2><button onclick="EnergyDamage()">Energy damage</button>
+        <h2 class="Counter" id="CountDown3">-</h2><button onclick="DeadeyeDamage()">Deadeye damage</button>
     </div>
     <div class="Stats" id="Stats">
         <canvas class="IconHeart" id="HealthCore" width="70" height="70"></canvas>
@@ -50,8 +50,8 @@
                 <img class="AppleTree5" src="assets/img/apple-in-tree.png" alt="">
             </div>
             <div class="Home">
-                <img class="Home" src="assets/img/Home/home2.png" alt="">
-                <img class="campfire" src="assets/img/Home/campfire.png" alt="">
+                <img class="Home" src="assets/img/Home/home2.png" alt="" onclick="sleep()">
+                <img class="campfire" src="assets/img/Home/campfire.png" alt="" onclick="Smoke()">
             </div>
 
             <img class="Grass" src="assets/img/grass.png" alt="">

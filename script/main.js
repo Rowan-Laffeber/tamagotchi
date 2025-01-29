@@ -188,6 +188,51 @@ HealthCoreImage.onload = function() {
 // end Health core
 
 // start of Health regen
+const HealthStagePositions = [
+    { HealthRegenRow: 0, HealthRegenCol: 0 }, // Stage 0
+    { HealthRegenRow: 0, HealthRegenCol: 1 }, // Stage 1
+    { HealthRegenRow: 0, HealthRegenCol: 2 }, // Stage 2
+    { HealthRegenRow: 0, HealthRegenCol: 3 }, // Stage 3
+    { HealthRegenRow: 0, HealthRegenCol: 4 }, // Stage 4
+    { HealthRegenRow: 0, HealthRegenCol: 5 }, // Stage 5
+    { HealthRegenRow: 1, HealthRegenCol: 0 }, // Stage 6
+    { HealthRegenRow: 1, HealthRegenCol: 1 }, // Stage 7
+    { HealthRegenRow: 1, HealthRegenCol: 2 }, // Stage 8
+    { HealthRegenRow: 1, HealthRegenCol: 3 }, // Stage 9
+    { HealthRegenRow: 1, HealthRegenCol: 4 }, // Stage 10
+    { HealthRegenRow: 1, HealthRegenCol: 5 }, // Stage 11
+    { HealthRegenRow: 2, HealthRegenCol: 0 }, // Stage 12
+    { HealthRegenRow: 2, HealthRegenCol: 1 }, // Stage 13
+    { HealthRegenRow: 2, HealthRegenCol: 2 }, // Stage 14
+    { HealthRegenRow: 2, HealthRegenCol: 3 }, // Stage 15
+    { HealthRegenRow: 2, HealthRegenCol: 4 }, // Stage 16
+    { HealthRegenRow: 2, HealthRegenCol: 5 }, // Stage 17
+    { HealthRegenRow: 3, HealthRegenCol: 0 }, // Stage 18
+    { HealthRegenRow: 3, HealthRegenCol: 1 }, // Stage 19
+    { HealthRegenRow: 3, HealthRegenCol: 2 }, // Stage 20
+    { HealthRegenRow: 3, HealthRegenCol: 3 }, // Stage 21
+    { HealthRegenRow: 3, HealthRegenCol: 4 }, // Stage 22
+    { HealthRegenRow: 3, HealthRegenCol: 5 }, // Stage 23
+    { HealthRegenRow: 4, HealthRegenCol: 0 }, // Stage 24
+    { HealthRegenRow: 4, HealthRegenCol: 1 }, // Stage 25
+    { HealthRegenRow: 4, HealthRegenCol: 2 }, // Stage 26
+    { HealthRegenRow: 4, HealthRegenCol: 3 }, // Stage 27
+    { HealthRegenRow: 4, HealthRegenCol: 4 }, // Stage 28
+    { HealthRegenRow: 4, HealthRegenCol: 5 }, // Stage 29
+    { HealthRegenRow: 5, HealthRegenCol: 0 }, // Stage 30
+    { HealthRegenRow: 5, HealthRegenCol: 1 }, // Stage 31
+    { HealthRegenRow: 5, HealthRegenCol: 2 }, // Stage 32
+];
+function HealthGetStageRowCol(HealthRegenStageIndex) {
+    if (HealthRegenStageIndex >= 0 && HealthRegenStageIndex <= 32) {
+        const { HealthRegenRow, HealthRegenCol } = HealthStagePositions[HealthRegenStageIndex];
+        return { HealthRegenRow, HealthRegenCol };
+    } else {
+        return { HealthRegenRow: 0, HealthRegenCol: 0 };
+    }
+}
+let HealthRegenStageIndex = 0; 
+
 const HealthRegenWidth = 130;
 const HealthRegenHeight = 130;
 const HealthRegenBorderWidth = 0;
@@ -201,7 +246,7 @@ function HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol) {
         ),
         y: (
             HealthRegenBorderWidth +
-            HealthRegenRow * (HealthRegenSpacingWidth + HealthRegenHeight)
+            HealthRegenRow * (HealthRegenSpacingWidth+ HealthRegenHeight)
         )
     }
 }
@@ -215,72 +260,17 @@ HealthRegenImage.crossOrigin = "true";
 HealthRegenCanvas.width = HealthRegenWidth;
 HealthRegenCanvas.height = HealthRegenHeight;
 
-let HealthRegenRow = 0;
-let HealthRegenCol = 0;
-
 function AnimateHealthRegen() {
-    if (HealthLevel === 1){
-        if (HealthRegenCol === 5){
-            HealthRegenRow = 0;
-            HealthRegenCol = 4;
-        }
-    } else if (HealthRegenCol === 6) {
-        HealthRegenCol = 0;
-        HealthRegenRow += 1;
-    }
-    if (HealthLevel === 2){
-        if (HealthRegenRow === 1) {
-            if (HealthRegenCol === 3){
-                HealthRegenRow = 1;
-                HealthRegenCol = 2;
-            }
-        }
-    } else if (HealthLevel === 3){
-        if (HealthRegenRow === 2) {
-            if (HealthRegenCol === 1){
-                HealthRegenRow = 2;
-                HealthRegenCol = 0;
-            }
-        }
-    } else if (HealthLevel === 4){
-        if (HealthRegenRow === 2) {
-            if (HealthRegenCol === 5){
-                HealthRegenRow = 2;
-                HealthRegenCol = 4;
-            }
-        }
-    } else if (HealthLevel === 5){
-        if (HealthRegenRow === 3) {
-            if (HealthRegenCol === 3){
-                HealthRegenRow = 3;
-                HealthRegenCol = 2;
-            }
-        }
-    } else if (HealthLevel === 6){
-        if (HealthRegenRow === 4) {
-            if (HealthRegenCol === 1){
-                HealthRegenRow = 4;
-                HealthRegenCol = 0;
-            }
-        }
-    } else if (HealthLevel === 7){
-        if (HealthRegenRow === 4) {
-            if (HealthRegenCol === 5){
-                HealthRegenRow = 4;
-                HealthRegenCol = 4;
-            }
-        }
-    } else if (HealthLevel === 8){
-        if (HealthRegenRow === 5) {
-            if (HealthRegenCol === 3){
-                HealthRegenRow = 5;
-                HealthRegenCol = 2;
-            }
-        }
+    let HealthMaxRegenStageIndex = HealthLevel * 4;
+
+    if (HealthRegenStageIndex === HealthMaxRegenStageIndex){
+        HealthRegenStageIndex = HealthRegenStageIndex;
+    } else{
+        HealthRegenStageIndex++;
     }
 
-
-    let position = HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol);
+    const { HealthRegenRow, HealthRegenCol } = HealthGetStageRowCol(HealthRegenStageIndex);
+    const position = HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol);
     HealthRegenContext.clearRect(
         0,
         0,
@@ -298,7 +288,14 @@ function AnimateHealthRegen() {
         HealthRegenWidth,
         HealthRegenHeight
     );
-    HealthRegenCol += 1;
+}
+
+function HealthDamage() {
+    if (HealthRegenStageIndex > 0) {
+        HealthRegenStageIndex -= 3;
+    } else {
+        HealthRegenStageIndex = 0
+    }
 }
 
 HealthRegenImage.onload = function() {
@@ -491,6 +488,51 @@ EnergyCoreImage.onload = function() {
 // end Energy core
 
 // start of Energy regen
+const EnergyStagePositions = [
+    { EnergyRegenRow: 0, EnergyRegenCol: 0 }, // Stage 0
+    { EnergyRegenRow: 0, EnergyRegenCol: 1 }, // Stage 1
+    { EnergyRegenRow: 0, EnergyRegenCol: 2 }, // Stage 2
+    { EnergyRegenRow: 0, EnergyRegenCol: 3 }, // Stage 3
+    { EnergyRegenRow: 0, EnergyRegenCol: 4 }, // Stage 4
+    { EnergyRegenRow: 0, EnergyRegenCol: 5 }, // Stage 5
+    { EnergyRegenRow: 1, EnergyRegenCol: 0 }, // Stage 6
+    { EnergyRegenRow: 1, EnergyRegenCol: 1 }, // Stage 7
+    { EnergyRegenRow: 1, EnergyRegenCol: 2 }, // Stage 8
+    { EnergyRegenRow: 1, EnergyRegenCol: 3 }, // Stage 9
+    { EnergyRegenRow: 1, EnergyRegenCol: 4 }, // Stage 10
+    { EnergyRegenRow: 1, EnergyRegenCol: 5 }, // Stage 11
+    { EnergyRegenRow: 2, EnergyRegenCol: 0 }, // Stage 12
+    { EnergyRegenRow: 2, EnergyRegenCol: 1 }, // Stage 13
+    { EnergyRegenRow: 2, EnergyRegenCol: 2 }, // Stage 14
+    { EnergyRegenRow: 2, EnergyRegenCol: 3 }, // Stage 15
+    { EnergyRegenRow: 2, EnergyRegenCol: 4 }, // Stage 16
+    { EnergyRegenRow: 2, EnergyRegenCol: 5 }, // Stage 17
+    { EnergyRegenRow: 3, EnergyRegenCol: 0 }, // Stage 18
+    { EnergyRegenRow: 3, EnergyRegenCol: 1 }, // Stage 19
+    { EnergyRegenRow: 3, EnergyRegenCol: 2 }, // Stage 20
+    { EnergyRegenRow: 3, EnergyRegenCol: 3 }, // Stage 21
+    { EnergyRegenRow: 3, EnergyRegenCol: 4 }, // Stage 22
+    { EnergyRegenRow: 3, EnergyRegenCol: 5 }, // Stage 23
+    { EnergyRegenRow: 4, EnergyRegenCol: 0 }, // Stage 24
+    { EnergyRegenRow: 4, EnergyRegenCol: 1 }, // Stage 25
+    { EnergyRegenRow: 4, EnergyRegenCol: 2 }, // Stage 26
+    { EnergyRegenRow: 4, EnergyRegenCol: 3 }, // Stage 27
+    { EnergyRegenRow: 4, EnergyRegenCol: 4 }, // Stage 28
+    { EnergyRegenRow: 4, EnergyRegenCol: 5 }, // Stage 29
+    { EnergyRegenRow: 5, EnergyRegenCol: 0 }, // Stage 30
+    { EnergyRegenRow: 5, EnergyRegenCol: 1 }, // Stage 31
+    { EnergyRegenRow: 5, EnergyRegenCol: 2 }, // Stage 32
+];
+function EnergyGetStageRowCol(EnergyRegenStageIndex) {
+    if (EnergyRegenStageIndex >= 0 && EnergyRegenStageIndex <= 32) {
+        const { EnergyRegenRow, EnergyRegenCol } = EnergyStagePositions[EnergyRegenStageIndex];
+        return { EnergyRegenRow, EnergyRegenCol };
+    } else {
+        return { EnergyRegenRow: 0, EnergyRegenCol: 0 };
+    }
+}
+let EnergyRegenStageIndex = 0; 
+
 const EnergyRegenWidth = 130;
 const EnergyRegenHeight = 130;
 const EnergyRegenBorderWidth = 0;
@@ -504,7 +546,7 @@ function EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol) {
         ),
         y: (
             EnergyRegenBorderWidth +
-            EnergyRegenRow * (EnergyRegenSpacingWidth + EnergyRegenHeight)
+            EnergyRegenRow * (EnergyRegenSpacingWidth+ EnergyRegenHeight)
         )
     }
 }
@@ -518,72 +560,17 @@ EnergyRegenImage.crossOrigin = "true";
 EnergyRegenCanvas.width = EnergyRegenWidth;
 EnergyRegenCanvas.height = EnergyRegenHeight;
 
-let EnergyRegenRow = 0;
-let EnergyRegenCol = 0;
-
 function AnimateEnergyRegen() {
-    if (EnergyLevel === 1){
-        if (EnergyRegenCol === 5){
-            EnergyRegenRow = 0;
-            EnergyRegenCol = 4;
-        }
-    } else if (EnergyRegenCol === 6) {
-        EnergyRegenCol = 0;
-        EnergyRegenRow += 1;
-    }
-    if (EnergyLevel === 2){
-        if (EnergyRegenRow === 1) {
-            if (EnergyRegenCol === 3){
-                EnergyRegenRow = 1;
-                EnergyRegenCol = 2;
-            }
-        }
-    } else if (EnergyLevel === 3){
-        if (EnergyRegenRow === 2) {
-            if (EnergyRegenCol === 1){
-                EnergyRegenRow = 2;
-                EnergyRegenCol = 0;
-            }
-        }
-    } else if (EnergyLevel === 4){
-        if (EnergyRegenRow === 2) {
-            if (EnergyRegenCol === 5){
-                EnergyRegenRow = 2;
-                EnergyRegenCol = 4;
-            }
-        }
-    } else if (EnergyLevel === 5){
-        if (EnergyRegenRow === 3) {
-            if (EnergyRegenCol === 3){
-                EnergyRegenRow = 3;
-                EnergyRegenCol = 2;
-            }
-        }
-    } else if (EnergyLevel === 6){
-        if (EnergyRegenRow === 4) {
-            if (EnergyRegenCol === 1){
-                EnergyRegenRow = 4;
-                EnergyRegenCol = 0;
-            }
-        }
-    } else if (EnergyLevel === 7){
-        if (EnergyRegenRow === 4) {
-            if (EnergyRegenCol === 5){
-                EnergyRegenRow = 4;
-                EnergyRegenCol = 4;
-            }
-        }
-    } else if (EnergyLevel === 8){
-        if (EnergyRegenRow === 5) {
-            if (EnergyRegenCol === 3){
-                EnergyRegenRow = 5;
-                EnergyRegenCol = 2;
-            }
-        }
+    let EnergyMaxRegenStageIndex = EnergyLevel * 4;
+
+    if (EnergyRegenStageIndex === EnergyMaxRegenStageIndex){
+        EnergyRegenStageIndex = EnergyRegenStageIndex;
+    } else{
+        EnergyRegenStageIndex++;
     }
 
-
-    let position = EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol);
+    const { EnergyRegenRow, EnergyRegenCol } = EnergyGetStageRowCol(EnergyRegenStageIndex);
+    const position = EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol);
     EnergyRegenContext.clearRect(
         0,
         0,
@@ -601,7 +588,14 @@ function AnimateEnergyRegen() {
         EnergyRegenWidth,
         EnergyRegenHeight
     );
-    EnergyRegenCol += 1;
+}
+
+function EnergyDamage() {
+    if (EnergyRegenStageIndex > 0) {
+        EnergyRegenStageIndex -= 3;
+    } else {
+        EnergyRegenStageIndex = 0
+    }
 }
 
 EnergyRegenImage.onload = function() {
@@ -640,7 +634,7 @@ function Smoke() {
         console.log('Deadeye level = ' + DeadeyeLevel);
     }
     document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
-    clearInterval(TellerFunctionDeadeye); /// vragen Kelvin
+    clearInterval(TellerFunctionDeadeye);
     DeadeyeTimer();
 }
 
@@ -796,6 +790,51 @@ DeadeyeCoreImage.onload = function() {
 // Deadeye core end
 
 // start of Deadeye regen
+const DeadeyeStagePositions = [
+    { DeadeyeRegenRow: 0, DeadeyeRegenCol: 0 }, // Stage 0
+    { DeadeyeRegenRow: 0, DeadeyeRegenCol: 1 }, // Stage 1
+    { DeadeyeRegenRow: 0, DeadeyeRegenCol: 2 }, // Stage 2
+    { DeadeyeRegenRow: 0, DeadeyeRegenCol: 3 }, // Stage 3
+    { DeadeyeRegenRow: 0, DeadeyeRegenCol: 4 }, // Stage 4
+    { DeadeyeRegenRow: 0, DeadeyeRegenCol: 5 }, // Stage 5
+    { DeadeyeRegenRow: 1, DeadeyeRegenCol: 0 }, // Stage 6
+    { DeadeyeRegenRow: 1, DeadeyeRegenCol: 1 }, // Stage 7
+    { DeadeyeRegenRow: 1, DeadeyeRegenCol: 2 }, // Stage 8
+    { DeadeyeRegenRow: 1, DeadeyeRegenCol: 3 }, // Stage 9
+    { DeadeyeRegenRow: 1, DeadeyeRegenCol: 4 }, // Stage 10
+    { DeadeyeRegenRow: 1, DeadeyeRegenCol: 5 }, // Stage 11
+    { DeadeyeRegenRow: 2, DeadeyeRegenCol: 0 }, // Stage 12
+    { DeadeyeRegenRow: 2, DeadeyeRegenCol: 1 }, // Stage 13
+    { DeadeyeRegenRow: 2, DeadeyeRegenCol: 2 }, // Stage 14
+    { DeadeyeRegenRow: 2, DeadeyeRegenCol: 3 }, // Stage 15
+    { DeadeyeRegenRow: 2, DeadeyeRegenCol: 4 }, // Stage 16
+    { DeadeyeRegenRow: 2, DeadeyeRegenCol: 5 }, // Stage 17
+    { DeadeyeRegenRow: 3, DeadeyeRegenCol: 0 }, // Stage 18
+    { DeadeyeRegenRow: 3, DeadeyeRegenCol: 1 }, // Stage 19
+    { DeadeyeRegenRow: 3, DeadeyeRegenCol: 2 }, // Stage 20
+    { DeadeyeRegenRow: 3, DeadeyeRegenCol: 3 }, // Stage 21
+    { DeadeyeRegenRow: 3, DeadeyeRegenCol: 4 }, // Stage 22
+    { DeadeyeRegenRow: 3, DeadeyeRegenCol: 5 }, // Stage 23
+    { DeadeyeRegenRow: 4, DeadeyeRegenCol: 0 }, // Stage 24
+    { DeadeyeRegenRow: 4, DeadeyeRegenCol: 1 }, // Stage 25
+    { DeadeyeRegenRow: 4, DeadeyeRegenCol: 2 }, // Stage 26
+    { DeadeyeRegenRow: 4, DeadeyeRegenCol: 3 }, // Stage 27
+    { DeadeyeRegenRow: 4, DeadeyeRegenCol: 4 }, // Stage 28
+    { DeadeyeRegenRow: 4, DeadeyeRegenCol: 5 }, // Stage 29
+    { DeadeyeRegenRow: 5, DeadeyeRegenCol: 0 }, // Stage 30
+    { DeadeyeRegenRow: 5, DeadeyeRegenCol: 1 }, // Stage 31
+    { DeadeyeRegenRow: 5, DeadeyeRegenCol: 2 }, // Stage 32
+];
+function DeadeyeGetStageRowCol(DeadeyeRegenStageIndex) {
+    if (DeadeyeRegenStageIndex >= 0 && DeadeyeRegenStageIndex <= 32) {
+        const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeStagePositions[DeadeyeRegenStageIndex];
+        return { DeadeyeRegenRow, DeadeyeRegenCol };
+    } else {
+        return { DeadeyeRegenRow: 0, DeadeyeRegenCol: 0 };
+    }
+}
+let DeadeyeRegenStageIndex = 0; 
+
 const DeadeyeRegenWidth = 130;
 const DeadeyeRegenHeight = 130;
 const DeadeyeRegenBorderWidth = 0;
@@ -823,71 +862,16 @@ DeadeyeRegenImage.crossOrigin = "true";
 DeadeyeRegenCanvas.width = DeadeyeRegenWidth;
 DeadeyeRegenCanvas.height = DeadeyeRegenHeight;
 
-let DeadeyeRegenRow = 0;
-let DeadeyeRegenCol = 0;
-
 function AnimateDeadeyeRegen() {
-    if (DeadeyeLevel === 1){
-        if (DeadeyeRegenCol === 5){
-            DeadeyeRegenRow = 0;
-            DeadeyeRegenCol = 4;
-        }
-    } else if (DeadeyeRegenCol === 6) {
-        DeadeyeRegenCol = 0;
-        DeadeyeRegenRow += 1;
-    }
-    if (DeadeyeLevel === 2){
-        if (DeadeyeRegenRow === 1) {
-            if (DeadeyeRegenCol === 3){
-                DeadeyeRegenRow = 1;
-                DeadeyeRegenCol = 2;
-            }
-        }
-    } else if (DeadeyeLevel === 3){
-        if (DeadeyeRegenRow === 2) {
-            if (DeadeyeRegenCol === 1){
-                DeadeyeRegenRow = 2;
-                DeadeyeRegenCol = 0;
-            }
-        }
-    } else if (DeadeyeLevel === 4){
-        if (DeadeyeRegenRow === 2) {
-            if (DeadeyeRegenCol === 5){
-                DeadeyeRegenRow = 2;
-                DeadeyeRegenCol = 4;
-            }
-        }
-    } else if (DeadeyeLevel === 5){
-        if (DeadeyeRegenRow === 3) {
-            if (DeadeyeRegenCol === 3){
-                DeadeyeRegenRow = 3;
-                DeadeyeRegenCol = 2;
-            }
-        }
-    } else if (DeadeyeLevel === 6){
-        if (DeadeyeRegenRow === 4) {
-            if (DeadeyeRegenCol === 1){
-                DeadeyeRegenRow = 4;
-                DeadeyeRegenCol = 0;
-            }
-        }
-    } else if (DeadeyeLevel === 7){
-        if (DeadeyeRegenRow === 4) {
-            if (DeadeyeRegenCol === 5){
-                DeadeyeRegenRow = 4;
-                DeadeyeRegenCol = 4;
-            }
-        }
-    } else if (DeadeyeLevel === 8){
-        if (DeadeyeRegenRow === 5) {
-            if (DeadeyeRegenCol === 3){
-                DeadeyeRegenRow = 5;
-                DeadeyeRegenCol = 2;
-            }
-        }
-    }
+    let DeadeyeMaxRegenStageIndex = DeadeyeLevel * 4;
 
-
+    if (DeadeyeRegenStageIndex === DeadeyeMaxRegenStageIndex){
+        DeadeyeRegenStageIndex = DeadeyeRegenStageIndex;
+    } else{
+        DeadeyeRegenStageIndex++;
+    }
+    
+    const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeGetStageRowCol(DeadeyeRegenStageIndex);
     const position = DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol);
     DeadeyeRegenContext.clearRect(
         0,
@@ -906,7 +890,14 @@ function AnimateDeadeyeRegen() {
         DeadeyeRegenWidth,
         DeadeyeRegenHeight
     );
-    DeadeyeRegenCol += 1;
+}
+
+function DeadeyeDamage() {
+    if (DeadeyeRegenStageIndex > 0) {
+        DeadeyeRegenStageIndex -= 3;
+    } else {
+        DeadeyeRegenStageIndex = 0
+    }
 }
 
 DeadeyeRegenImage.onload = function() {
