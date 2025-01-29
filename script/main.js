@@ -443,7 +443,31 @@ EnergyLevelImage.onload = function() {
 };
 // end Energy levels
 
+<<<<<<< HEAD
 // start Energy core
+=======
+// start Energy cores
+const EnergyCoreStagePositions = [
+    { EnergyCoreRow: 0, EnergyCoreCol: 0 }, // Stage 0
+    { EnergyCoreRow: 0, EnergyCoreCol: 1 }, // Stage 1
+    { EnergyCoreRow: 0, EnergyCoreCol: 2 }, // Stage 2
+    { EnergyCoreRow: 1, EnergyCoreCol: 0 }, // Stage 3
+    { EnergyCoreRow: 1, EnergyCoreCol: 1 }, // Stage 4
+    { EnergyCoreRow: 1, EnergyCoreCol: 2 }, // Stage 5
+    { EnergyCoreRow: 2, EnergyCoreCol: 0 }, // Stage 6
+    { EnergyCoreRow: 2, EnergyCoreCol: 1 }, // Stage 7
+];
+function EnergyCoreGetStageRowCol(EnergyCoreStageIndex) {
+    if (EnergyCoreStageIndex >= 0 && EnergyCoreStageIndex <= 7) {
+        const { EnergyCoreRow, EnergyCoreCol } = EnergyCoreStagePositions[EnergyCoreStageIndex];
+        return { EnergyCoreRow, EnergyCoreCol };
+    } else {
+        return { EnergyCoreRow: 0, EnergyCoreCol: 0 };
+    }
+}
+let EnergyCoreStageIndex = 0; 
+
+>>>>>>> origin/tamagotchi
 const EnergyCoreWidth = 70;
 const EnergyCoreHeight = 70;
 const EnergyCoreBorderWidth = 0;
@@ -990,13 +1014,13 @@ DeadeyeRegenImage.onload = function() {
 function EmotionCheck() {
     let emotions = ["I'm hungry", "I'm tired", "I need a smoke"];
     console.log("EmotionCheck")
-    if (Health < 32) {
+    if (HealthCorePercent < 50) {
         console.log(emotions[0]);
     }
-    if (Energy < 32) {
+    if (EnergyCorePercent < 50) {
         console.log(emotions[1]);
     }
-    if (Deadeye < 32) {
+    if (DeadeyeCorePercent < 50) {
         console.log(emotions[2]);
     }
 }
