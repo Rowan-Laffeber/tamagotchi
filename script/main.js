@@ -189,10 +189,31 @@ HealthCoreImage.onload = function() {
     AnimateHealthCore();
     // setInterval(AnimateHealthCore, 500);
 };
-function eat() {
-    if (HealthCoreStageIndex < 6){
-        HealthCoreStageIndex++;
+let HealthCorePercent = 0;
+function Eat() {
+    HealthCorePercent += 10;
+    if (HealthCorePercent < 1){
+        HealthCoreStageIndex = 0;
+    } else if (HealthCorePercent <= 16){
+        HealthCoreStageIndex = 1;
+    } else if (HealthCorePercent <= 33){
+        HealthCoreStageIndex = 2;
+    } else if (HealthCorePercent <= 50){
+        HealthCoreStageIndex = 3;
+    } else if (HealthCorePercent <= 66){
+        HealthCoreStageIndex = 4;
+    } else if (HealthCorePercent <= 83){
+        HealthCoreStageIndex = 5;
+    } else if (HealthCorePercent <= 100){
+        HealthCoreStageIndex = 6;
     }
+    if (HealthCorePercent > 100){
+        HealthCorePercent = 100;
+    } else if (HealthCorePercent < 0){
+        HealthCorePercent = 0;
+    }
+    console.log("HealthCore% " + HealthCorePercent);
+    console.log("HealthCoreStageIndex " +  HealthCoreStageIndex);
     AnimateHealthCore();
 }
 // end Health core
@@ -504,10 +525,33 @@ EnergyCoreImage.onload = function() {
     AnimateEnergyCore();
     // setInterval(AnimateEnergyCore, 500);
 };
-function sleep() {
-    if (EnergyCoreStageIndex < 7){
-        EnergyCoreStageIndex++;
+let EnergyCorePercent = 0;
+function Sleep() {
+    EnergyCorePercent += 10;
+    if (EnergyCorePercent < 1){
+        EnergyCoreStageIndex = 0;
+    } else if (EnergyCorePercent <= 14){
+        EnergyCoreStageIndex = 1;
+    } else if (EnergyCorePercent <= 29){
+        EnergyCoreStageIndex = 2;
+    } else if (EnergyCorePercent <= 43){
+        EnergyCoreStageIndex = 3;
+    } else if (EnergyCorePercent <= 57){
+        EnergyCoreStageIndex = 4;
+    } else if (EnergyCorePercent <= 72){
+        EnergyCoreStageIndex = 5;
+    } else if (EnergyCorePercent <= 86){
+        EnergyCoreStageIndex = 6;
+    }else if (EnergyCorePercent <= 100){
+        EnergyCoreStageIndex = 7;
     }
+    if (EnergyCorePercent > 100){
+        EnergyCorePercent = 100;
+    } else if (EnergyCorePercent < 0){
+        EnergyCorePercent = 0;
+    }
+    console.log("EnergyCore% " + EnergyCorePercent);
+    console.log("energyCoreIndex " + EnergyCoreStageIndex);
     AnimateEnergyCore();
 }
 // end Energy core
@@ -823,12 +867,30 @@ DeadeyeCoreImage.onload = function() {
     AnimateDeadeyeCore();
     // setInterval(AnimateDeadeyeCore, 500);
 };
+let DeadeyeCorePercent = 0;
 function Smoke() {
-    if (DeadeyeCoreStageIndex < 5){
-        DeadeyeCoreStageIndex++;
+    DeadeyeCorePercent += 10;
+    if (DeadeyeCorePercent < 1){
+        DeadeyeCoreStageIndex = 0;
+    } else if (DeadeyeCorePercent <= 20){
+        DeadeyeCoreStageIndex = 1;
+    } else if (DeadeyeCorePercent <= 40){
+        DeadeyeCoreStageIndex = 2;
+    } else if (DeadeyeCorePercent <= 60){
+        DeadeyeCoreStageIndex = 3;
+    } else if (DeadeyeCorePercent <= 80){
+        DeadeyeCoreStageIndex = 4;
+    }else if (DeadeyeCorePercent <= 100){
+        DeadeyeCoreStageIndex = 5;
     }
+    if (DeadeyeCorePercent > 100){
+        DeadeyeCorePercent = 100;
+    } else if (DeadeyeCorePercent < 0){
+        DeadeyeCorePercent = 0;
+    }
+    console.log("DeadeyeCore% "+  DeadeyeCorePercent);
+    console.log("DeadeyeCoreStageIndex " + DeadeyeCoreStageIndex);
     AnimateDeadeyeCore();
-    
 }
 // Deadeye core end
 
