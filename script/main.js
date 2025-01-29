@@ -450,7 +450,7 @@ EnergyLevelImage.onload = function() {
 };
 // end Energy levels
 
-// start Energy core
+// start Energy cores
 const EnergyCoreStagePositions = [
     { EnergyCoreRow: 0, EnergyCoreCol: 0 }, // Stage 0
     { EnergyCoreRow: 0, EnergyCoreCol: 1 }, // Stage 1
