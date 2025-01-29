@@ -117,6 +117,25 @@ HealthLevelImage.onload = function() {
 // end Health levels
 
 // start Health core
+const HealthCoreStagePositions = [
+    { HealthCoreRow: 0, HealthCoreCol: 0 }, // Stage 0
+    { HealthCoreRow: 0, HealthCoreCol: 1 }, // Stage 1
+    { HealthCoreRow: 0, HealthCoreCol: 2 }, // Stage 2
+    { HealthCoreRow: 1, HealthCoreCol: 0 }, // Stage 3
+    { HealthCoreRow: 1, HealthCoreCol: 1 }, // Stage 4
+    { HealthCoreRow: 1, HealthCoreCol: 2 }, // Stage 5
+    { HealthCoreRow: 2, HealthCoreCol: 0 }, // Stage 6
+];
+function HealthCoreGetStageRowCol(HealthCoreStageIndex) {
+    if (HealthCoreStageIndex >= 0 && HealthCoreStageIndex <= 6) {
+        const { HealthCoreRow, HealthCoreCol } = HealthCoreStagePositions[HealthCoreStageIndex];
+        return { HealthCoreRow, HealthCoreCol };
+    } else {
+        return { HealthCoreRow: 0, HealthCoreCol: 0 };
+    }
+}
+let HealthCoreStageIndex = 0; 
+
 const HealthCoreWidth = 70;
 const HealthCoreHeight = 70;
 const HealthCoreBorderWidth = 0;
@@ -130,7 +149,7 @@ function HealthCorePositionToImage(HealthCoreRow, HealthCoreCol) {
         ),
         y: (
             HealthCoreBorderWidth +
-            HealthCoreRow * (HealthCoreSpacingWidth + HealthCoreHeight)
+            HealthCoreRow * (HealthCoreSpacingWidth+ HealthCoreHeight)
         )
     }
 }
@@ -144,22 +163,12 @@ HealthCoreImage.crossOrigin = "true";
 HealthCoreCanvas.width = HealthCoreWidth;
 HealthCoreCanvas.height = HealthCoreHeight;
 
-let HealthCoreRow = 0;
-let HealthCoreCol = 0;
-
 function AnimateHealthCore() {
-    if (HealthCoreCol === 3) {
-        HealthCoreCol = 0;
-        HealthCoreRow += 1;
+    if (HealthCoreStageIndex < 6){
+        HealthCoreStageIndex++;
     }
-    if (HealthCoreRow === 2) {
-        if (HealthCoreCol === 1){
-        HealthCoreRow = 0;
-        HealthCoreCol = 0;
-        }
-    }
-
-
+    
+    const { HealthCoreRow, HealthCoreCol } = HealthCoreGetStageRowCol(HealthCoreStageIndex);
     const position = HealthCorePositionToImage(HealthCoreRow, HealthCoreCol);
     HealthCoreContext.clearRect(
         0,
@@ -178,7 +187,6 @@ function AnimateHealthCore() {
         HealthCoreWidth,
         HealthCoreHeight
     );
-    HealthCoreCol += 1;
 }
 
 HealthCoreImage.onload = function() {
@@ -188,7 +196,7 @@ HealthCoreImage.onload = function() {
 // end Health core
 
 // start of Health regen
-const HealthStagePositions = [
+const HealthRegenStagePositions = [
     { HealthRegenRow: 0, HealthRegenCol: 0 }, // Stage 0
     { HealthRegenRow: 0, HealthRegenCol: 1 }, // Stage 1
     { HealthRegenRow: 0, HealthRegenCol: 2 }, // Stage 2
@@ -225,7 +233,7 @@ const HealthStagePositions = [
 ];
 function HealthGetStageRowCol(HealthRegenStageIndex) {
     if (HealthRegenStageIndex >= 0 && HealthRegenStageIndex <= 32) {
-        const { HealthRegenRow, HealthRegenCol } = HealthStagePositions[HealthRegenStageIndex];
+        const { HealthRegenRow, HealthRegenCol } = HealthRegenStagePositions[HealthRegenStageIndex];
         return { HealthRegenRow, HealthRegenCol };
     } else {
         return { HealthRegenRow: 0, HealthRegenCol: 0 };
@@ -417,6 +425,26 @@ EnergyLevelImage.onload = function() {
 // end Energy levels
 
 // start Energy core
+const EnergyCoreStagePositions = [
+    { EnergyCoreRow: 0, EnergyCoreCol: 0 }, // Stage 0
+    { EnergyCoreRow: 0, EnergyCoreCol: 1 }, // Stage 1
+    { EnergyCoreRow: 0, EnergyCoreCol: 2 }, // Stage 2
+    { EnergyCoreRow: 1, EnergyCoreCol: 0 }, // Stage 3
+    { EnergyCoreRow: 1, EnergyCoreCol: 1 }, // Stage 4
+    { EnergyCoreRow: 1, EnergyCoreCol: 2 }, // Stage 5
+    { EnergyCoreRow: 2, EnergyCoreCol: 0 }, // Stage 6
+    { EnergyCoreRow: 2, EnergyCoreCol: 1 }, // Stage 7
+];
+function EnergyCoreGetStageRowCol(EnergyCoreStageIndex) {
+    if (EnergyCoreStageIndex >= 0 && EnergyCoreStageIndex <= 7) {
+        const { EnergyCoreRow, EnergyCoreCol } = EnergyCoreStagePositions[EnergyCoreStageIndex];
+        return { EnergyCoreRow, EnergyCoreCol };
+    } else {
+        return { EnergyCoreRow: 0, EnergyCoreCol: 0 };
+    }
+}
+let EnergyCoreStageIndex = 0; 
+
 const EnergyCoreWidth = 70;
 const EnergyCoreHeight = 70;
 const EnergyCoreBorderWidth = 0;
@@ -430,7 +458,7 @@ function EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol) {
         ),
         y: (
             EnergyCoreBorderWidth +
-            EnergyCoreRow * (EnergyCoreSpacingWidth + EnergyCoreHeight)
+            EnergyCoreRow * (EnergyCoreSpacingWidth+ EnergyCoreHeight)
         )
     }
 }
@@ -439,27 +467,17 @@ let EnergyCoreCanvas = document.getElementById('EnergyCore');
 let EnergyCoreContext = EnergyCoreCanvas.getContext('2d');
 
 let EnergyCoreImage = new Image();
-EnergyCoreImage.src = "assets/img/stats-middle-icon/Energy-core.png";
+EnergyCoreImage.src = "assets/img/stats-middle-icon/energy-core.png";
 EnergyCoreImage.crossOrigin = "true";
 EnergyCoreCanvas.width = EnergyCoreWidth;
 EnergyCoreCanvas.height = EnergyCoreHeight;
 
-let EnergyCoreRow = 0;
-let EnergyCoreCol = 0;
-
 function AnimateEnergyCore() {
-    if (EnergyCoreCol === 3) {
-        EnergyCoreCol = 0;
-        EnergyCoreRow += 1;
+    if (EnergyCoreStageIndex < 7){
+        EnergyCoreStageIndex++;
     }
-    if (EnergyCoreRow === 2) {
-        if (EnergyCoreCol === 2){
-        EnergyCoreRow = 0;
-        EnergyCoreCol = 0;
-        }
-    }
-
-
+    
+    const { EnergyCoreRow, EnergyCoreCol } = EnergyCoreGetStageRowCol(EnergyCoreStageIndex);
     const position = EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol);
     EnergyCoreContext.clearRect(
         0,
@@ -478,7 +496,6 @@ function AnimateEnergyCore() {
         EnergyCoreWidth,
         EnergyCoreHeight
     );
-    EnergyCoreCol += 1;
 }
 
 EnergyCoreImage.onload = function() {
@@ -488,7 +505,7 @@ EnergyCoreImage.onload = function() {
 // end Energy core
 
 // start of Energy regen
-const EnergyStagePositions = [
+const EnergyRegenStagePositions = [
     { EnergyRegenRow: 0, EnergyRegenCol: 0 }, // Stage 0
     { EnergyRegenRow: 0, EnergyRegenCol: 1 }, // Stage 1
     { EnergyRegenRow: 0, EnergyRegenCol: 2 }, // Stage 2
@@ -525,7 +542,7 @@ const EnergyStagePositions = [
 ];
 function EnergyGetStageRowCol(EnergyRegenStageIndex) {
     if (EnergyRegenStageIndex >= 0 && EnergyRegenStageIndex <= 32) {
-        const { EnergyRegenRow, EnergyRegenCol } = EnergyStagePositions[EnergyRegenStageIndex];
+        const { EnergyRegenRow, EnergyRegenCol } = EnergyRegenStagePositions[EnergyRegenStageIndex];
         return { EnergyRegenRow, EnergyRegenCol };
     } else {
         return { EnergyRegenRow: 0, EnergyRegenCol: 0 };
@@ -720,6 +737,24 @@ DeadeyeLevelImage.onload = function() {
 // Deadeye level end
 
 // Deadeye core start
+const DeadeyeCoreStagePositions = [
+    { DeadeyeCoreRow: 0, DeadeyeCoreCol: 0 }, // Stage 0
+    { DeadeyeCoreRow: 0, DeadeyeCoreCol: 1 }, // Stage 1
+    { DeadeyeCoreRow: 0, DeadeyeCoreCol: 2 }, // Stage 2
+    { DeadeyeCoreRow: 1, DeadeyeCoreCol: 0 }, // Stage 3
+    { DeadeyeCoreRow: 1, DeadeyeCoreCol: 1 }, // Stage 4
+    { DeadeyeCoreRow: 1, DeadeyeCoreCol: 2 }, // Stage 5
+];
+function DeadeyeCoreGetStageRowCol(DeadeyeCoreStageIndex) {
+    if (DeadeyeCoreStageIndex >= 0 && DeadeyeCoreStageIndex <= 5) {
+        const { DeadeyeCoreRow, DeadeyeCoreCol } = DeadeyeCoreStagePositions[DeadeyeCoreStageIndex];
+        return { DeadeyeCoreRow, DeadeyeCoreCol };
+    } else {
+        return { DeadeyeCoreRow: 0, DeadeyeCoreCol: 0 };
+    }
+}
+let DeadeyeCoreStageIndex = 0; 
+
 const DeadeyeCoreWidth = 70;
 const DeadeyeCoreHeight = 70;
 const DeadeyeCoreBorderWidth = 0;
@@ -733,7 +768,7 @@ function DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol) {
         ),
         y: (
             DeadeyeCoreBorderWidth +
-            DeadeyeCoreRow * (DeadeyeCoreSpacingWidth + DeadeyeCoreHeight)
+            DeadeyeCoreRow * (DeadeyeCoreSpacingWidth+ DeadeyeCoreHeight)
         )
     }
 }
@@ -742,26 +777,18 @@ let DeadeyeCoreCanvas = document.getElementById('DeadeyeCore');
 let DeadeyeCoreContext = DeadeyeCoreCanvas.getContext('2d');
 
 let DeadeyeCoreImage = new Image();
-DeadeyeCoreImage.src = "assets/img/stats-middle-icon/Deadeye-core.png";
+DeadeyeCoreImage.src = "assets/img/stats-middle-icon/deadeye-core.png";
 DeadeyeCoreImage.crossOrigin = "true";
 DeadeyeCoreCanvas.width = DeadeyeCoreWidth;
 DeadeyeCoreCanvas.height = DeadeyeCoreHeight;
 
-let DeadeyeCoreRow = 0;
-let DeadeyeCoreCol = 0;
-
 function AnimateDeadeyeCore() {
-    if (DeadeyeCoreCol === 3) {
-        DeadeyeCoreCol = 0;
-        DeadeyeCoreRow += 1;
+    if (DeadeyeCoreStageIndex < 5){
+        DeadeyeCoreStageIndex++;
     }
-    if (DeadeyeCoreRow === 2) {
-        DeadeyeCoreRow = 0;
-        DeadeyeCoreCol = 0;
-    }
-
-
-    let position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
+    
+    const { DeadeyeCoreRow, DeadeyeCoreCol } = DeadeyeCoreGetStageRowCol(DeadeyeCoreStageIndex);
+    const position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
     DeadeyeCoreContext.clearRect(
         0,
         0,
@@ -779,7 +806,6 @@ function AnimateDeadeyeCore() {
         DeadeyeCoreWidth,
         DeadeyeCoreHeight
     );
-    DeadeyeCoreCol += 1;
 }
 
 DeadeyeCoreImage.onload = function() {
@@ -790,7 +816,7 @@ DeadeyeCoreImage.onload = function() {
 // Deadeye core end
 
 // start of Deadeye regen
-const DeadeyeStagePositions = [
+const DeadeyeRegenStagePositions = [
     { DeadeyeRegenRow: 0, DeadeyeRegenCol: 0 }, // Stage 0
     { DeadeyeRegenRow: 0, DeadeyeRegenCol: 1 }, // Stage 1
     { DeadeyeRegenRow: 0, DeadeyeRegenCol: 2 }, // Stage 2
@@ -825,9 +851,9 @@ const DeadeyeStagePositions = [
     { DeadeyeRegenRow: 5, DeadeyeRegenCol: 1 }, // Stage 31
     { DeadeyeRegenRow: 5, DeadeyeRegenCol: 2 }, // Stage 32
 ];
-function DeadeyeGetStageRowCol(DeadeyeRegenStageIndex) {
+function DeadeyeRegenGetStageRowCol(DeadeyeRegenStageIndex) {
     if (DeadeyeRegenStageIndex >= 0 && DeadeyeRegenStageIndex <= 32) {
-        const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeStagePositions[DeadeyeRegenStageIndex];
+        const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeRegenStagePositions[DeadeyeRegenStageIndex];
         return { DeadeyeRegenRow, DeadeyeRegenCol };
     } else {
         return { DeadeyeRegenRow: 0, DeadeyeRegenCol: 0 };
@@ -871,7 +897,7 @@ function AnimateDeadeyeRegen() {
         DeadeyeRegenStageIndex++;
     }
     
-    const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeGetStageRowCol(DeadeyeRegenStageIndex);
+    const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeRegenGetStageRowCol(DeadeyeRegenStageIndex);
     const position = DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol);
     DeadeyeRegenContext.clearRect(
         0,
