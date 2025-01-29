@@ -1,50 +1,50 @@
 // start of Health
 let Health = 32;
-HealthTimer();
+// HealthTimer();
 let EatCounter = 0;
 let HealthLevel = 1;
 
-function HealthTimer(){
-    let TellerFunctionHealth = setInterval(function () {
-        Health--;
-        document.getElementById("CountDown1").innerText = 'Health ' + Health;
-        if (Health <= 0) {
-            clearInterval(TellerFunctionHealth);
-            document.getElementById("CountDown1").innerText = "you are dead";
-        } else if (Health < 16) {
-            document.getElementById("SpeechBubble").style.display = "block";
+// function HealthTimer(){
+//     let TellerFunctionHealth = setInterval(function () {
+//         Health--;
+//         document.getElementById("CountDown1").innerText = 'Health ' + Health;
+//         if (Health <= 0) {
+//             clearInterval(TellerFunctionHealth);
+//             document.getElementById("CountDown1").innerText = "you are dead";
+//         } else if (Health < 16) {
+//             document.getElementById("SpeechBubble").style.display = "block";
 
-        } else {
-            document.getElementById("SpeechBubble").style.display = "none";
-        }
-    }, 1000);
-}
+//         } else {
+//             document.getElementById("SpeechBubble").style.display = "none";
+//         }
+//     }, 1000);
+// }
 
-function eat() {
-    if(Health > 32){
-        Health = 32;
-    } else if (Health > 30){
-        Health = 32;
-    } else {
-        Health = Health + 2;
-    }
-    EatCounter = EatCounter + 1;
-    console.log(EatCounter);
-    if(EatCounter >= 5){
-        HealthLevel = HealthLevel + 1;
-        EatCounter = 0;
-        if (HealthLevel > 8){
-            HealthLevel = 8;
-        }else {
-            AnimateHealthLevel();
-            console.log('next Health level');
-        }
-        console.log('HealthLevel = ' + HealthLevel);
-    }
-    document.getElementById("CountDown1").innerText = 'Health ' + Health;
-    clearInterval(TellerFunctionHealth); ///vragen Kelvin
-    HealthTimer();
-}
+// function eat() {
+//     if(Health > 32){
+//         Health = 32;
+//     } else if (Health > 30){
+//         Health = 32;
+//     } else {
+//         Health = Health + 2;
+//     }
+//     EatCounter = EatCounter + 1;
+//     console.log(EatCounter);
+//     if(EatCounter >= 5){
+//         HealthLevel = HealthLevel + 1;
+//         EatCounter = 0;
+//         if (HealthLevel > 8){
+//             HealthLevel = 8;
+//         }else {
+//             AnimateHealthLevel();
+//             console.log('next Health level');
+//         }
+//         console.log('HealthLevel = ' + HealthLevel);
+//     }
+//     document.getElementById("CountDown1").innerText = 'Health ' + Health;
+//     clearInterval(TellerFunctionHealth); ///vragen Kelvin
+//     HealthTimer();
+// }
 
 // start Health levels
 const HealthLevelWidth = 130;
@@ -164,10 +164,6 @@ HealthCoreCanvas.width = HealthCoreWidth;
 HealthCoreCanvas.height = HealthCoreHeight;
 
 function AnimateHealthCore() {
-    if (HealthCoreStageIndex < 6){
-        HealthCoreStageIndex++;
-    }
-    
     const { HealthCoreRow, HealthCoreCol } = HealthCoreGetStageRowCol(HealthCoreStageIndex);
     const position = HealthCorePositionToImage(HealthCoreRow, HealthCoreCol);
     HealthCoreContext.clearRect(
@@ -190,9 +186,15 @@ function AnimateHealthCore() {
 }
 
 HealthCoreImage.onload = function() {
-    // animateHealthCore();
-    setInterval(AnimateHealthCore, 500);
+    AnimateHealthCore();
+    // setInterval(AnimateHealthCore, 500);
 };
+function eat() {
+    if (HealthCoreStageIndex < 6){
+        HealthCoreStageIndex++;
+    }
+    AnimateHealthCore();
+}
 // end Health core
 
 // start of Health regen
@@ -315,45 +317,48 @@ HealthRegenImage.onload = function() {
 
 // start of Energy
 let Energy = 32;
-EnergyTimer();
+// EnergyTimer();
 let SleepCounter = 0;
 let EnergyLevel = 1;
 
-function sleep() {
-    if(Energy > 32){
-        Energy = 32;
-    } else if (Energy > 30){
-        Energy = 32;
-    } else {
-        Energy = Energy + 2;
-    }
-    SleepCounter = SleepCounter + 1;
-    console.log(SleepCounter);
-    if(SleepCounter >= 5){
-        EnergyLevel = EnergyLevel + 1;
-        SleepCounter = 0;
-        if (EnergyLevel > 8){
-            EnergyLevel = 8;
-        } else {
-            AnimateEnergyLevel();
-            console.log('next Energy level');
-        }
-        console.log('EnergyLevel = ' + EnergyLevel);
-    }
-    document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
-    clearInterval(TellerFunctionEnergy); /// vragen Kelvin
-    EnergyTimer();
-}
-function EnergyTimer(){
-    let TellerFunctionEnergy = setInterval(function () {
-        Energy--;
-        document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
-        if (Energy <= 0) {
-            clearInterval(TellerFunctionEnergy);
-            document.getElementById("CountDown2").innerText = "you are dead";
-        }
-    }, 3000);
-}
+// function sleep() {
+//     if (EnergyCoreStageIndex < 7){
+//         EnergyCoreStageIndex++;
+//     }
+//     if(Energy > 32){
+//         Energy = 32;
+//     } else if (Energy > 30){
+//         Energy = 32;
+//     } else {
+//         Energy = Energy + 2;
+//     }
+//     SleepCounter = SleepCounter + 1;
+//     console.log(SleepCounter);
+//     if(SleepCounter >= 5){
+//         EnergyLevel = EnergyLevel + 1;
+//         SleepCounter = 0;
+//         if (EnergyLevel > 8){
+//             EnergyLevel = 8;
+//         } else {
+//             AnimateEnergyLevel();
+//             console.log('next Energy level');
+//         }
+//         console.log('EnergyLevel = ' + EnergyLevel);
+//     }
+//     document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+//     clearInterval(TellerFunctionEnergy); /// vragen Kelvin
+//     EnergyTimer();
+// }
+// function EnergyTimer(){
+//     let TellerFunctionEnergy = setInterval(function () {
+//         Energy--;
+//         document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+//         if (Energy <= 0) {
+//             clearInterval(TellerFunctionEnergy);
+//             document.getElementById("CountDown2").innerText = "you are dead";
+//         }
+//     }, 3000);
+// }
 
 const EnergyLevelWidth = 130;
 const EnergyLevelHeight = 130;
@@ -473,9 +478,6 @@ EnergyCoreCanvas.width = EnergyCoreWidth;
 EnergyCoreCanvas.height = EnergyCoreHeight;
 
 function AnimateEnergyCore() {
-    if (EnergyCoreStageIndex < 7){
-        EnergyCoreStageIndex++;
-    }
     
     const { EnergyCoreRow, EnergyCoreCol } = EnergyCoreGetStageRowCol(EnergyCoreStageIndex);
     const position = EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol);
@@ -499,9 +501,15 @@ function AnimateEnergyCore() {
 }
 
 EnergyCoreImage.onload = function() {
-    // animateEnergyCore();
-    setInterval(AnimateEnergyCore, 500);
+    AnimateEnergyCore();
+    // setInterval(AnimateEnergyCore, 500);
 };
+function sleep() {
+    if (EnergyCoreStageIndex < 7){
+        EnergyCoreStageIndex++;
+    }
+    AnimateEnergyCore();
+}
 // end Energy core
 
 // start of Energy regen
@@ -625,46 +633,53 @@ EnergyRegenImage.onload = function() {
 
 // start of Deadeye
 let Deadeye = 32;
-DeadeyeTimer();
+// DeadeyeTimer();
 let SmokeCounter = 0;
 let DeadeyeLevel = 1;
 
-function Smoke() {
-    if(Deadeye > 32){
-        Deadeye = 32;
-    } else if (Deadeye > 30){
-        Deadeye = 32;
-    } else {
-        Deadeye = Deadeye + 2;
-    }
-    SmokeCounter = SmokeCounter + 1;
-    console.log(SmokeCounter);
-    if(SmokeCounter >= 5){
-        DeadeyeLevel = DeadeyeLevel + 1;
-        SmokeCounter = 0;
-        if (DeadeyeLevel > 8){
-            DeadeyeLevel = 8;
-        }else {
-            AnimateDeadeyeLevel();
-            console.log('next Deadeye level');
-        }
-        console.log('Deadeye level = ' + DeadeyeLevel);
-    }
-    document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
-    clearInterval(TellerFunctionDeadeye);
-    DeadeyeTimer();
-}
+// function Smoke() {
 
-function DeadeyeTimer(){
-    let TellerFunctionDeadeye = setInterval(function () {
-        Deadeye--;
-        document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
-        if (Deadeye <= 0) {
-            clearInterval(TellerFunctionDeadeye);
-            document.getElementById("CountDown3").innerText = "Deadeye is drained";
-        }
-    }, 5000);
-}
+//     if (DeadeyeCoreStageIndex < 5){
+//         DeadeyeCoreStageIndex++;
+//     }
+
+
+
+//     if(Deadeye > 32){
+//         Deadeye = 32;
+//     } else if (Deadeye > 30){
+//         Deadeye = 32;
+//     } else {
+//         Deadeye = Deadeye + 2;
+//     }
+//     SmokeCounter = SmokeCounter + 1;
+//     console.log(SmokeCounter);
+//     if(SmokeCounter >= 5){
+//         DeadeyeLevel = DeadeyeLevel + 1;
+//         SmokeCounter = 0;
+//         if (DeadeyeLevel > 8){
+//             DeadeyeLevel = 8;
+//         }else {
+//             AnimateDeadeyeLevel();
+//             console.log('next Deadeye level');
+//         }
+//         console.log('Deadeye level = ' + DeadeyeLevel);
+//     }
+//     document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+//     clearInterval(TellerFunctionDeadeye);
+//     DeadeyeTimer();
+// }
+// 
+// function DeadeyeTimer(){
+//     let TellerFunctionDeadeye = setInterval(function () {
+//         Deadeye--;
+//         document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+//         if (Deadeye <= 0) {
+//             clearInterval(TellerFunctionDeadeye);
+//             document.getElementById("CountDown3").innerText = "Deadeye is drained";
+//         }
+//     }, 5000);
+// }
 // Deadeye level start
 const DeadeyeLevelWidth = 130;
 const DeadeyeLevelHeight = 130;
@@ -782,11 +797,7 @@ DeadeyeCoreImage.crossOrigin = "true";
 DeadeyeCoreCanvas.width = DeadeyeCoreWidth;
 DeadeyeCoreCanvas.height = DeadeyeCoreHeight;
 
-function AnimateDeadeyeCore() {
-    if (DeadeyeCoreStageIndex < 5){
-        DeadeyeCoreStageIndex++;
-    }
-    
+function AnimateDeadeyeCore() {   
     const { DeadeyeCoreRow, DeadeyeCoreCol } = DeadeyeCoreGetStageRowCol(DeadeyeCoreStageIndex);
     const position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
     DeadeyeCoreContext.clearRect(
@@ -809,10 +820,16 @@ function AnimateDeadeyeCore() {
 }
 
 DeadeyeCoreImage.onload = function() {
-    // animateDeadeyeCore();
-    setInterval(AnimateDeadeyeCore, 500);
+    AnimateDeadeyeCore();
+    // setInterval(AnimateDeadeyeCore, 500);
 };
-
+function Smoke() {
+    if (DeadeyeCoreStageIndex < 5){
+        DeadeyeCoreStageIndex++;
+    }
+    AnimateDeadeyeCore();
+    
+}
 // Deadeye core end
 
 // start of Deadeye regen
