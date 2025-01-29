@@ -977,9 +977,9 @@ DeadeyeRegenImage.onload = function() {
 //localStorage voor Health,Energie en Deadeye start hier
 function saveStats() {
     let stats = {
-        Health,
-        Energy,
-        Deadeye,
+        HealthRegenStageIndex,
+        EnergyRegenStageIndex,
+        DeadeyeRegenStageIndex,
         HealthCorePercent,
         EnergyCorePercent,
         DeadeyeCorePercent,
@@ -992,9 +992,9 @@ function saveStats() {
 function loadStats() {
     let savedStats = JSON.parse(localStorage.getItem("playerStats"));
     if (savedStats) {
-        Health = savedStats.Health;
-        Energy = savedStats.Energy;
-        Deadeye = savedStats.Deadeye;
+        HealthRegenStageIndex = savedStats.HealthRegenStageIndex;
+        EnergyRegenStageIndex = savedStats.EnergyRegenStageIndex;
+        DeadeyeRegenStageIndex = savedStats.DeadeyeRegenStageIndex;
         HealthCorePercent = savedStats.HealthCorePercent;
         EnergyCorePercent = savedStats.EnergyCorePercent;
         DeadeyeCorePercent = savedStats.DeadeyeCorePercent;
@@ -1002,9 +1002,9 @@ function loadStats() {
         EnergyLevel = savedStats.EnergyLevel;
         DeadeyeLevel = savedStats.DeadeyeLevel;
 
-        document.getElementById("CountDown1").innerText = 'Health ' + Health;
-        document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
-        document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+        // document.getElementById("CountDown1").innerText = 'Health ' + Health;
+        // document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+        // document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
     }
 }
 // end of Deadeye regen
