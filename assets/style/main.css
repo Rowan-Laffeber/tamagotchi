@@ -68,7 +68,7 @@ div.body-test{
 }
 .AppleGround{
     position: fixed;
-    left: 40em;
+    left: 55em;
     bottom: 1.25em;
     z-index: 13;
     width: 3.75em;
@@ -76,7 +76,7 @@ div.body-test{
 }
 .AppleTree1{
     position: fixed;
-    left: 56.25em;
+    left: 69em;
     bottom: 14.375em;
     z-index: 14;
     width: 2.5em;
@@ -84,7 +84,7 @@ div.body-test{
 }
 .AppleTree2{
     position: fixed;
-    left: 51.875em;
+    left: 67.875em;
     bottom: 25em;
     z-index: 15;
     width: 2.5em;
@@ -92,7 +92,7 @@ div.body-test{
 }
 .AppleTree3{
     position: fixed;
-    left: 46.875em;
+    left: 56.875em;
     bottom: 15.625em;
     z-index: 16;
     width: 2.5em;
@@ -100,7 +100,7 @@ div.body-test{
 }
 .AppleTree4{
     position: fixed;
-    left: 43.75em;
+    left: 56.75em;
     bottom: 23.75em;
     z-index: 17;
     width: 2.5em;
@@ -108,7 +108,7 @@ div.body-test{
 }
 .AppleTree5{
     position: fixed;
-    left: 40em;
+    left: 62em;
     bottom: 18.75em;
     z-index: 18;
     width: 2.5em;

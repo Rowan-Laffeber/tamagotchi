@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2ff83ab3-7a55-4774-8316-a6b19d4c9678" name="Changes" comment="changed sun and moon">
       <change beforePath="$PROJECT_DIR$/assets/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
