@@ -974,7 +974,7 @@ DeadeyeRegenImage.onload = function () {
     // animateDeadeyeRegen();
     setInterval(AnimateDeadeyeRegen, 500);
 };
-//localStorage voor Health,Energie en Deadeye start hier
+ // localStorage voor Health, Energie en Deadeye start hier
 function saveStats() {
     let stats = {
         HealthRegenStageIndex,
@@ -1002,13 +1002,13 @@ function loadStats() {
         EnergyLevel = savedStats.EnergyLevel;
         DeadeyeLevel = savedStats.DeadeyeLevel;
 
-        // document.getElementById("CountDown1").innerText = 'Health ' + Health;
-        // document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
-        // document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+        //document.getElementById("CountDown1").innerText = 'Health ' + Health;
+        //document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+        //document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
     }
 }
 // end of Deadeye regen
-
+loadStats();
 
 function EmotionCheck() {
     let emotions = ["I'm hungry", "I'm tired", "I need a smoke"];
@@ -1024,7 +1024,7 @@ function EmotionCheck() {
         document.getElementById("SpeechBubbleSleep").style.display = "block";
     } else if (EnergyCorePercent > 50){
         document.getElementById("SpeechBubbleSleep").style.display = "none";
-    } 
+    }
     if (DeadeyeCorePercent < 50) {
         console.log(emotions[2]);
         document.getElementById("SpeechBubbleSmoke").style.display = "block";
@@ -1153,6 +1153,7 @@ StartButton.addEventListener('click', () => {
     Body.style.filter = 'none';
 });
 // end music
+loadCloudsAndDayNight()
 // Sprite Arthur
 
 const ArthurWidth = 320;
@@ -1221,5 +1222,5 @@ ArthurImage.onload = function () {
 setInterval(() => {
     saveCloudsAndDayNight();
     saveStats();
-}, 5000);
+}, 100);
 // end arthur
