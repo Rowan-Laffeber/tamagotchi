@@ -157,14 +157,32 @@ div.body-test {
 }
 
 
-.SpeechBubble {
+.SpeechBubbleHungry {
     position: fixed;
     bottom: 14.375em;
     left: 17.5em;
     z-index: 90;
     display: none;
     width: 30em;
-    height: 15em;
+    height: 14.375em;
+}
+.SpeechBubbleSleep {
+    position: fixed;
+    bottom: 14.375em;
+    left: 17.5em;
+    z-index: 90;
+    display: none;
+    width: 30em;
+    height: 14.375em;
+}
+.SpeechBubbleSmoke {
+    position: fixed;
+    bottom: 14.375em;
+    left: 17.5em;
+    z-index: 90;
+    display: none;
+    width: 31.875em;
+    height: 14.375em;
 }
 
 .Cloud1 {

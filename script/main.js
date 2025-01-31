@@ -1015,13 +1015,21 @@ function EmotionCheck() {
     console.log("EmotionCheck")
     if (HealthCorePercent < 50) {
         console.log(emotions[0]);
-        document.getElementById("SpeechBubble").style.display = "block";
+        document.getElementById("SpeechBubbleHungry").style.display = "block";
+    } else if (HealthCorePercent > 50){
+        document.getElementById("SpeechBubbleHungry").style.display = "none";
     }
     if (EnergyCorePercent < 50) {
         console.log(emotions[1]);
-    }
+        document.getElementById("SpeechBubbleSleep").style.display = "block";
+    } else if (EnergyCorePercent > 50){
+        document.getElementById("SpeechBubbleSleep").style.display = "none";
+    } 
     if (DeadeyeCorePercent < 50) {
         console.log(emotions[2]);
+        document.getElementById("SpeechBubbleSmoke").style.display = "block";
+    } else if (DeadeyeCorePercent > 50){
+        document.getElementById("SpeechBubbleSmoke").style.display = "none";
     }
 }
 setInterval(EmotionCheck, 1000);
@@ -1181,9 +1189,9 @@ function AnimateArthur() {
         ArthurCol = 0;
         ArthurRow = 0; //+=1
     }
-    if (ArthurRow === 2) {
-        ArthurRow = 0;
-    }
+    // if (ArthurRow === 2) {
+    //     ArthurRow = 0;
+    // }
 
 
     let position = arthurPositionToImage(ArthurRow, ArthurCol);
