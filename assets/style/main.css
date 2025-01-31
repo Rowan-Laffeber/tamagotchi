@@ -1,27 +1,31 @@
 @font-face {
     font-family: pixelfont;
     src: url(../minecraft-pixel-font-5x5.ttf);
- }
+}
 
- * {
-     font-family: pixelfont, serif;
+* {
+    font-family: pixelfont, serif;
     font-size: 1em;
     line-height: 1.25em;
- }
+}
+
 body {
     padding: 0;
-    margin: 0 0 auto 0 ;
+    margin: 0 0 auto 0;
     background-color: darkred;
     font-size: 16px;
 }
-div.body-test{
+
+div.body-test {
     margin-bottom: auto;
 }
+
 @media (max-width: 768px) {
     body {
         font-size: 8px;
     }
 }
+
 /* @media (min-width: 1440px) {
     Body {
         font-size: 19.8px;
@@ -32,6 +36,7 @@ div.body-test{
         font-size: 24px;
     }
 }
+
 .Grass {
     position: fixed;
     bottom: 0;
@@ -40,7 +45,8 @@ div.body-test{
     width: 96.25em;
     height: 2.5em;
 }
-.Home{
+
+.Home {
     position: fixed;
     background-attachment: fixed;
     left: 33.125em;
@@ -49,7 +55,8 @@ div.body-test{
     width: 65em;
     z-index: 6;
 }
-.campfire{
+
+.campfire {
     position: fixed;
     background-attachment: fixed;
     left: 25em;
@@ -58,7 +65,8 @@ div.body-test{
     width: 8.125em;
     z-index: 6;
 }
-.Tree{
+
+.Tree {
     position: fixed;
     bottom: -0.625em;
     z-index: 7;
@@ -66,7 +74,8 @@ div.body-test{
     width: 26.875em;
     height: 32.5em;
 }
-.AppleGround{
+
+.AppleGround {
     position: fixed;
     left: 52.5em;
     bottom: 1.25em;
@@ -74,7 +83,8 @@ div.body-test{
     width: 3.75em;
     height: 3.75em;
 }
-.AppleTree1{
+
+.AppleTree1 {
     position: fixed;
     left: 68.75em;
     bottom: 14.375em;
@@ -82,7 +92,8 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.AppleTree2{
+
+.AppleTree2 {
     position: fixed;
     left: 64.375em;
     bottom: 25em;
@@ -90,7 +101,8 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.AppleTree3{
+
+.AppleTree3 {
     position: fixed;
     left: 59.375em;
     bottom: 15.625em;
@@ -98,7 +110,8 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.AppleTree4{
+
+.AppleTree4 {
     position: fixed;
     left: 56.25em;
     bottom: 23.75em;
@@ -106,7 +119,8 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.AppleTree5{
+
+.AppleTree5 {
     position: fixed;
     left: 52.5em;
     bottom: 18.75em;
@@ -114,7 +128,8 @@ div.body-test{
     width: 2.5em;
     height: 2.5em;
 }
-.Stone{
+
+.Stone {
     position: fixed;
     bottom: 0.625em;
     z-index: 8;
@@ -122,14 +137,16 @@ div.body-test{
     width: 6.875em;
     height: 4.375em;
 }
+
 .Sprite {
-        position: fixed;
-        bottom: 0.625em;
-        left: 9.375em;
-        z-index: 12;
-        height: 20em;
-        width: 20em;
-    }
+    position: fixed;
+    bottom: 0.625em;
+    left: 9.375em;
+    z-index: 12;
+    height: 20em;
+    width: 20em;
+}
+
 .arthur {
     position: fixed;
     bottom: 0.625em;
@@ -140,16 +157,17 @@ div.body-test{
 }
 
 
-.SpeechBubble{
+.SpeechBubble {
     position: fixed;
     bottom: 14.375em;
     left: 17.5em;
     z-index: 90;
     display: none;
-    width: 22.5em;
-    height: 13.75em;
+    width: 30em;
+    height: 15em;
 }
-.Cloud1{
+
+.Cloud1 {
     position: fixed;
     bottom: 39.375em;
     z-index: 2;
@@ -157,7 +175,8 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.Cloud2{
+
+.Cloud2 {
     position: fixed;
     bottom: 35.625em;
     z-index: 2;
@@ -165,7 +184,8 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.Cloud3{
+
+.Cloud3 {
     position: fixed;
     bottom: 33.125em;
     z-index: 2;
@@ -173,7 +193,8 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.Cloud4{
+
+.Cloud4 {
     position: fixed;
     bottom: 34.375em;
     z-index: 2;
@@ -181,7 +202,8 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.Cloud5{
+
+.Cloud5 {
     position: fixed;
     bottom: 31.25em;
     z-index: 2;
@@ -189,7 +211,8 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.Cloud6{
+
+.Cloud6 {
     position: fixed;
     bottom: 37.5em;
     z-index: 7;
@@ -197,7 +220,8 @@ div.body-test{
     width: 15.625em;
     height: 5em;
 }
-.Sun{
+
+.Sun {
     position: fixed;
     bottom: -3.125em;
     z-index: 0;
@@ -205,7 +229,8 @@ div.body-test{
     width: 6.25em;
     height: 6.25em;
 }
-.Moon{
+
+.Moon {
     position: fixed;
     bottom: -3.125em;
     z-index: 1;
@@ -213,7 +238,8 @@ div.body-test{
     width: 6.25em;
     height: 6.25em;
 }
-.IconHeart{
+
+.IconHeart {
     position: fixed;
     left: 2.5em;
     bottom: 39.375em;
@@ -221,7 +247,8 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.HealthLevels canvas{
+
+.HealthLevels canvas {
     position: fixed;
     left: 0.625em;
     bottom: 37.5em;
@@ -229,7 +256,8 @@ div.body-test{
     width: 8.125em;
     height: 8.125em;
 }
-.IconEnergy{
+
+.IconEnergy {
     position: fixed;
     left: 11.25em;
     bottom: 39.375em;
@@ -237,7 +265,8 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.EnergyLevels canvas{
+
+.EnergyLevels canvas {
     position: fixed;
     left: 9.375em;
     bottom: 37.5em;
@@ -246,7 +275,8 @@ div.body-test{
     height: 8.125em;
 
 }
-.IconDeadeye{
+
+.IconDeadeye {
     position: fixed;
     left: 20em;
     bottom: 39.375em;
@@ -254,7 +284,8 @@ div.body-test{
     width: 4.375em;
     height: 4.375em;
 }
-.DeadeyeLevels canvas{
+
+.DeadeyeLevels canvas {
     position: fixed;
     left: 18.125em;
     bottom: 37.5em;
@@ -262,12 +293,14 @@ div.body-test{
     width: 8.125em;
     height: 8.125em;
 }
-.Counters{
+
+.Counters {
     position: fixed;
     z-index: 50;
     bottom: 25em;
 }
-.Counter{
+
+.Counter {
     color: #575757;
 }
 
@@ -276,26 +309,28 @@ div.body-test{
     left: 20em;
     bottom: 12em;
     background-color: #606060;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-position: center;
-     color: white;
-     padding: 20px 30px;
-     border-radius: 8px;
-     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-     text-align: center;
-     z-index: 300;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 300;
     max-width: 50em;
- }
- /* .startscreen{
+}
+
+/* .startscreen{
     position: fixed;
     left: 410px;
     bottom: auto;
  } */
 
-.Box h1, p {
+.Box h1,
+p {
     font-size: 50px;
     margin: 0 0 10px;
-} 
+}
 
 .Start {
     background: #ff0000;
