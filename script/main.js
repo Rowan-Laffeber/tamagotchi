@@ -302,10 +302,11 @@ function HealthTimer(){
         if (HealthRegenStageIndex <= 0){
             HealthRegenStageIndex = 0;
             if (HealthCorePercent  <= 0){
-                document.getElementById("HealthInfo").innerText = "Health is drained";
+                document.getElementById("HealthInfo").innerText = "You are dead";
             }
         } else {
             HealthRegenStageIndex--
+            document.getElementById("HealthInfo").innerText = "-";
         }
    }, 1000);
 }
@@ -630,10 +631,12 @@ function EnergyTimer(){
         if (EnergyRegenStageIndex <= 0){
             EnergyRegenStageIndex = 0;
             if (EnergyCorePercent  <= 0){
-                document.getElementById("EnergyInfo").innerText = "Energy is drained";
+                document.getElementById("EnergyInfo").innerText = "you have fainted";
             }
         } else {
             EnergyRegenStageIndex--
+            document.getElementById("EnergyInfo").innerText = "-";
+
         }
    }, 1000);
 }
@@ -959,6 +962,8 @@ function DeadeyeTimer(){
             }
         } else {
             DeadeyeRegenStageIndex--
+            document.getElementById("DeadeyeInfo").innerText = "-";
+
         }
    }, 1000);
 }
