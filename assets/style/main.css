@@ -324,18 +324,24 @@ div.body-test {
 
 .Box {
     position: fixed;
-    left: 20em;
-    bottom: 12em;
+    left: 22.5em;
+    bottom: 5.625em;
     text-align: center;
     z-index: 300;
-    max-width: 50em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    .BoxImage {
+        width: 50.625em;
+        height: 35.625em;
+    }
     .StartButton {
         position: absolute;
-        bottom: 50px;
+        bottom: 3.125em;
         cursor: pointer;
+        width: 24.375em;
+        height: 6.875em;
+
     }
 }
 
