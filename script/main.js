@@ -1219,5 +1219,5 @@ ArthurImage.onload = function() {
 setInterval(() => {
     saveCloudsAndDayNight();
     saveStats();
-}, 100000000000);
+}, 100);
 // end arthur
