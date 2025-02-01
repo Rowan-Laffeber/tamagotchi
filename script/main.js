@@ -35,9 +35,9 @@ function AnimateHealthLevel() {
         HealthLevelRow += 1;
     }
     if (HealthLevelRow === 2) {
-        if (HealthLevelCol === 2) {
-            HealthLevelRow = 0;
-            HealthLevelCol = 0;
+        if (HealthLevelCol === 2){
+        HealthLevelRow = 0;
+        HealthLevelCol = 0;
         }
     }
 
@@ -63,7 +63,7 @@ function AnimateHealthLevel() {
     HealthLevelCol += 1;
 }
 
-HealthLevelImage.onload = function () {
+HealthLevelImage.onload = function() {
     AnimateHealthLevel();
 };
 
@@ -115,29 +115,29 @@ HealthCoreCanvas.width = HealthCoreWidth;
 HealthCoreCanvas.height = HealthCoreHeight;
 
 let HealthCorePercent = 100;
-let HealthCoreStageIndex = 5;
+let HealthCoreStageIndex = 5; 
 
-function AnimateHealthCore() {
-    if (HealthCorePercent < 1) {
+function AnimateHealthCore() { 
+    if (HealthCorePercent < 1){
         HealthCoreStageIndex = 0;
-    } else if (HealthCorePercent <= 16) {
+    } else if (HealthCorePercent <= 16){
         HealthCoreStageIndex = 1;
-    } else if (HealthCorePercent <= 33) {
+    } else if (HealthCorePercent <= 33){
         HealthCoreStageIndex = 2;
-    } else if (HealthCorePercent <= 50) {
+    } else if (HealthCorePercent <= 50){
         HealthCoreStageIndex = 3;
-    } else if (HealthCorePercent <= 66) {
+    } else if (HealthCorePercent <= 66){
         HealthCoreStageIndex = 4;
-    } else if (HealthCorePercent <= 83) {
+    } else if (HealthCorePercent <= 83){
         HealthCoreStageIndex = 5;
-    } else if (HealthCorePercent <= 100) {
+    } else if (HealthCorePercent <= 100){
         HealthCoreStageIndex = 6;
     }
-    if (HealthCorePercent > 100) {
+    if (HealthCorePercent > 100){
         HealthCorePercent = 100;
-    } else if (HealthCorePercent < 0) {
+    } else if (HealthCorePercent < 0){
         HealthCorePercent = 0;
-    }
+    } 
     const { HealthCoreRow, HealthCoreCol } = HealthCoreGetStageRowCol(HealthCoreStageIndex);
     const position = HealthCorePositionToImage(HealthCoreRow, HealthCoreCol);
     HealthCoreContext.clearRect(
@@ -159,7 +159,7 @@ function AnimateHealthCore() {
     );
 }
 
-HealthCoreImage.onload = function () {
+HealthCoreImage.onload = function() {
     // animateHealthCore();
     setInterval(AnimateHealthCore, 500);
 };
@@ -169,12 +169,12 @@ function Eat() {
     HealthCorePercent += 10;
     EatCounter = EatCounter + 1;
     console.log(EatCounter);
-    if (EatCounter >= 5) {
+    if(EatCounter >= 5){
         HealthLevel = HealthLevel + 1;
         EatCounter = 0;
-        if (HealthLevel > 8) {
+        if (HealthLevel > 8){
             HealthLevel = 8;
-        } else {
+        }else {
             AnimateHealthLevel();
             console.log('next Health level');
         }
@@ -243,7 +243,7 @@ function HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol) {
         ),
         y: (
             HealthRegenBorderWidth +
-            HealthRegenRow * (HealthRegenSpacingWidth + HealthRegenHeight)
+            HealthRegenRow * (HealthRegenSpacingWidth+ HealthRegenHeight)
         )
     }
 }
@@ -260,22 +260,22 @@ HealthRegenCanvas.height = HealthRegenHeight;
 function AnimateHealthRegen() {
     let HealthMaxRegenStageIndex = HealthLevel * 4;
 
-    if (HealthRegenStageIndex === HealthMaxRegenStageIndex) {
+    if (HealthRegenStageIndex === HealthMaxRegenStageIndex){
         HealthRegenStageIndex = HealthMaxRegenStageIndex;
-    } else if (HealthCorePercent >= 1) {
+    } else if (HealthCorePercent >= 1){
         HealthRegenStageIndex++;
-        if (HealthCorePercent <= 0) {
+        if (HealthCorePercent <= 0){
             HealthCorePercent = 0;
-        } else {
-            HealthCorePercent--;
-        }
+            } else {
+                HealthCorePercent--;
+            }
     }
 
-    console.log("HealthCore% " + HealthCorePercent);
+    console.log("HealthCore% "+  HealthCorePercent);
     console.log("HealthCoreStageIndex " + HealthCoreStageIndex);
     console.log("HealthRegenStageIndex " + HealthRegenStageIndex);
     AnimateHealthCore();
-
+    
     const { HealthRegenRow, HealthRegenCol } = HealthRegenGetStageRowCol(HealthRegenStageIndex);
     const position = HealthRegenPositionToImage(HealthRegenRow, HealthRegenCol);
     HealthRegenContext.clearRect(
@@ -297,17 +297,17 @@ function AnimateHealthRegen() {
     );
 }
 HealthTimer()
-function HealthTimer() {
+function HealthTimer(){
     setInterval(function () {
-        if (HealthRegenStageIndex <= 0) {
+        if (HealthRegenStageIndex <= 0){
             HealthRegenStageIndex = 0;
-            if (HealthCorePercent <= 0) {
+            if (HealthCorePercent  <= 0){
                 document.getElementById("HealthInfo").innerText = "Health is drained";
             }
         } else {
             HealthRegenStageIndex--
         }
-    }, 1000);
+   }, 1000);
 }
 function HealthDamage() {
     if (HealthRegenStageIndex > 0) {
@@ -317,7 +317,7 @@ function HealthDamage() {
     }
 }
 
-HealthRegenImage.onload = function () {
+HealthRegenImage.onload = function() {
     // animateHealthRegen();
     setInterval(AnimateHealthRegen, 500);
 };
@@ -359,9 +359,9 @@ function AnimateEnergyLevel() {
         EnergyLevelRow += 1;
     }
     if (EnergyLevelRow === 2) {
-        if (EnergyLevelCol === 2) {
-            EnergyLevelRow = 0;
-            EnergyLevelCol = 0;
+        if (EnergyLevelCol === 2){
+        EnergyLevelRow = 0;
+        EnergyLevelCol = 0;
         }
     }
 
@@ -387,7 +387,7 @@ function AnimateEnergyLevel() {
     EnergyLevelCol += 1;
 }
 
-EnergyLevelImage.onload = function () {
+EnergyLevelImage.onload = function() {
     AnimateEnergyLevel();
 };
 
@@ -441,31 +441,31 @@ EnergyCoreCanvas.width = EnergyCoreWidth;
 EnergyCoreCanvas.height = EnergyCoreHeight;
 
 let EnergyCorePercent = 100;
-let EnergyCoreStageIndex = 5;
+let EnergyCoreStageIndex = 5; 
 
-function AnimateEnergyCore() {
-    if (EnergyCorePercent < 1) {
+function AnimateEnergyCore() { 
+    if (EnergyCorePercent < 1){
         EnergyCoreStageIndex = 0;
-    } else if (EnergyCorePercent <= 14) {
+    } else if (EnergyCorePercent <= 14){
         EnergyCoreStageIndex = 1;
-    } else if (EnergyCorePercent <= 29) {
+    } else if (EnergyCorePercent <= 29){
         EnergyCoreStageIndex = 2;
-    } else if (EnergyCorePercent <= 43) {
+    } else if (EnergyCorePercent <= 43){
         EnergyCoreStageIndex = 3;
-    } else if (EnergyCorePercent <= 57) {
+    } else if (EnergyCorePercent <= 57){
         EnergyCoreStageIndex = 4;
-    } else if (EnergyCorePercent <= 72) {
+    } else if (EnergyCorePercent <= 72){
         EnergyCoreStageIndex = 5;
-    } else if (EnergyCorePercent <= 86) {
+    } else if (EnergyCorePercent <= 86){
         EnergyCoreStageIndex = 6;
-    } else if (EnergyCorePercent <= 100) {
+    }else if (EnergyCorePercent <= 100){
         EnergyCoreStageIndex = 7;
     }
-    if (EnergyCorePercent > 100) {
+    if (EnergyCorePercent > 100){
         EnergyCorePercent = 100;
-    } else if (EnergyCorePercent < 0) {
+    } else if (EnergyCorePercent < 0){
         EnergyCorePercent = 0;
-    }
+    } 
     const { EnergyCoreRow, EnergyCoreCol } = EnergyCoreGetStageRowCol(EnergyCoreStageIndex);
     const position = EnergyCorePositionToImage(EnergyCoreRow, EnergyCoreCol);
     EnergyCoreContext.clearRect(
@@ -487,7 +487,7 @@ function AnimateEnergyCore() {
     );
 }
 
-EnergyCoreImage.onload = function () {
+EnergyCoreImage.onload = function() {
     // animateEnergyCore();
     setInterval(AnimateEnergyCore, 500);
 };
@@ -497,12 +497,12 @@ function Sleep() {
     EnergyCorePercent += 10;
     SleepCounter = SleepCounter + 1;
     console.log(SleepCounter);
-    if (SleepCounter >= 5) {
+    if(SleepCounter >= 5){
         EnergyLevel = EnergyLevel + 1;
         SleepCounter = 0;
-        if (EnergyLevel > 8) {
+        if (EnergyLevel > 8){
             EnergyLevel = 8;
-        } else {
+        }else {
             AnimateEnergyLevel();
             console.log('next Energy level');
         }
@@ -571,7 +571,7 @@ function EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol) {
         ),
         y: (
             EnergyRegenBorderWidth +
-            EnergyRegenRow * (EnergyRegenSpacingWidth + EnergyRegenHeight)
+            EnergyRegenRow * (EnergyRegenSpacingWidth+ EnergyRegenHeight)
         )
     }
 }
@@ -588,22 +588,22 @@ EnergyRegenCanvas.height = EnergyRegenHeight;
 function AnimateEnergyRegen() {
     let EnergyMaxRegenStageIndex = EnergyLevel * 4;
 
-    if (EnergyRegenStageIndex === EnergyMaxRegenStageIndex) {
+    if (EnergyRegenStageIndex === EnergyMaxRegenStageIndex){
         EnergyRegenStageIndex = EnergyMaxRegenStageIndex;
-    } else if (EnergyCorePercent >= 1) {
+    } else if (EnergyCorePercent >= 1){
         EnergyRegenStageIndex++;
-        if (EnergyCorePercent <= 0) {
+        if (EnergyCorePercent <= 0){
             EnergyCorePercent = 0;
-        } else {
-            EnergyCorePercent--;
-        }
+            } else {
+                EnergyCorePercent--;
+            }
     }
 
-    console.log("EnergyCore% " + EnergyCorePercent);
+    console.log("EnergyCore% "+  EnergyCorePercent);
     console.log("EnergyCoreStageIndex " + EnergyCoreStageIndex);
     console.log("EnergyRegenStageIndex " + EnergyRegenStageIndex);
     AnimateEnergyCore();
-
+    
     const { EnergyRegenRow, EnergyRegenCol } = EnergyRegenGetStageRowCol(EnergyRegenStageIndex);
     const position = EnergyRegenPositionToImage(EnergyRegenRow, EnergyRegenCol);
     EnergyRegenContext.clearRect(
@@ -625,17 +625,17 @@ function AnimateEnergyRegen() {
     );
 }
 EnergyTimer()
-function EnergyTimer() {
+function EnergyTimer(){
     setInterval(function () {
-        if (EnergyRegenStageIndex <= 0) {
+        if (EnergyRegenStageIndex <= 0){
             EnergyRegenStageIndex = 0;
-            if (EnergyCorePercent <= 0) {
+            if (EnergyCorePercent  <= 0){
                 document.getElementById("EnergyInfo").innerText = "Energy is drained";
             }
         } else {
             EnergyRegenStageIndex--
         }
-    }, 1000);
+   }, 1000);
 }
 function EnergyDamage() {
     if (EnergyRegenStageIndex > 0) {
@@ -645,7 +645,7 @@ function EnergyDamage() {
     }
 }
 
-EnergyRegenImage.onload = function () {
+EnergyRegenImage.onload = function() {
     // animateEnergyRegen();
     setInterval(AnimateEnergyRegen, 500);
 };
@@ -687,9 +687,9 @@ function AnimateDeadeyeLevel() {
         DeadeyeLevelRow += 1;
     }
     if (DeadeyeLevelRow === 2) {
-        if (DeadeyeLevelCol === 2) {
-            DeadeyeLevelRow = 0;
-            DeadeyeLevelCol = 0;
+        if (DeadeyeLevelCol === 2){
+        DeadeyeLevelRow = 0;
+        DeadeyeLevelCol = 0;
         }
     }
 
@@ -715,7 +715,7 @@ function AnimateDeadeyeLevel() {
     DeadeyeLevelCol += 1;
 }
 
-DeadeyeLevelImage.onload = function () {
+DeadeyeLevelImage.onload = function() {
     AnimateDeadeyeLevel();
 };
 
@@ -770,27 +770,27 @@ DeadeyeCoreCanvas.width = DeadeyeCoreWidth;
 DeadeyeCoreCanvas.height = DeadeyeCoreHeight;
 
 let DeadeyeCorePercent = 100;
-let DeadeyeCoreStageIndex = 5;
+let DeadeyeCoreStageIndex = 5; 
 
-function AnimateDeadeyeCore() {
-    if (DeadeyeCorePercent < 1) {
+function AnimateDeadeyeCore() { 
+    if (DeadeyeCorePercent < 1){
         DeadeyeCoreStageIndex = 0;
-    } else if (DeadeyeCorePercent <= 20) {
+    } else if (DeadeyeCorePercent <= 20){
         DeadeyeCoreStageIndex = 1;
-    } else if (DeadeyeCorePercent <= 40) {
+    } else if (DeadeyeCorePercent <= 40){
         DeadeyeCoreStageIndex = 2;
-    } else if (DeadeyeCorePercent <= 60) {
+    } else if (DeadeyeCorePercent <= 60){
         DeadeyeCoreStageIndex = 3;
-    } else if (DeadeyeCorePercent <= 80) {
+    } else if (DeadeyeCorePercent <= 80){
         DeadeyeCoreStageIndex = 4;
-    } else if (DeadeyeCorePercent <= 100) {
+    }else if (DeadeyeCorePercent <= 100){
         DeadeyeCoreStageIndex = 5;
     }
-    if (DeadeyeCorePercent > 100) {
+    if (DeadeyeCorePercent > 100){
         DeadeyeCorePercent = 100;
-    } else if (DeadeyeCorePercent < 0) {
+    } else if (DeadeyeCorePercent < 0){
         DeadeyeCorePercent = 0;
-    }
+    } 
     const { DeadeyeCoreRow, DeadeyeCoreCol } = DeadeyeCoreGetStageRowCol(DeadeyeCoreStageIndex);
     const position = DeadeyeCorePositionToImage(DeadeyeCoreRow, DeadeyeCoreCol);
     DeadeyeCoreContext.clearRect(
@@ -812,7 +812,7 @@ function AnimateDeadeyeCore() {
     );
 }
 
-DeadeyeCoreImage.onload = function () {
+DeadeyeCoreImage.onload = function() {
     // animateDeadeyeCore();
     setInterval(AnimateDeadeyeCore, 500);
 };
@@ -822,12 +822,12 @@ function Smoke() {
     DeadeyeCorePercent += 10;
     SmokeCounter = SmokeCounter + 1;
     console.log(SmokeCounter);
-    if (SmokeCounter >= 5) {
+    if(SmokeCounter >= 5){
         DeadeyeLevel = DeadeyeLevel + 1;
         SmokeCounter = 0;
-        if (DeadeyeLevel > 8) {
+        if (DeadeyeLevel > 8){
             DeadeyeLevel = 8;
-        } else {
+        }else {
             AnimateDeadeyeLevel();
             console.log('next Deadeye level');
         }
@@ -896,7 +896,7 @@ function DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol) {
         ),
         y: (
             DeadeyeRegenBorderWidth +
-            DeadeyeRegenRow * (DeadeyeRegenSpacingWidth + DeadeyeRegenHeight)
+            DeadeyeRegenRow * (DeadeyeRegenSpacingWidth+ DeadeyeRegenHeight)
         )
     }
 }
@@ -913,22 +913,22 @@ DeadeyeRegenCanvas.height = DeadeyeRegenHeight;
 function AnimateDeadeyeRegen() {
     let DeadeyeMaxRegenStageIndex = DeadeyeLevel * 4;
 
-    if (DeadeyeRegenStageIndex === DeadeyeMaxRegenStageIndex) {
+    if (DeadeyeRegenStageIndex === DeadeyeMaxRegenStageIndex){
         DeadeyeRegenStageIndex = DeadeyeMaxRegenStageIndex;
-    } else if (DeadeyeCorePercent >= 1) {
+    } else if (DeadeyeCorePercent >= 1){
         DeadeyeRegenStageIndex++;
-        if (DeadeyeCorePercent <= 0) {
+        if (DeadeyeCorePercent <= 0){
             DeadeyeCorePercent = 0;
-        } else {
-            DeadeyeCorePercent--;
-        }
+            } else {
+                DeadeyeCorePercent--;
+            }
     }
 
-    console.log("DeadeyeCore% " + DeadeyeCorePercent);
+    console.log("DeadeyeCore% "+  DeadeyeCorePercent);
     console.log("DeadeyeCoreStageIndex " + DeadeyeCoreStageIndex);
     console.log("DeadeyeRegenStageIndex " + DeadeyeRegenStageIndex);
     AnimateDeadeyeCore();
-
+    
     const { DeadeyeRegenRow, DeadeyeRegenCol } = DeadeyeRegenGetStageRowCol(DeadeyeRegenStageIndex);
     const position = DeadeyeRegenPositionToImage(DeadeyeRegenRow, DeadeyeRegenCol);
     DeadeyeRegenContext.clearRect(
@@ -950,17 +950,17 @@ function AnimateDeadeyeRegen() {
     );
 }
 DeadeyeTimer()
-function DeadeyeTimer() {
+function DeadeyeTimer(){
     setInterval(function () {
-        if (DeadeyeRegenStageIndex <= 0) {
+        if (DeadeyeRegenStageIndex <= 0){
             DeadeyeRegenStageIndex = 0;
-            if (DeadeyeCorePercent <= 0) {
+            if (DeadeyeCorePercent  <= 0){
                 document.getElementById("DeadeyeInfo").innerText = "Deadeye is drained";
             }
         } else {
             DeadeyeRegenStageIndex--
         }
-    }, 1000);
+   }, 1000);
 }
 function DeadeyeDamage() {
     if (DeadeyeRegenStageIndex > 0) {
@@ -970,11 +970,11 @@ function DeadeyeDamage() {
     }
 }
 
-DeadeyeRegenImage.onload = function () {
+DeadeyeRegenImage.onload = function() {
     // animateDeadeyeRegen();
     setInterval(AnimateDeadeyeRegen, 500);
 };
- // localStorage voor Health, Energie en Deadeye start hier
+//localStorage voor Health,Energie en Deadeye start hier
 function saveStats() {
     let stats = {
         HealthRegenStageIndex,
@@ -1002,34 +1002,25 @@ function loadStats() {
         EnergyLevel = savedStats.EnergyLevel;
         DeadeyeLevel = savedStats.DeadeyeLevel;
 
-        //document.getElementById("CountDown1").innerText = 'Health ' + Health;
-        //document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
-        //document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
+        // document.getElementById("CountDown1").innerText = 'Health ' + Health;
+        // document.getElementById("CountDown2").innerText = 'Energy ' + Energy;
+        // document.getElementById("CountDown3").innerText = 'Deadeye ' + Deadeye;
     }
 }
 // end of Deadeye regen
-loadStats();
+
 
 function EmotionCheck() {
     let emotions = ["I'm hungry", "I'm tired", "I need a smoke"];
     console.log("EmotionCheck")
     if (HealthCorePercent < 50) {
         console.log(emotions[0]);
-        document.getElementById("SpeechBubbleHungry").style.display = "block";
-    } else if (HealthCorePercent > 50){
-        document.getElementById("SpeechBubbleHungry").style.display = "none";
     }
     if (EnergyCorePercent < 50) {
         console.log(emotions[1]);
-        document.getElementById("SpeechBubbleSleep").style.display = "block";
-    } else if (EnergyCorePercent > 50){
-        document.getElementById("SpeechBubbleSleep").style.display = "none";
     }
     if (DeadeyeCorePercent < 50) {
         console.log(emotions[2]);
-        document.getElementById("SpeechBubbleSmoke").style.display = "block";
-    } else if (DeadeyeCorePercent > 50){
-        document.getElementById("SpeechBubbleSmoke").style.display = "none";
     }
 }
 setInterval(EmotionCheck, 1000);
@@ -1049,7 +1040,7 @@ function loadCloudsAndDayNight() {
 let Sun = -3.125;
 let Moon = -3.125;
 Day()
-function Day() {
+function Day(){
     let TellerFunctionSun = setInterval(function () {
         Sun = Sun + 0.625;
         document.getElementById("Sun").style.bottom = Sun + 'em';
@@ -1079,7 +1070,7 @@ function Day() {
 
     }, 150);
 }
-function Night() {
+function Night(){
     const TellerFunctionMoon = setInterval(function () {
         Sun = Sun - 0.625;
         document.getElementById("Sun").style.bottom = Sun + 'em';
@@ -1112,15 +1103,15 @@ function Night() {
 // end daynight
 // start clouds
 let Clouds = [
-    { id: "Cloud1", left: 12.5 },
-    { id: "Cloud2", left: 62.5 },
-    { id: "Cloud3", left: 46.875 },
-    { id: "Cloud4", left: 6.25 },
-    { id: "Cloud5", left: 50 },
-    { id: "Cloud6", left: 87.5 }
+    {id: "Cloud1", left: 12.5},
+    {id: "Cloud2", left: 62.5},
+    {id: "Cloud3", left: 46.875},
+    {id: "Cloud4", left: 6.25},
+    {id: "Cloud5", left: 50},
+    {id: "Cloud6", left: 87.5}
 ];
 
-function updateCloud(CloudEach) {
+function updateCloud(CloudEach){
     CloudEach.left += 0.625;
     if (CloudEach.left < 96.25) {
         document.getElementById(CloudEach.id).style.left = CloudEach.left + 'em';
@@ -1149,11 +1140,10 @@ const Body = document.body;
 
 StartButton.addEventListener('click', () => {
     BackgroundMusic.play();
-    Box.classList.add('hidden');
-    Body.style.filter = 'none';
+    Box.style.display = ('none');
+    Body.style.filter = ('none');
 });
 // end music
-loadCloudsAndDayNight()
 // Sprite Arthur
 
 const ArthurWidth = 320;
@@ -1188,11 +1178,11 @@ let ArthurCol = 0;
 function AnimateArthur() {
     if (ArthurCol === 3) {
         ArthurCol = 0;
-        ArthurRow = 0; //+=1
+        ArthurRow += 1;
     }
-    // if (ArthurRow === 2) {
-    //     ArthurRow = 0;
-    // }
+    if (ArthurRow === 2) {
+        ArthurRow = 0;
+    }
 
 
     let position = arthurPositionToImage(ArthurRow, ArthurCol);
@@ -1216,11 +1206,11 @@ function AnimateArthur() {
     ArthurCol += 1;
 }
 
-ArthurImage.onload = function () {
+ArthurImage.onload = function() {
     setInterval(AnimateArthur, 500);
 };
 setInterval(() => {
     saveCloudsAndDayNight();
     saveStats();
-}, 100);
+}, 5000);
 // end arthur
