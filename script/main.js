@@ -974,7 +974,7 @@ DeadeyeRegenImage.onload = function() {
     // animateDeadeyeRegen();
     setInterval(AnimateDeadeyeRegen, 500);
 };
-//localStorage voor Health,Energie en Deadeye start hier
+//localStorage voor Health, Energie en Deadeye start hier
 function saveStats() {
     let stats = {
         HealthRegenStageIndex,
@@ -1008,7 +1008,7 @@ function loadStats() {
     }
 }
 // end of Deadeye regen
-
+loadStats()
 
 function EmotionCheck() {
     let emotions = ["I'm hungry", "I'm tired", "I need a smoke"];
@@ -1037,6 +1037,7 @@ function loadCloudsAndDayNight() {
         });
     }
 }
+
 let Sun = -3.125;
 let Moon = -3.125;
 Day()
@@ -1144,6 +1145,7 @@ StartButton.addEventListener('click', () => {
     Body.style.filter = ('none');
 });
 // end music
+loadCloudsAndDayNight()
 // Sprite Arthur
 
 const ArthurWidth = 320;
@@ -1212,5 +1214,5 @@ ArthurImage.onload = function() {
 setInterval(() => {
     saveCloudsAndDayNight();
     saveStats();
-}, 5000);
+}, 100);
 // end arthur
