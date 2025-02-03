@@ -1185,11 +1185,11 @@ let ArthurCol = 0;
 function AnimateArthur() {
     if (ArthurCol === 3) {
         ArthurCol = 0;
-        ArthurRow += 1;
+        ArthurRow = 0; //+= 1
     }
-    if (ArthurRow === 2) {
-        ArthurRow = 0;
-    }
+    // if (ArthurRow === 2) {
+    //     ArthurRow = 0;
+    // }
 
 
     let position = arthurPositionToImage(ArthurRow, ArthurCol);
@@ -1219,5 +1219,5 @@ ArthurImage.onload = function() {
 setInterval(() => {
     saveCloudsAndDayNight();
     saveStats();
-}, 100000000000);
+}, 100);
 // end arthur
